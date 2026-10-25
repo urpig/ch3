@@ -1,0 +1,185 @@
+/* Scoped additions: the first chapter's design system remains unchanged. */
+.salt-chapter .side-brand>span{font-size:16px}
+.salt-chapter .story-dialogue{grid-template-columns:repeat(2,minmax(0,1fr))}
+.salt-chapter .story-speech{grid-template-columns:64px 1fr;padding:16px}
+.salt-chapter .story-portrait{width:64px;height:64px}
+.salt-chapter .story-speech p{font-size:14px;line-height:1.85}
+.salt-chapter #chapter-route a{font-size:11px;padding:7px 5px}
+.salt-chapter .route-heading{font-size:10px;gap:5px}
+.salt-chapter .hero h1{font-size:36px}
+.salt-chapter .hero h1 span{font-size:27px}
+.salt-chapter .hero-art{aspect-ratio:1.24;background:#dce4d4}
+.salt-hero-art #hero-artwork{height:78%;padding-top:6px}
+.salt-hero-art svg{width:100%;height:100%;object-fit:cover}
+.hero-characters{position:absolute;bottom:45px;left:24px;right:24px;display:flex;align-items:center;gap:12px}
+.hero-characters .story-portrait{width:72px;height:72px;flex-shrink:0;border:3px solid #f9f5e5;box-shadow:0 3px 9px #35492714}
+.hero-characters span{font-size:14px;line-height:1.7}
+.salt-chapter .hero-art figcaption{padding:10px 17px;background:#405e4c;color:#f4f3df;font-size:11px}
+.salt-seal,.certificate-seal{display:grid;place-items:center;flex-shrink:0;width:72px;height:72px;border:1px solid #ab9770;border-radius:50%;font:35px Georgia,"Microsoft JhengHei";color:#9c8156;outline:1px solid #cfc4a4;outline-offset:-7px}
+.salt-card .card-body{padding-bottom:0}
+.salt-chapter .card-footer{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:20px 30px;border-top:1px solid var(--line)}
+.salt-chapter .card-footer>div{display:flex;gap:18px;align-items:center}
+.card-status{font-size:12px;color:#61744f}
+.salt-chapter .prediction{border:1px solid #e0d9c3;border-radius:9px;padding:14px 18px;background:#f8f4e8;margin:20px 0}
+.prediction legend{font-size:14px;font-weight:650;padding:0 6px}
+.prediction label{display:inline-block;margin:7px 20px 7px 0;font-size:13px;cursor:pointer}
+.prediction input,.salt-quiz input{accent-color:var(--green)}
+.prediction-status{margin:4px 0 0!important;font-size:11px;color:#877654}
+.salt-chapter .task{display:flex;gap:16px;background:#edf2e5;border-radius:8px;padding:13px 18px;margin:16px 0}
+.salt-chapter .task>span{white-space:nowrap;font-size:12px;font-weight:700}
+.salt-chapter .task p{margin:0;font-size:13px}
+.lab-guide{padding:13px 18px;background:#e5ecd9;border:1px solid #d6dec9;border-radius:8px 8px 0 0;color:#466143;font-size:14px;min-height:52px;font-weight:600}
+.salt-workbench{display:grid;grid-template-columns:minmax(0,1fr) 285px;background:#f5f6ee;border:1px solid #dae1cf;border-radius:0 0 12px 12px;padding:16px;gap:20px}
+.salt-stage{min-width:0}
+.salt-controls{border-left:1px solid #d9e1cf;padding-left:18px;min-width:0}
+.bench-label{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:11px;letter-spacing:.6px;margin:0 0 10px;color:#66765b}
+.bench-label button{font-size:11px}
+.salt-scene{position:relative;min-width:0;border:1px solid #dce4d6;border-radius:13px;overflow:hidden;transition:box-shadow .2s}
+.salt-scene svg,.micro-view svg,.micro-stage svg,.chapter-scene svg,.reaction-plate svg{width:100%;height:auto;display:block}
+.salt-scene.drop-active{outline:3px dashed #b4a574;outline-offset:-8px}
+.salt-scene.drop-ready{box-shadow:inset 0 0 0 8px #85a574;background:#e3efd8}
+.salt-select{display:block;font-size:12px;font-weight:600;margin-bottom:14px}
+.salt-select select{display:block;width:100%;margin-top:5px;background:#fffef6;border:1px solid #cbd5c0;border-radius:6px;padding:8px;font-size:12px}
+.salt-field{margin-bottom:13px}
+.salt-field label{display:block;font-size:12px;font-weight:600;line-height:1.7}
+.salt-field label small{font-size:10px;color:#77856a;font-weight:400}
+.salt-field>div{display:grid;grid-template-columns:84px 1fr;align-items:center;gap:9px;margin-top:4px}
+.salt-field input[type=number]{min-width:0;width:100%;border:1px solid #c9d2bb;background:#fffef8;padding:6px 7px;border-radius:5px;font-variant-numeric:tabular-nums;font-size:13px}
+.salt-field input[type=range]{width:100%;min-width:0;accent-color:#577854}
+.salt-field input:invalid{border-color:#b86046}
+.input-error,.action-error{font-size:11px;color:#a15034;line-height:1.5}
+.input-error:empty,.action-error:empty{display:none}
+.salt-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.salt-actions button{font-size:12px;padding:9px 12px}
+.salt-actions button[aria-pressed=true],.model-tabs button[aria-pressed=true]{background:#d7e5c9;border-color:#829e6e}
+.salt-controls .salt-actions{display:grid;grid-template-columns:1fr}
+.salt-controls .primary{background:#3f684f;color:#fff8e8;min-height:43px}
+.readouts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:13px 0}
+.salt-metric{background:#fcfcf5;border:1px solid #dfe4d5;border-radius:7px;padding:10px 12px;min-width:0}
+.salt-metric>span{display:block;font-size:10px;color:#778366;line-height:1.6}
+.salt-metric strong{font-size:21px;line-height:1.6;font-weight:600;overflow-wrap:anywhere}
+.salt-metric strong small{font-size:10px;font-weight:400}
+.micro-details{margin:12px 0;border:1px solid #d9e0cf;border-radius:7px;background:#f8faf2}
+.micro-details summary{padding:10px 12px;font-size:12px;font-weight:600;cursor:pointer}
+.micro-view{padding:8px 12px 13px}
+.micro-view p{font-size:12px;line-height:1.8;margin:8px 0}
+.ion-ledger{display:flex;flex-wrap:wrap;gap:8px}
+.ion-ledger span{padding:6px 10px;background:#e8efdf;border-radius:5px;font-size:11px}
+.salt-chapter .model-note{font-size:11px;line-height:1.8;color:#79816b;margin:12px 3px}
+.lab-chart svg{width:100%;height:auto;display:block;max-height:210px}
+.lab-records{margin:16px 0 24px;border:1px solid #e0e5d6;border-radius:9px;overflow:hidden}
+.lab-records h3{font-size:14px;padding:13px 17px;background:#edf1e4}
+.lab-records h3 small{float:right;font-size:10px;color:#869078;font-weight:400}
+.record-list{max-height:240px;overflow:auto}
+.record-list p{padding:10px 15px;margin:0;border-top:1px solid #e4e7da;font-size:12px}
+.record-list p>span{display:inline-block;margin-right:14px;font:13px Georgia;color:#9c8758}
+.evidence-notebook{margin:22px 0}
+.evidence-notebook label{font-size:13px;font-weight:600;display:block}
+.evidence-notebook small{font-size:10px;color:#869077;font-weight:400}
+.evidence-notebook textarea{width:100%;display:block;border:1px solid #d7ddca;border-radius:7px;background:#fffdf4;padding:12px;font-size:13px;margin:6px 0;resize:vertical}
+.concept-panels{padding:20px;background:#f4f5e9;border-radius:10px;margin:22px 0}
+.concept-panels h3{font-size:15px;margin-bottom:10px}
+.concept-panels details{border-top:1px solid #dce1cd}
+.concept-panels summary{cursor:pointer;font-size:13px;font-weight:600;padding:12px 0}
+.concept-panels details>div{font-size:14px;line-height:2;padding:0 8px 15px}
+.challenge-heading{margin:26px 0 12px}
+.challenge-heading h3{font-size:19px;margin-top:7px}
+.salt-quiz{background:#fbfaf2;border:1px solid #dfdfcd;border-radius:10px;padding:22px;margin:12px 0 20px}
+.salt-quiz fieldset{border:0;padding:0;margin:0}
+.salt-quiz legend{font-size:16px;font-weight:600;line-height:1.8;margin-bottom:12px}
+.salt-quiz fieldset>label{display:flex;align-items:flex-start;gap:7px;border:1px solid #e1e3d6;border-radius:7px;background:#fffffa;padding:11px 13px;margin:8px 0;font-size:13px;cursor:pointer}
+.salt-quiz fieldset>label:has(input:checked){border-color:#91a47c;background:#edf4e4}
+.salt-quiz input{margin-top:6px;flex-shrink:0}
+.salt-quiz label b{font-weight:500;color:#8a9578;margin-right:9px}
+.salt-quiz details{font-size:12px;align-self:center;margin-left:8px}
+.salt-quiz summary{cursor:pointer}
+.salt-quiz details p{max-width:400px;padding-top:7px}
+.quiz-feedback p{padding:11px 15px;border-radius:7px;background:#edf1e3;font-size:13px;margin:10px 0 0}
+.quiz-feedback p.retry{background:#f5e9d8;color:#976238}
+.quiz-feedback p.correct{background:#e6efdf;color:#456c3e}
+.quiz-feedback:empty{display:none}
+.stage-challenge{border-left:3px solid #b19b6e;padding-left:18px}
+.next-clue{margin:26px 0;padding:20px 22px;background:#edf0e2;border-radius:9px}
+.next-clue p{font-size:14px;line-height:1.9;margin:6px 0 0}
+.bottle-line{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}
+.bottle-line button{background:#f2f5e9;border:1px solid #d4ddc8;border-radius:12px;padding:25px 10px 16px;display:flex;align-items:center;flex-direction:column;gap:8px}
+.bottle-line button.seen{border-color:#7c9667;background:#e5edda}
+.bottle-line span:not(.bottle){font-size:12px}
+.bottle-line small{font-size:10px;color:#7e8d6f}
+.bottle{width:66px;height:100px;border-radius:15px 15px 10px 10px;border:2px solid #93b0a3;background:linear-gradient(95deg,#fff9,#c7ded3aa,#fff6);position:relative;box-shadow:0 8px 12px #3a523215;margin-top:10px}
+.bottle:before{content:'';position:absolute;top:-18px;left:18px;width:28px;height:24px;border-radius:4px;background:#b9a57f;border:1px solid #9e8e6a}
+.bottle i{position:absolute;left:4px;right:4px;bottom:4px;height:62%;background:#adcdc276;border-radius:5px;border-top:2px solid #a9c8ba}
+.observation-result{padding:14px 18px;background:#e9efdf;border-radius:8px;font-size:14px;min-height:70px}
+.chapter-scene{max-width:720px;margin:22px auto;overflow:hidden;border-radius:12px}
+.card-activity .chapter-scene{max-height:330px}
+.card-activity .chapter-scene svg{max-height:330px}
+.model-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.model-tabs button{font-size:12px}
+.ion-explanation{font-size:14px;background:#edf2e5;padding:14px 17px;border-radius:8px}
+.guided-content{min-height:300px;border:1px solid #dce3d1;border-radius:12px;padding:20px;background:#f4f6ed}
+.guided-content h3{font-size:19px}
+.reaction-plate svg{max-height:330px}
+.reaction-plate p{font-size:13px}
+.equation{font-size:18px!important;font-weight:600;padding:12px;text-align:center;background:#e8edde;border-radius:7px;overflow-wrap:anywhere}
+.step-counter{align-self:center;font-size:12px;color:#8d936e;padding:0 8px}
+.compare-solutions{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:20px 0}
+.compare-solutions section{background:#fffef6;padding:23px;border:1px solid #dce0cf;border-radius:10px}
+.compare-solutions section>span{font-size:12px;color:#778866}
+.compare-solutions h4{font:28px Georgia;margin:13px 0}
+.compare-solutions strong{font-size:27px;color:#9b764c}
+.compare-solutions p{font-size:13px;margin:6px 0}
+.fraction-bar{height:12px;background:#e7ebdd;border-radius:10px;overflow:hidden;margin:20px 0 9px}
+.fraction-bar i{display:block;height:100%;background:#74966a;min-width:2px}
+.calculation-steps{padding:20px}
+.calculation-steps li{padding:10px;font-size:16px}
+.salt-specimen{display:grid;grid-template-columns:210px 1fr;gap:35px;align-items:center;padding:20px}
+.specimen-crystal{font:155px Georgia;color:#b7c5ae;text-shadow:3px 5px #eceddb;position:relative}
+.specimen-crystal span{font-size:65px;position:absolute;right:0;bottom:10px}
+.salt-specimen strong{display:block;font:32px Georgia;color:#a07e4e;margin:12px 0}
+.salt-specimen p{font-size:14px}
+.table-scroll{overflow-x:auto}
+.salt-chapter table{width:100%;border-collapse:collapse;font-size:12px;line-height:1.9}
+.salt-chapter th,.salt-chapter td{padding:12px 15px;border:1px solid #dce1d2;text-align:left;vertical-align:top}
+.salt-chapter thead th{background:#e5ebda;white-space:nowrap}
+.salt-chapter tbody th{min-width:65px;background:#f4f5e9}
+.reference-table{margin-top:24px}
+.reference-table summary{font-size:14px;cursor:pointer;padding:14px;border:1px solid #d9dfcd;border-radius:8px;background:#eef1e3}
+.ph-scale{position:relative;margin:18px 0 10px;padding-bottom:21px}
+.ph-colors{display:flex;border-radius:5px;overflow:hidden}
+.ph-colors span{flex:1;text-align:center;font-size:10px;color:#283b32;padding:3px 0}
+.ph-scale>i{position:absolute;top:-9px;width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:8px solid #36533c;transform:translateX(-50%)}
+.scale-labels{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;font-size:10px;color:#758364}
+.range-note{font-size:11px;line-height:1.7;color:#7a8467;margin-top:8px}
+.mass-bar{display:flex;background:#eee8d0;border:1px solid #d8dac4;border-radius:6px;overflow:hidden;min-height:34px}
+.mass-bar span{background:#b1ccbb;white-space:nowrap;min-width:0}
+.mass-bar span,.mass-bar b{font-size:10px;padding:8px 5px;font-weight:500}
+.conservation{font-size:13px;text-align:center;margin:8px 0}
+.safety-evidence{color:#927043;border-left:2px solid #bf9c62;padding:8px 12px}
+.expanded-lab .salt-workbench{grid-template-columns:1fr}
+.expanded-lab .salt-controls{border:0;border-top:1px solid #d9e1cf;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;padding:20px 0 0}
+.expanded-lab .salt-scene{max-width:1000px;margin:auto}
+#certificate{text-align:center;border:double 5px #b19b6a;border-radius:12px;background:radial-gradient(ellipse at top,#f9f2d9,#fcfcf2);padding:40px 25px;margin:30px auto;max-width:770px}
+#certificate .certificate-seal{margin:0 auto 22px;width:85px;height:85px}
+#certificate .eyebrow{display:block;color:#a18a5d}
+#certificate h3{font-size:29px;margin:16px 0}
+#certificate p{font-size:14px;line-height:2}
+#certificate strong{font-size:13px}
+#certificate p:last-of-type{font-size:10px;color:#8e9178;margin-top:16px}
+.salt-chapter .muted{color:#8a947e}
+@keyframes salt-ion{from{transform:translateX(0)}to{transform:translateX(var(--dx))}}
+.ion-drift{animation:salt-ion var(--duration,5s) linear infinite alternate}
+@keyframes salt-drop{from{transform:translateY(-7px);opacity:.1}to{transform:translateY(25px);opacity:.8}}
+.drop-fall{animation:salt-drop 1.1s linear infinite}
+@keyframes salt-vapor{from{transform:translateY(12px);opacity:.15}to{transform:translateY(-12px);opacity:.85}}
+.vapor,.reaction-particle{animation:salt-vapor 2.8s ease-in-out infinite alternate}
+.paused *,.reduced-motion *{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){.salt-chapter *{animation:none!important;scroll-behavior:auto!important}}
+@media(min-width:1550px){.salt-workbench{grid-template-columns:minmax(0,1fr) 320px}.salt-scene{min-height:390px}.salt-field label{font-size:13px}}
+@media(max-width:1180px){.salt-workbench{grid-template-columns:minmax(0,1fr) 235px;gap:12px;padding:12px}.salt-controls{padding-left:12px}.salt-chapter .story-dialogue{grid-template-columns:1fr}.salt-chapter .hero h1{font-size:29px}.salt-chapter .hero h1 span{font-size:23px}.hero-characters{left:12px;right:12px;gap:8px}.hero-characters .story-portrait{width:54px;height:54px}.hero-characters span{font-size:11px}}
+@media(max-width:1000px){.salt-workbench{grid-template-columns:1fr}.salt-controls{border-left:0;border-top:1px solid #d8dfca;padding:18px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}.salt-controls .salt-actions{grid-column:1/-1;grid-template-columns:repeat(2,minmax(0,1fr))}.salt-controls .action-error{grid-column:1/-1}.salt-select,.salt-field{margin-bottom:0}.salt-hero-art{min-height:340px}.salt-chapter .hero{grid-template-columns:1fr}.salt-hero-art{max-height:460px}.salt-chapter .card-footer{padding:17px}.salt-specimen{grid-template-columns:130px 1fr;gap:18px}.specimen-crystal{font-size:110px}}
+@media(max-width:700px){.salt-chapter .chapter-sidebar{position:relative;width:auto;height:auto;bottom:auto;padding:18px}.salt-chapter .page{margin-left:0}.salt-chapter #chapter-route{display:grid;grid-template-columns:repeat(2,1fr);max-height:200px;overflow:auto}.salt-chapter .route-foot,.salt-chapter .other-chapter{display:none}.salt-chapter .masthead{padding:15px;gap:12px;flex-wrap:wrap}.salt-chapter .masthead>span b{margin-left:4px}.salt-chapter .hero{padding:30px 20px;gap:24px}.salt-chapter .hero h1{font-size:28px}.salt-chapter #lesson{padding:0 12px 30px;gap:26px}.salt-chapter .card-header,.salt-chapter .card-body{padding-left:16px;padding-right:16px}.salt-chapter h2{font-size:23px}.salt-chapter .chapter-intro{margin:0 15px 24px;padding:18px;gap:14px}.salt-seal{width:49px;height:49px;font-size:24px}.salt-controls{display:block}.salt-controls .salt-actions{display:grid}.salt-field,.salt-select{margin:0 0 13px}.salt-quiz{padding:16px}.salt-quiz legend{font-size:14px}.bottle-line{gap:8px}.bottle-line button{padding:23px 5px 13px}.bottle{width:50px;height:85px}.bottle:before{left:12px;width:24px}.compare-solutions{gap:9px}.compare-solutions section{padding:14px}.salt-specimen{grid-template-columns:1fr}.specimen-crystal{display:none}.salt-chapter .card-footer>div{gap:13px;flex-wrap:wrap}.salt-metric strong{font-size:18px}.expanded-lab .salt-controls{display:block}.salt-actions button{font-size:11px}.lab-records h3 small{float:none;display:block}.hero-characters{bottom:55px}.salt-hero-art{min-height:280px}.stage-challenge{padding-left:10px}.salt-chapter table{min-width:580px}}
+@media print{body *{visibility:hidden}#certificate,#certificate *{visibility:visible}#certificate{position:absolute;left:0;top:0;right:0;width:95%;margin:30px auto}#certificate button{display:none}.chapter-sidebar{display:none}}
+
+
+.mass-bar span{overflow:hidden}
+.drop-fall{animation-iteration-count:1;animation-fill-mode:forwards}
