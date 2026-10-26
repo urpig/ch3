@@ -296,10 +296,137 @@
 
 .mass-bar span{overflow:hidden}
 .drop-fall{animation-iteration-count:1;animation-fill-mode:forwards}
+</style><style>.science-term{display:inline;padding:0;border:0;border-bottom:1px dotted #668660;background:transparent;color:inherit;font:inherit;line-height:inherit;text-align:inherit;cursor:help;border-radius:0;min-height:0!important}.science-term:hover{color:#315e42;background:#e8efdccc}.science-term:focus-visible{outline:2px solid #688c53;outline-offset:3px;border-radius:2px}.glossary-launch{width:100%;border:1px solid #aabf8d;border-radius:8px;padding:12px 9px;margin-top:22px;background:#f6f8ea;color:#42613e;font-size:12px;text-align:left;cursor:pointer}.term-primer{border:1px solid #d5ddc8;background:#f6f8ee;border-radius:12px;padding:22px;margin:24px 0}.term-primer-heading{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:16px}.term-primer-heading .eyebrow{font-size:10px;color:#81916c}.term-primer h3{font-size:17px;margin:5px 0 0;color:#395d43}.term-primer-heading>.secondary{white-space:nowrap}.term-primer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0}.term-primer-grid>div{background:#fffef8;border:1px solid #e0e5d4;border-radius:8px;padding:17px 18px}.term-primer-grid dt{font-size:16px;font-weight:650;color:#395d43;margin-bottom:9px}.term-primer-grid dd{font-size:13px;line-height:1.95;margin:0;color:#4e6249}.term-primer-grid .term-unit{color:#8b6c32;font-size:12px;margin-top:9px;font-weight:550}.term-primer-grid .term-example{font-size:12px;color:#738265;border-top:1px solid #e7ebdc;padding-top:9px;margin-top:10px}.term-help{font-size:11px;color:#75866a;line-height:1.8;margin:14px 0 0}.science-dictionary{width:min(890px,calc(100vw - 36px));height:min(700px,calc(100dvh - 36px));max-height:calc(100dvh - 36px);padding:0;border:1px solid #b9c9a6;border-radius:16px;background:#fafbf3;color:#344e3c;box-shadow:0 22px 90px #172e3345;overflow:hidden}.science-dictionary[open]{display:flex;flex-direction:column}.science-dictionary::backdrop{background:#203a3280;backdrop-filter:blur(3px)}.dictionary-head{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:22px 26px;background:#edf2e1;border-bottom:1px solid #d9e2ca}.dictionary-head .eyebrow{font-size:10px;color:#7a8865}.dictionary-head h2{font-size:23px;line-height:1.5;margin:5px 0 0}.dictionary-close{height:42px;width:42px;background:#fbfdf4;border:1px solid #c7d4b7;border-radius:50%;font-size:25px;color:#5f7452;cursor:pointer}.dictionary-toolbar{display:flex;align-items:center;gap:12px;padding:17px 25px;border-bottom:1px solid #dfe6d3;flex-wrap:wrap}.dictionary-toolbar label{font-size:12px}.dictionary-toolbar input{flex:1;min-width:120px;border:1px solid #bfceb1;border-radius:7px;padding:11px 12px;background:#fffef8;font-size:14px}.dictionary-toolbar select{font-size:13px;min-height:40px}.dictionary-main{display:grid;grid-template-columns:200px minmax(0,1fr);min-height:0;flex:1}.dictionary-list{padding:16px 12px;overflow:auto;border-right:1px solid #dce3cf;background:#f0f4e7}.dictionary-count{font-size:11px;color:#728563;margin:0 7px 12px}.dictionary-list>button{display:block;width:100%;text-align:left;background:transparent;border:1px solid transparent;padding:10px 12px;border-radius:7px;color:#547048;font-size:13px;cursor:pointer;margin-bottom:4px;min-height:40px}.dictionary-list>button[aria-pressed=true]{border-color:#a9c08d;background:#dfeace;color:#345e3d;font-weight:650}.dictionary-list>button:hover{background:#e6edda}.dictionary-detail{padding:24px 29px;overflow:auto;outline:none}.dictionary-detail>.eyebrow{font-size:10px;color:#8a9676}.dictionary-detail h3{font-size:26px;margin:7px 0 17px}.term-alias{font-size:12px;color:#7e8b6b;margin-top:-7px}.dictionary-definition{font-size:16px;line-height:2;margin:0 0 21px;color:#34553f}.dictionary-unit{font-size:13px;line-height:1.9;background:#f0eddb;border:1px solid #dfd6b4;border-radius:8px;padding:12px 15px}.dictionary-unit b{display:block;color:#88703b;font-size:11px;margin-bottom:4px}.dictionary-example,.dictionary-caution{padding:14px 16px;margin:15px 0;border-radius:9px;background:#edf3e4;border:1px solid #d8e3ca}.dictionary-example b,.dictionary-caution b{font-size:12px}.dictionary-example p,.dictionary-caution p{font-size:14px;line-height:1.9;margin:6px 0 0}.dictionary-caution{background:#f6f0df;border-color:#e6d8b4;color:#78603d}.dictionary-related{display:flex;align-items:center;flex-wrap:wrap;gap:9px 16px;padding-top:13px;margin-top:17px;border-top:1px solid #e0e5d4;font-size:13px}.dictionary-related>span{font-size:11px;color:#849073}.dictionary-source{font-size:10px;line-height:1.8;padding:10px 24px;margin:0;border-top:1px solid #dce3d0;color:#81916f}.dictionary-source a{text-decoration:underline;color:#617b50}.dictionary-detail:focus-visible{outline:2px solid #92ac7d;outline-offset:-4px}.science-dictionary button:focus-visible,.science-dictionary input:focus-visible,.science-dictionary select:focus-visible{outline:3px solid #668a4e;outline-offset:2px}
+
+@media(max-width:760px){.term-primer{padding:15px}.term-primer-heading{align-items:flex-start;flex-direction:column}.term-primer-grid{grid-template-columns:1fr}.term-primer-grid>div{padding:14px}.science-dictionary{width:calc(100vw - 18px);height:calc(100dvh - 18px);max-height:calc(100dvh - 18px)}.dictionary-head{padding:16px}.dictionary-head h2{font-size:20px}.dictionary-toolbar{padding:12px;gap:8px}.dictionary-main{grid-template-columns:122px minmax(0,1fr)}.dictionary-list{padding:12px 6px}.dictionary-list>button{font-size:12px;padding:10px 6px}.dictionary-detail{padding:17px 15px}.dictionary-detail h3{font-size:23px}.dictionary-definition{font-size:14px}.dictionary-source{padding:9px 12px}.practice-picker{grid-template-columns:1fr}.guided-practice{padding:14px}.practice-current>.practice-problem{padding:16px}.practice-top{align-items:flex-start;flex-direction:column}}
+
+.salt-chapter .glossary-launch{display:flex;align-items:center;gap:9px;margin:18px 0 10px;color:#365c49}.salt-chapter .glossary-launch b{margin-left:auto}.salt-chapter .term-primer-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.salt-chapter .term-primer{margin-top:22px}.dictionary-list .dictionary-count{position:sticky;top:0;background:#f0f4e7;padding:5px 0;z-index:1}@media(max-width:1000px){.salt-chapter .term-primer-grid{grid-template-columns:1fr}}@media print{.science-dictionary,.term-primer,.glossary-launch{display:none!important}.science-term{border:0}}
+</style><style>/* Navigation presentation adapted from ch1. */
+.salt-chapter{--sidebar:246px;--ease:cubic-bezier(.2,.65,.3,1)}
+.salt-chapter .chapter-sidebar{width:var(--sidebar);padding:32px 22px 20px;background:radial-gradient(ellipse at 0 0,#40625277,transparent 48%),#193d31;color:#f1f0df;border:0;display:flex;flex-direction:column;box-shadow:6px 0 28px #12312608;scrollbar-color:#577466 #193d31;scrollbar-width:thin}
+.salt-chapter .chapter-sidebar::before{content:'';position:absolute;inset:10px;border:1px solid #e2d9b711;pointer-events:none}
+.salt-chapter .side-brand{gap:13px;font-size:18px;letter-spacing:.025em;position:relative}
+.salt-chapter .side-brand>span{width:46px;height:52px;border:1px solid #bea67599;border-radius:7px;font:27px Georgia;color:#e3cea0;position:relative;padding-top:8px;background:#fff9e805}
+.salt-chapter .side-brand>span>small{position:absolute;top:5px;left:6px;font:8px Georgia;letter-spacing:0;color:#c8bd98}
+.salt-chapter .side-brand>div>small{font-size:10px;color:#b4c4b4;letter-spacing:.3em;margin-top:5px}
+.salt-chapter .sidebar-volume{padding:33px 1px 22px;border-bottom:1px solid #cfdbc321;margin-bottom:24px}
+.salt-chapter .sidebar-volume>span{font:8px Georgia;letter-spacing:.18em;color:#a3b5a1}
+.salt-chapter .sidebar-volume>b{display:flex;align-items:baseline;justify-content:space-between;margin-top:9px;font-size:15px;font-weight:550;letter-spacing:.07em}
+.salt-chapter .sidebar-volume i{font:28px Georgia;color:#d1b783}
+.salt-chapter .sidebar-volume p{font-size:10px;color:#abbdac;margin:9px 0 0}
+.salt-chapter .route-heading{margin:0 1px;font-size:10px;color:#b8c8b6;letter-spacing:.08em}
+.salt-chapter .route-heading strong{font:13px Georgia;color:#e2cd9c;letter-spacing:.1em}
+.salt-chapter .chapter-sidebar progress{height:3px;border:0;border-radius:5px;background:#ffffff14;margin:13px 0 23px}
+.salt-chapter .chapter-sidebar progress::-webkit-progress-bar{background:#ffffff14;border-radius:5px}
+.salt-chapter .chapter-sidebar progress::-webkit-progress-value{background:#c9af7b;border-radius:5px;transition:width .3s}
+.salt-chapter #chapter-route{gap:8px;position:relative}
+.salt-chapter #chapter-route a{grid-template-columns:26px minmax(0,1fr) 12px;gap:9px;align-items:center;padding:12px 10px;min-height:59px;border:1px solid transparent;border-radius:9px;color:#d0dacb;font-size:12px;line-height:1.7;position:relative}
+.salt-chapter #chapter-route a>span:first-child{font:13px Georgia;opacity:1;color:#9eae96;border:1px solid #b5c5ad38;width:26px;height:26px;display:grid;place-items:center;border-radius:50%}
+.salt-chapter #chapter-route a.active{background:#d8e6cb12;border:1px solid #d8d6a94a;color:#fff6df;box-shadow:inset 2px 0 #c8ad77}
+.salt-chapter #chapter-route a.active>span:first-child{background:#d0b482;border-color:#d0b482;color:#1f4536}
+.salt-chapter #chapter-route a:hover{background:#dce9d912;color:#fff7df;transform:translateX(2px)}
+.salt-chapter #chapter-route .nav-state{font-size:9px;font-weight:400;color:#9daf97}
+.salt-chapter #chapter-route a.mastered .nav-state{color:#ddc591}
+.salt-chapter .sidebar-bottom{margin-top:auto;padding-top:28px}
+.salt-chapter .chapter-sidebar .glossary-launch{border:1px solid #bdcbb63d;border-radius:8px;background:#ffffff07;color:#e0e7d8;padding:13px 12px;margin-top:0;display:flex;gap:10px;align-items:center;font-size:11px}
+.salt-chapter .glossary-launch>span{font:17px Georgia;color:#e0c695}
+.salt-chapter .glossary-launch>b{margin-left:auto;font-size:14px;color:#abbd9f;font-weight:400}
+.salt-chapter .chapter-sidebar .glossary-launch:hover{background:#ffffff12;border-color:#cbb78088}
+.salt-chapter .route-foot{padding-top:22px;margin:22px 0 10px;border-color:#c7d1be26;font-size:11px;color:#d7decf}
+.salt-chapter .route-foot>span{color:#c5ab7a;margin-right:5px}
+.salt-chapter .route-foot>small{display:block;margin-top:7px;font-size:10px;color:#a6b9a4}
+.salt-chapter #storage-status{font-size:9px;color:#a8b9a0;line-height:1.8;margin:8px 0 0}
+@media(max-width:1280px){.salt-chapter .chapter-sidebar{padding:27px 18px 18px}
+.salt-chapter .side-brand{font-size:16px}
+.salt-chapter .sidebar-volume{padding-top:26px}
+.salt-chapter #chapter-route a{font-size:11px;padding:11px 7px;gap:8px}
+}
+@media(max-width:1050px){.salt-chapter .chapter-sidebar{padding:25px 14px 17px}
+.salt-chapter .side-brand{gap:10px;font-size:14px}
+.salt-chapter .side-brand>span{width:40px;height:47px;font-size:24px}
+.salt-chapter .side-brand>div>small{font-size:8px}
+.salt-chapter .sidebar-volume>b{font-size:13px}
+.salt-chapter .sidebar-volume>span{font-size:7px}
+.salt-chapter .sidebar-volume p{font-size:9px}
+.salt-chapter #chapter-route a{font-size:10px;grid-template-columns:23px minmax(0,1fr) 8px;gap:6px;padding:10px 6px}
+.salt-chapter #chapter-route a>span:first-child{width:23px;height:23px;font-size:11px}
+}
+@media(max-width:760px){.salt-chapter .chapter-sidebar{position:relative;width:100%;padding:20px 20px 16px;display:block;border-radius:0}
+.salt-chapter .chapter-sidebar::before{inset:7px}
+.salt-chapter .side-brand{font-size:17px;width:max-content}
+.salt-chapter .side-brand>span{width:39px;height:44px}
+.salt-chapter .side-brand>div>small{font-size:9px}
+.salt-chapter .sidebar-volume{position:absolute;top:18px;right:23px;text-align:right;padding:0;margin:0;border:0}
+.salt-chapter .sidebar-volume>span{font-size:6px;letter-spacing:.07em}
+.salt-chapter .sidebar-volume>b{font-size:10px;gap:9px;margin-top:3px}
+.salt-chapter .sidebar-volume i{font-size:20px}
+.salt-chapter .sidebar-volume p{display:none}
+.salt-chapter .route-heading{margin-top:22px;font-size:9px}
+.salt-chapter .chapter-sidebar progress{margin:9px 0 13px;height:2px}
+.salt-chapter #chapter-route{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+.salt-chapter #chapter-route a{grid-template-columns:1fr;gap:5px;text-align:center;justify-items:center;padding:8px 3px;min-height:74px;font-size:8px;line-height:1.7;border:1px solid #b5c5ad18;border-radius:7px}
+.salt-chapter #chapter-route a>span:nth-child(2){display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.salt-chapter #chapter-route a>span:first-child{width:20px;height:20px;font-size:10px}
+.salt-chapter #chapter-route .nav-state{display:none}
+.salt-chapter .sidebar-bottom{padding:0}
+.salt-chapter .chapter-sidebar .glossary-launch,.salt-chapter .route-foot,.salt-chapter #storage-status{display:none}
+}
+@media print{.salt-chapter .chapter-sidebar{display:none!important}
+}
+@media(min-width:761px) and (max-height:800px){.salt-chapter .chapter-sidebar{padding-top:23px;padding-bottom:16px}
+.salt-chapter .sidebar-volume{padding:17px 1px 14px;margin-bottom:17px}
+.salt-chapter .sidebar-volume>span{font-size:7px}
+.salt-chapter .sidebar-volume>b{font-size:13px;margin-top:6px}
+.salt-chapter .sidebar-volume i{font-size:24px}
+.salt-chapter .sidebar-volume p{display:none}
+.salt-chapter .chapter-sidebar progress{margin-bottom:14px}
+.salt-chapter #chapter-route{gap:5px}
+.salt-chapter #chapter-route a{min-height:48px;padding-top:9px;padding-bottom:9px}
+.salt-chapter .sidebar-bottom{padding-top:18px}
+.salt-chapter .route-foot{display:none}
+.salt-chapter .chapter-sidebar .glossary-launch{padding-top:11px;padding-bottom:11px}
+.salt-chapter #storage-status{font-size:8px;margin-top:12px}
+}
+@media(min-width:761px) and (max-height:650px){.salt-chapter .sidebar-volume{padding:12px 1px;margin-bottom:14px}
+.salt-chapter .sidebar-volume>span{display:none}
+.salt-chapter #chapter-route a{min-height:43px;padding-top:8px;padding-bottom:8px;font-size:10px}
+.salt-chapter .chapter-sidebar{padding-top:18px}
+.salt-chapter .sidebar-bottom{padding-top:14px}
+}
+.salt-chapter .side-brand>.brand-seal{width:48px;height:48px;flex:0 0 48px;padding:0;border:0;border-radius:0;background:none;color:#ddc58e;box-shadow:none}
+.salt-chapter .brand-seal svg{display:block;width:100%;height:100%;overflow:visible}
+.salt-chapter .brand-seal .alchemy-progress{display:none}
+@media(max-width:1050px){.salt-chapter .side-brand>.brand-seal{width:42px;height:42px;flex-basis:42px}
+}
+@media(max-width:760px){.salt-chapter .side-brand>.brand-seal{width:40px;height:40px;flex-basis:40px}
+}
+
+.salt-chapter .chapter-sidebar{position:fixed;inset:0 auto 0 0;overflow:hidden;isolation:isolate}
+.salt-chapter .chapter-sidebar>*{flex-shrink:0}
+.salt-chapter .page{margin-left:var(--sidebar)}
+.salt-chapter .chapter-sidebar #chapter-route{display:grid;grid-template-columns:minmax(0,1fr);flex:1 1 auto;min-height:80px;overflow-y:auto;align-content:start;gap:8px;scrollbar-width:thin;scrollbar-color:#577466 transparent;overscroll-behavior:contain;padding:2px 3px 4px 0;margin-right:-4px}
+.salt-chapter .chapter-sidebar #chapter-route a{display:grid;text-decoration:none;padding:12px 10px;font-size:12px;min-height:59px;transition:background .2s,border-color .2s,transform .2s}
+.salt-chapter .chapter-sidebar .side-brand{text-decoration:none;color:#f1f0df;flex-shrink:0}
+.salt-chapter .chapter-sidebar .side-brand>.brand-seal{font-size:inherit}
+.salt-chapter .chapter-sidebar .sidebar-bottom{margin-top:0;padding-top:18px}
+.salt-chapter .chapter-sidebar .glossary-launch{margin:0;width:100%;color:#e0e7d8}
+.salt-chapter .chapter-sidebar .route-heading{display:flex;justify-content:space-between;gap:8px}
+.salt-chapter .sidebar-tools{margin-top:12px;font-size:10px;color:#b4c4b4}
+.salt-chapter .sidebar-tools summary{cursor:pointer;padding:3px 0}
+.salt-chapter .sidebar-tools .other-chapter,.salt-chapter .sidebar-tools #export-progress{display:block;font-size:10px;color:#d0dacb;padding:6px 0;border:0;text-align:left;background:none}
+.salt-chapter .chapter-sidebar a:focus-visible,.salt-chapter .chapter-sidebar button:focus-visible,.salt-chapter .chapter-sidebar summary:focus-visible{outline:2px solid #ddc58e;outline-offset:2px}
+@media(min-width:1680px){.salt-chapter{--sidebar:260px}}
+@media(max-width:1280px){.salt-chapter{--sidebar:220px}.salt-chapter .chapter-sidebar #chapter-route a{font-size:11px;padding:11px 7px}}
+@media(max-width:1050px){.salt-chapter{--sidebar:195px}.salt-chapter .chapter-sidebar #chapter-route a{font-size:11px;padding:10px 5px;gap:7px}}
+@media(min-width:761px) and (max-height:800px){.salt-chapter .chapter-sidebar #chapter-route a{min-height:48px;padding-top:9px;padding-bottom:9px}}
+@media(min-width:761px) and (max-height:650px){.salt-chapter .chapter-sidebar #chapter-route a{min-height:43px;font-size:10px;padding-top:8px;padding-bottom:8px}.salt-chapter .sidebar-tools{margin-top:7px}.salt-chapter .chapter-sidebar .sidebar-bottom{padding-top:10px}}
+@media(max-width:760px){.salt-chapter{--sidebar:0px}.salt-chapter .chapter-sidebar{position:relative;inset:auto;width:100%;overflow:visible}.salt-chapter .page{margin-left:0}.salt-chapter .chapter-sidebar #chapter-route{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-height:260px;min-height:0;margin:0;padding-right:3px;gap:6px}.salt-chapter .chapter-sidebar #chapter-route a{min-height:48px;padding:8px;font-size:11px}.salt-chapter .chapter-sidebar .sidebar-volume{display:block;margin:14px 0;padding:0 0 12px}.salt-chapter .chapter-sidebar .sidebar-volume>span,.salt-chapter .chapter-sidebar .sidebar-volume p{display:none}.salt-chapter .chapter-sidebar .sidebar-bottom{display:block;padding-top:15px}.salt-chapter .chapter-sidebar .glossary-launch{width:100%;margin:0}.salt-chapter .chapter-sidebar .route-foot{display:none}}
+@media(prefers-reduced-motion:reduce){.salt-chapter .chapter-sidebar *{transition:none!important}}
+@media print{.salt-chapter .chapter-sidebar{display:none!important}.salt-chapter .page{margin-left:0}}
 </style></head>
 <body class="salt-chapter">
 <a class="skip" href="#lesson">跳到學習卡片</a>
-<aside class="chapter-sidebar"><a class="side-brand" href="#chapter-top"><span>NaCl</span><div>Science Lab<small>觀念實驗室</small></div></a><div class="route-heading"><span>第三章 · 電解質與酸鹼鹽</span><strong id="progress-count">0 / 12</strong></div><progress id="chapter-progress" max="12" value="0" aria-label="已掌握卡片數"></progress><nav id="chapter-route" aria-label="十二張故事卡片"></nav><a class="other-chapter" href="https://urpig.github.io/1-1/dist/chemistry/index.html">← 第一章 · 化學反應與計量</a><a class="other-chapter" href="#chapter-top">← 第二章 · 煉鐵師的氧之戰</a><p class="route-foot">觀察 → 預測 → 操作<br>留下證據，再說出推論。</p><button class="text-button" id="export-progress">匯出我的學習紀錄 ↓</button><p id="storage-status" role="status"></p></aside>
+<aside class="chapter-sidebar"><a class="side-brand" href="#chapter-top" aria-label="回到本章首頁"><span class="brand-seal" aria-hidden="true"><svg class="salt-mountain-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="32" r="29" stroke="currentColor" stroke-width="1" opacity=".55"/><path d="M8 47 18 34 23 33 31 17 35 15 43 29 47 31 56 47Z" fill="#f1ecd8" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="m23 33 8-16 2 16-8 14H8m25-14 2-18 8 14 4 2 9 16H25m8-14 9 14M18 34l7 13m18-18-10 4" stroke="#bca675" stroke-width="1" stroke-linejoin="round"/><path d="m29 23 2-6 4-2 5 9-5-2-3 3Z" fill="#fffdf1"/><path d="M9 50h46" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity=".8"/><path d="m13 44 2-3m30 0 2 3m-9-6 1 2" stroke="#fffdf1" stroke-width="1.5" stroke-linecap="round"/></svg></span><div>Science Lab<small>觀念實驗室</small></div></a><div class="sidebar-volume"><span>EXPLORER'S JOURNAL</span><b>酸鹼鹽探究手札 <i>03</i></b><p>皇帝最後的製鹽委託</p></div><div class="route-heading"><span>本章探索進度</span><strong id="progress-count">0 / 12</strong></div><progress id="chapter-progress" max="12" value="0" aria-label="本章已掌握卡片數"></progress><nav id="chapter-route" aria-label="十二張故事卡片"></nav><div class="sidebar-bottom"><button type="button" class="glossary-launch" data-open-glossary="0"><span>Aa</span> 科學名詞小字典 <b aria-hidden="true">↗</b></button><details class="sidebar-tools"><summary>章節與學習紀錄</summary><a class="other-chapter" href="https://urpig.github.io/1-1/dist/chemistry/index.html">← 第一章 · 化學反應與計量</a><a class="other-chapter" href="https://urpig.github.io/ch2/">← 第二章 · 煉鐵師的氧之戰</a><button class="text-button" id="export-progress">匯出我的學習紀錄 ↓</button></details><p class="route-foot"><span aria-hidden="true">✧</span> 先預測，再找證據。<small>每一次動手，都讓答案更清楚。</small></p><p id="storage-status" role="status"></p></div></aside>
 <div class="page">
 <header class="masthead" id="chapter-top"><span>國二下理化 <b>03 / 電解質與酸鹼鹽</b></span><div><label><input type="checkbox" id="reduce-motion"> 減少動態</label><span id="top-progress">0 / 12</span></div></header>
 <section class="hero salt-hero"><div class="hero-copy"><p class="eyebrow">小葵 × 阿公 / 回家之前，最後一場科學調查</p><h1>小葵與阿公的<br>煉金冒險<span>皇帝最後的製鹽委託</span></h1><p>回家的承諾，已經兌現。<br>三瓶透明的水，卻讓兩人自願再留一會兒。</p><div class="hero-meta"><span>12 張連續故事卡</span><span>5 個操作實驗</span><span>3 次階段挑戰</span></div><a class="primary hero-start" href="#salt-1">接下最後的委託 <span>↗</span></a></div><figure class="hero-art salt-hero-art"><div id="hero-artwork"></div><div class="hero-characters"><div class="story-portrait story-portrait--kui" data-expression="curious" role="img" aria-label="小葵好奇地觀察鹽田"></div><div class="story-portrait story-portrait--grandpa" data-expression="gentle" role="img" aria-label="阿公溫和地陪伴小葵"></div><span>「透明的水，真的都一樣嗎？」</span></div><figcaption>皇家試驗鹽田 / 先找證據，再做判斷</figcaption></figure></section>
@@ -309,6 +436,233 @@
 <footer class="chapter-footer"><span>Science Lab · 用手探索，用證據說明。</span><details><summary>模型假設、課綱與科學來源</summary><p>本章涵蓋 Jb-Ⅳ-1～4、Jd-Ⅳ-1～6 的相關內容。mol/L、弱酸鹼平衡與對數計算屬本章量化延伸；學生可先觀察，再展開公式。課綱中的 Jb-Ⅳ-4 另包含重量百分濃度與 ppm，放在卡 10 的質量帳中。</p><p>pH 與平衡皆採 25°C 理想稀水溶液，不含活度校正；水離子積 10⁻¹⁴、醋酸 Ka 與氨 Kb 約 1.8×10⁻⁵。導電是比較分數，非實測電導率。沉澱為忽略溶解度的理論上限。天然鹵水模式是組成與質量限制的教學示例，不能預測食品安全或完整純化效果。</p><ul><li><a href="https://ghresource.k12ea.gov.tw/uploads/1613715832381Ld8uk4KU.pdf" target="_blank" rel="noopener">教育部自然科學領域課綱</a></li><li><a href="https://openstax.org/books/chemistry-2e/pages/14-2-ph-and-poh" target="_blank" rel="noopener">OpenStax Chemistry 2e · pH 與水離子積</a></li><li><a href="https://openstax.org/books/chemistry-2e/pages/14-3-relative-strengths-of-acids-and-bases" target="_blank" rel="noopener">OpenStax · 酸鹼強度和平衡</a></li><li><a href="https://openstax.org/books/chemistry-2e/pages/14-7-acid-base-titrations" target="_blank" rel="noopener">OpenStax · 滴定與不同等量點</a></li><li><a href="https://openstax.org/books/chemistry-2e/pages/15-1-precipitation-and-dissolution" target="_blank" rel="noopener">OpenStax · 沉澱與溶解</a></li></ul></details><details><summary>重新開始本章</summary><p>清除這一章的預測、答案與紀錄；其他章節不受影響。</p><button class="secondary" id="clear-chapter-progress">確認重設本章進度</button></details></footer>
 </div><script>'use strict';
 const __modules={};
+__modules["electrolytes/terminology-data.js"]=(()=>{
+const term=(id,label,aliases,chapters,definition,example,note,unit='',related=[])=>({id,label,aliases,chapters,definition,example,note,unit,related});
+const scienceTerms=[
+term('solution','溶液',[],[1,2,5,10],'溶質均勻分散在溶劑中所形成的混合物。','鹽水是食鹽均勻溶在水中形成的溶液。','透明不代表是純水，也不能證明成分相同。','',['solute','solvent','aqueous']),
+term('solute','溶質',[],[1,2,6,10],'溶液中被溶解的物質。','食鹽水中的氯化鈉是溶質。','水蒸發後，原有溶質不會因此憑空增加。','',['solution','solvent']),
+term('solvent','溶劑',[],[1,10],'溶液中負責溶解其他物質的成分。','食鹽水中的水是溶劑。','溶劑不一定是水；以水作溶劑才叫水溶液。','',['aqueous','solute']),
+term('aqueous','水溶液',['(aq)','（aq）'],[1,2,3,4,5,6,7,8,9,10,11,12],'以水為溶劑的溶液；化學式後常用 (aq) 表示。','NaCl(aq) 表示氯化鈉水溶液。','(aq) 和 (l) 不同：(l) 只表示液態。','aq：aqueous（水溶液）',['solution','state']),
+term('dissolve','溶解',[],[1,2,3,8,10],'物質分散到溶劑中，形成均勻溶液的過程。','糖溶進水裡，主要仍以中性糖分子存在。','溶解不等於消失，也不代表一定形成離子。','',['dissociation','ionization']),
+term('electrolyte','電解質',[],[2,3,12],'溶於水或熔融時，能因可移動的離子而導電的物質。本章主要比較水溶液。','NaCl 溶於水形成可移動的 Na⁺ 和 Cl⁻。','電解質不是「任何能導電的物質」；金屬主要靠電子導電。','',['nonelectrolyte','ion','strong-electrolyte','weak-electrolyte']),
+term('nonelectrolyte','非電解質',[],[2,3,12],'溶於水後主要以中性分子存在，不像電解質形成大量導電離子的物質。','蔗糖溶於水主要仍是糖分子，導電性極低。','不是所有可溶物都是電解質；水本身仍有微量離子。','',['electrolyte','molecule']),
+term('conductivity','導電性',['導電能力'],[2,3,11,12],'物質傳遞電荷、讓電流通過的能力。','食鹽水中的離子可移動，固態食鹽中的離子位置固定，表現不同。','導電不能證明含有 NaCl，更不能證明可食用。','本章導電比較分數不是實測電導率',['ion','mobility','electrode']),
+term('ion','離子',[],[2,3,4,5,7,8,9,10,11,12],'原子或原子團因電子數與質子數不平衡而成為帶電粒子。','Na⁺ 帶一個單位正電；Cl⁻ 帶一個單位負電。','離子不是電子。溶液整體電中性，仍可含許多離子。','',['cation','anion','charge','neutrality']),
+term('charge','電荷',[],[2,3,8,9,12],'粒子的一種性質，分正、負；同號相斥，異號相吸。','Ca²⁺ 的電荷數是 +2，CO₃²⁻ 是 −2。','右上角的 2+ 表示電荷；右下角的 ₃ 表示原子個數。','離子電荷標在化學式右上方',['cation','anion']),
+term('cation','陽離子',['正離子'],[2,3,8,9,12],'帶正電的離子，在本章電場模型中朝負電極移動。','Na⁺、Ca²⁺、NH₄⁺ 都是陽離子。','「陽」是電荷的正負，不是它移向正極。','',['anion','electrode','ammonium']),
+term('anion','陰離子',['負離子'],[2,3,8,9,12],'帶負電的離子，在本章電場模型中朝正電極移動。','Cl⁻、OH⁻、CO₃²⁻ 都是陰離子。','陰離子不只氯離子，也可能由多個原子組成。','',['cation','polyatomic']),
+term('polyatomic','根離子',['原子團'],[3,4,8,9],'由多個原子結合而成、整體帶電的離子。','SO₄²⁻ 是硫酸根；NH₄⁺ 是銨根。','根離子不一定帶負電，銨根 NH₄⁺ 帶正電。','',['ammonium','carbonate','sulfate']),
+term('neutrality','電中性',['整體電中性'],[3,8,9],'所選範圍內的正、負電荷總量相等，總電荷為零。','NaCl 水溶液中 Na⁺、Cl⁻ 的電荷量互相平衡。','電中性不是「沒有離子」，也不是「酸鹼中性」。','',['neutral','ion']),
+term('ionic-compound','離子化合物',[],[3,8],'由陽離子和陰離子組成、整體電荷平衡的化合物。','Na₂CO₃ 中，兩份 Na⁺ 平衡一份 CO₃²⁻ 的電荷。','NaCl 晶體不是由一顆顆獨立的 NaCl 分子堆成。','',['lattice','salt','dissociation']),
+term('lattice','晶格',[],[2,3,10],'晶體內粒子規則排列所形成的結構。','固態 NaCl 的正負離子排列在固定的晶格位置。','晶格中已有離子，只是不能像水中那樣自由移動。','',['crystal','ionic-compound']),
+term('dissociation','解離',[],[2,3,6],'本章指離子化合物溶於水時，原有的陽、陰離子分開並能移動。','NaCl(s) → Na⁺(aq) + Cl⁻(aq)。','不是把鈉金屬與氯氣放出來；也不是所有溶解都叫解離。','',['ionization','dissolve']),
+term('ionization','游離',[],[3,6],'本章指原本的分子和水作用，形成離子的過程。','HCl + H₂O → H₃O⁺ + Cl⁻。','解離強調原有離子分開；游離強調由分子形成離子。','',['dissociation','fraction','equilibrium']),
+term('strong-electrolyte','強電解質',[],[3,6],'在適當的稀水溶液中，溶解部分近乎完全形成離子的電解質。','NaCl、HCl、NaOH 是本章的例子。','「強」不代表濃度一定高；稀食鹽水中的 NaCl 仍是強電解質。','',['weak-electrolyte','concentration']),
+term('weak-electrolyte','弱電解質',[],[3,6],'在水中只部分形成離子的電解質，溶液中同時有許多未游離分子。','醋酸水溶液中，大多仍是 CH₃COOH 分子。','弱電解質也能導電；弱不等於完全沒有離子。','',['strong-electrolyte','fraction']),
+term('arrhenius','阿瑞尼斯電離說',['電離說'],[3,4],'用電解質在水中形成離子，解釋水溶液導電及酸鹼性質的觀點。','酸使水中 H⁺ 增加；鹼使水中 OH⁻ 增加。','這是本章的水溶液觀點，不能把所有導電都解釋成相同的離子。','',['electrolyte','acid','base']),
+term('electrode','電極',['正電極','負電極','正極','負極'],[2,3],'讓電路與待測材料接觸、傳遞電荷的導體。','導電實驗把兩支電極放入溶液；陽離子朝負電極移動。','本章只模擬低電壓檢測，不表示通電一定產生氣泡。','',['cation','anion','current']),
+term('current','電流',[],[2,3],'電荷有規律地移動所形成的現象。','外部金屬導線主要靠電子；溶液中主要靠離子傳遞電荷。','水中離子的移動，不能畫成所有粒子都朝同一個電極。','',['conductivity','electrode']),
+term('mobility','遷移能力',[],[2,3],'在相同電場等條件下，離子移動快慢的相對能力。','本章模型把各離子的濃度、電荷及遷移能力一起計入導電分數。','離子一樣多，導電表現仍可能不同；動畫速度不是實測值。','',['conductivity','concentration']),
+term('distilled','蒸餾水',[],[2,5,9],'經蒸發、冷凝等蒸餾程序製得，通常含很少溶解雜質的水。','本章以蒸餾水作導電及酸鹼比較的對照。','水本身仍有極少量 H⁺、OH⁻；接觸空氣後也可能溶入 CO₂。','',['water-product','control']),
+term('hydrogen-ion','氫離子',['H⁺','H+'],[3,4,5,6,7,12],'本章以 H⁺ 簡寫水中水合的氫離子，是討論酸性的代表離子。','酸性水溶液中，[H⁺] 大於 [OH⁻]。','H⁺ 在水中會和水分子結合，不是裸露地單獨漂浮。','H⁺；濃度常用 [H⁺] 表示',['hydronium','hydroxide','ph']),
+term('hydronium','水合氫離子',['H₃O⁺','H3O+'],[3,4],'H⁺ 與水分子結合的簡化表示，常寫成 H₃O⁺。','HCl 和水作用可寫成 HCl + H₂O → H₃O⁺ + Cl⁻。','國中常用 H⁺ 簡寫；真實水中的水合結構比一個 H₃O⁺ 更複雜。','H₃O⁺',['hydrogen-ion']),
+term('hydroxide','氫氧根離子',['氫氧根','OH⁻','OH-'],[3,4,5,6,7,12],'由氧與氫組成、整體帶一個單位負電的根離子。','NaOH 在水中解離成 Na⁺、OH⁻。','鹼性溶液也有 H⁺；酸性溶液也有少量 OH⁻。','OH⁻',['hydrogen-ion','base','polyatomic']),
+term('sodium-ion','鈉離子',['Na⁺','Na+'],[2,3,7,8,9],'帶一個單位正電的鈉離子。','HCl 與 NaOH 中和後，Na⁺ 主要仍在水中。','Na⁺ 不等於鈉金屬；能導電的液體不一定含 Na⁺。','Na⁺',['chloride','spectator']),
+term('chloride','氯離子',['Cl⁻','Cl-'],[2,3,7,8,9],'帶一個單位負電的氯離子。','食鹽水中有 Cl⁻；氯化鈣溶液中也有 Cl⁻。','氯離子 Cl⁻ 和氯氣 Cl₂ 是不同物質。','Cl⁻',['sodium-ion','salt']),
+term('calcium-ion','鈣離子',['Ca²⁺','Ca2+'],[3,8,9,12],'帶兩個單位正電的鈣離子。','一份 Ca²⁺ 可與一份 CO₃²⁻ 結合成 CaCO₃ 沉澱。','CaCl₂ 中一份 Ca²⁺ 需兩份 Cl⁻ 才能平衡電荷。','Ca²⁺',['carbonate','charge']),
+term('ammonium','銨根離子',['銨根','NH₄⁺','NH4+'],[3,6,7],'由一個氮原子和四個氫原子組成、帶正電的根離子。','NH₃ + H₂O ⇌ NH₄⁺ + OH⁻。','銨根 NH₄⁺ 帶正電，氨 NH₃ 則是中性分子。','NH₄⁺',['ammonia','polyatomic']),
+term('nitrate','硝酸根離子',['硝酸根','NO₃⁻','NO3-'],[3,4],'由一個氮原子和三個氧原子組成、整體帶一個單位負電的根離子。','硝酸水溶液中可見 H⁺ 與 NO₃⁻。','根離子的右上角才是電荷，₃ 是氧原子個數。','NO₃⁻',['nitric','polyatomic']),
+term('sulfate','硫酸根離子',['硫酸根','SO₄²⁻','SO4^2-'],[3,4,8],'由一個硫原子和四個氧原子組成、整體帶兩個單位負電的根離子。','硫酸鈣 CaSO₄ 由 Ca²⁺ 與 SO₄²⁻ 組成。','硫酸根不是硫酸分子，兩者的電荷與組成不同。','SO₄²⁻',['sulfuric','calcium-sulfate']),
+term('carbonate','碳酸根離子',['碳酸根','CO₃²⁻','CO3^2-'],[3,8,9,12],'由碳和氧組成、整體帶兩個單位負電的根離子。','Ca²⁺ + CO₃²⁻ → CaCO₃(s)。','碳酸根可與水作用增加 OH⁻，所以碳酸鈉水溶液可呈鹼性。','CO₃²⁻',['bicarbonate','sodium-carbonate','precipitation']),
+term('bicarbonate','碳酸氫根離子',['碳酸氫根','HCO₃⁻','HCO3-'],[3,8],'含氫、碳、氧，整體帶一個單位負電的根離子。','小蘇打 NaHCO₃ 中有 Na⁺ 與 HCO₃⁻。','HCO₃⁻ 與 CO₃²⁻ 的組成及電荷不同。','HCO₃⁻',['carbonate','baking-soda']),
+term('acetate','醋酸根離子',['醋酸根','CH₃COO⁻','CH3COO-'],[3,6,7],'醋酸失去 H⁺ 後形成、帶一個單位負電的離子。','醋酸與 NaOH 等莫耳反應後，醋酸根仍留在水中。','它可與水作用增加 OH⁻，不能認定終點一定 pH 7。','CH₃COO⁻',['acetic','equivalence']),
+term('acid','酸',[],[3,4,5,6,7],'本章指溶於水後使水中 H⁺ 增加的物質。','鹽酸與醋酸都可形成酸性水溶液。','不能用品嚐來辨認酸；酸的強弱與濃淡是兩件事。','',['acidic','strong-acid','weak-acid']),
+term('base','鹼',[],[3,4,5,6,7],'本章指溶於水或與水作用後，使水中 OH⁻ 增加的物質。','NaOH 解離提供 OH⁻；NH₃ 與水作用也使 OH⁻ 增加。','分子式沒有 OH 的氨，也能形成鹼性水溶液。','',['alkaline','strong-base','weak-base']),
+term('acidic','酸性',[],[4,5,6,7,11],'水溶液中 [H⁺] 大於 [OH⁻] 的性質。','25°C 的一般稀水溶液，pH 3 表示酸性。','酸性不是只含 H⁺；其中仍有少量 OH⁻。','',['alkaline','neutral','ph']),
+term('alkaline','鹼性',[],[4,5,6,7,8,11],'水溶液中 [OH⁻] 大於 [H⁺] 的性質。','碳酸鈉是鹽類，它的水溶液也能呈鹼性。','鹼性不保證安全；未知溶液不能徒手接觸。','',['acidic','neutral']),
+term('neutral','中性',['酸鹼中性'],[4,5,6,7,8,11],'水溶液中 [H⁺] 與 [OH⁻] 相等的酸鹼狀態。','25°C 的理想純水約為 pH 7。','中性仍含離子；pH 7 不能證明符合食品安全。其他溫度的中性 pH 可能不同。','',['neutrality','water-product','ph']),
+term('hcl','鹽酸',['HCl(aq)','稀鹽酸'],[2,3,4,6,7,12],'氯化氫 HCl 溶於水形成的強酸水溶液。','稀鹽酸與碳酸鈣反應可產生 CO₂。','具腐蝕性。HCl(g) 是氯化氫氣體，不直接叫鹽酸。','HCl(aq)',['acid','hydrogen-ion','calcium-carbonate']),
+term('sulfuric','硫酸',['H₂SO₄','H2SO4'],[4],'常見酸，可用於工業製程及鉛蓄電池。','化學式 H₂SO₄ 含氫、硫、氧三種元素。','濃硫酸具有強腐蝕、脫水性，稀釋會大量放熱；本章不安排實作。','H₂SO₄',['sulfate','exothermic']),
+term('nitric','硝酸',['HNO₃','HNO3'],[4],'常見強酸，也是具有氧化性的酸，常用於製造肥料等工業用途。','HNO₃ 的陰離子部分是 NO₃⁻。','不能把「酸加金屬產生氫氣」直接套到硝酸的所有反應。','HNO₃',['nitrate','active-metal']),
+term('acetic','醋酸',['乙酸','CH₃COOH','CH3COOH'],[2,3,4,6,7],'在水中只部分游離的弱酸，食醋中含少量醋酸。','同為 0.01 mol/L，本模型醋酸 pH 約 3.38，鹽酸約 2。','弱酸不代表沒有危險；濃醋酸仍有腐蝕性，也不能把試劑當食品。','CH₃COOH',['acetate','weak-acid']),
+term('naoh','氫氧化鈉',['NaOH'],[2,3,4,6,7],'在水中解離成 Na⁺、OH⁻ 的強鹼，可用於製皂及工業清潔。','HCl 與 NaOH 可按 1：1 莫耳數中和。','有強腐蝕性；清潔用途不代表可徒手接觸。','NaOH',['strong-base','neutralization']),
+term('calcium-hydroxide','氫氧化鈣',['Ca(OH)₂','Ca(OH)2','熟石灰','石灰水'],[4,11],'由 Ca²⁺、OH⁻ 組成的鹼；石灰水是其澄清水溶液。','CaO + H₂O → Ca(OH)₂，可形成鹼性環境。','熟石灰不是生石灰 CaO；溶解度有限，不能全當成已溶解。','Ca(OH)₂',['calcium-oxide','base']),
+term('ammonia','氨水',['NH₃(aq)','NH3(aq)','氨'],[4,5,6,7],'氨 NH₃ 溶於水形成的弱鹼溶液。','NH₃ 與水作用，部分形成 NH₄⁺、OH⁻。','氨水主要不是一種叫 NH₄OH 的獨立溶質；不可直接嗅聞或與其他清潔劑混用。','NH₃(aq)',['ammonium','weak-base']),
+term('calcium-oxide','氧化鈣',['CaO','生石灰'],[4,11],'鈣和氧形成的金屬氧化物，能與水反應生成氫氧化鈣。','CaO + H₂O → Ca(OH)₂。','遇水會放熱；生石灰與石灰岩 CaCO₃ 不同。','CaO',['oxide','calcium-hydroxide','exothermic']),
+term('oxide','氧化物',['金屬氧化物','非金屬氧化物'],[4],'氧與另一種元素形成的化合物。','CaO 是金屬氧化物；CO₂ 是非金屬氧化物。','不是所有氧化物都會溶於水，也不能一律用同一酸鹼性分類。','',['calcium-oxide','carbon-dioxide']),
+term('active-metal','活潑金屬',[],[4],'在指定反應條件下，較容易發生化學反應的金屬。','鋅與稀鹽酸反應可產生氫氣。','須指明金屬、酸與條件，不能說任何金屬遇任何酸都放出氫氣。','',['hydrogen','hcl']),
+term('carbon-dioxide','二氧化碳',['CO₂','CO2'],[4,11],'由一個碳原子與兩個氧原子構成的氣體。','稀鹽酸與石灰岩反應放出 CO₂；CO₂ 溶於水可使水偏酸。','酸與碳酸鹽冒泡主要是 CO₂，不是氫氣。','CO₂',['carbonic','calcium-carbonate']),
+term('carbonic','碳酸',['H₂CO₃','H2CO3'],[4],'部分二氧化碳與水作用形成的弱酸。','CO₂ + H₂O ⇌ H₂CO₃，接著部分游離使水偏酸。','不是所有溶進水的 CO₂ 都變成碳酸。','H₂CO₃',['carbon-dioxide','weak-acid']),
+term('hydrogen','氫氣',['H₂','H2'],[4],'由兩個氫原子組成的氣體，在適當酸與活潑金屬反應中可能生成。','Zn + 2HCl → ZnCl₂ + H₂↑。','氫氣可燃；不可自行點燃未知氣體。本章只虛擬演示。','H₂',['active-metal','hydrogen-ion']),
+term('indicator','酸鹼指示劑',['指示劑'],[5,7],'能在不同酸鹼程度下呈現不同顏色、用來判斷酸鹼性的物質。','BTB 在酸性與鹼性溶液中呈現不同顏色。','每種指示劑有自己的變色範圍，不都在 pH 7 瞬間換色。','',['transition','litmus','btb','phenol']),
+term('litmus','石蕊試紙',['紅色石蕊試紙','藍色石蕊試紙','紅石蕊','藍石蕊','石蕊'],[5],'含石蕊指示劑、可粗略辨認酸鹼的試紙。','酸使藍色石蕊變紅；鹼使紅色石蕊變藍。','在過渡範圍可呈中間顏色，不能像 pH 計一樣讀出精確數值。','大約在 pH 4.5～8.3 間逐漸變色',['indicator','transition']),
+term('phenol','酚酞',[],[5,7],'常用酸鹼指示劑，在本章範圍內由無色逐漸變成桃紅。','pH 約 9 的溶液可使酚酞呈淡桃紅。','酚酞無色不一定是酸，也可能是中性或較弱的鹼性。','本章採用約 pH 8.2～10 的變色範圍',['indicator','transition']),
+term('btb','BTB',['溴瑞香草酚藍','溴麝香草酚藍'],[5,7],'在接近中性的範圍由黃、綠逐漸變藍的酸鹼指示劑。','BTB 黃色支持樣品偏酸；藍色支持偏鹼。','綠色是過渡色，不能據此保證 pH 恰為 7。','本章採用約 pH 6.0～7.6 的變色範圍',['indicator','transition']),
+term('universal','廣用指示劑',[],[5],'由多種指示劑配成，能在較廣的 pH 範圍呈現不同色階。','把樣品顏色與色卡比較，可估計 pH。','配方與色卡會有差異；顏色不能當精密的單一數值。','',['ph-paper','indicator']),
+term('ph-paper','pH 試紙',['pH試紙'],[5],'利用指示劑變色與色卡比較，估計樣品 pH 的試紙。','用另一份等同樣品蘸取試紙，再和色卡比較。','試紙通常只能估讀，不能保證和 pH 計完全一致。','',['ph-meter','universal']),
+term('ph-meter','pH 計',['pH計'],[5,7],'用電極訊號測量並顯示溶液 pH 的儀器。','本章插入 pH 計後，讀值與同一套離子平衡模型相連。','真實儀器需校正與清潔；pH 正常不能證明沒有污染。','',['ph','electrode']),
+term('transition','變色範圍',[],[5],'某種指示劑從一種代表顏色逐漸轉成另一種顏色的 pH 區間。','BTB 約在 6.0～7.6 變色，酚酞約在 8.2～10 變色。','是一段範圍，不是所有指示劑共用一條 pH 7 的分界。','',['indicator','btb','phenol']),
+term('ph','pH',['酸鹼值'],[5,6,7,11,12],'表示水溶液酸鹼程度的數值。本章稀溶液模型用 pH = −log₁₀[H⁺]。','pH 3 的 [H⁺] 約為 pH 4 的 10 倍。','一般稀水溶液常見 0～14，但不是絕對上下限；中性 pH 與溫度有關。','pH 無單位；公式的 [H⁺] 代入以 mol/L 表示的數值',['h-concentration','logarithm','neutral']),
+term('h-concentration','氫離子濃度',['[H⁺]','[H+]'],[4,5,6,7],'每單位溶液體積中所含氫離子的物質的量。','本章 pH 3 對應 [H⁺] 約 10⁻³ mol/L。','[H⁺] 是濃度，不是整杯的離子總數；體積也影響總量。','[H⁺]，本章單位 mol/L',['ph','molarity','hydrogen-ion']),
+term('oh-concentration','氫氧根離子濃度',['[OH⁻]','[OH-]'],[4,5,6,7],'每單位溶液體積中所含氫氧根離子的物質的量。','鹼性溶液的 [OH⁻] 大於 [H⁺]。','不能把 OH⁻ 濃度大於 H⁺，說成完全沒有 H⁺。','[OH⁻]，本章單位 mol/L',['water-product','hydroxide']),
+term('water-product','水離子積',['Kw','K_w'],[5,7],'在指定溫度下，水中氫離子和氫氧根離子之間有固定關係；本章用兩者濃度的乘積近似表示，稱水離子積。','25°C 理想稀水溶液：[H⁺][OH⁻] 約為 10⁻¹⁴。','數值會隨溫度改變；本章計算採 25°C，不直接套到濃溶液。','以 K_w 或 Kw 表示；本章濃度模型用 10⁻¹⁴',['h-concentration','oh-concentration','neutral']),
+term('concentration','濃度',['濃淡'],[2,5,6,7,9,10],'用指定單位，表示一定量溶液中含多少溶質。','0.1 mol/L 比 0.01 mol/L 每公升含更多同種溶質。','濃度與電解質、酸鹼的強弱不同；比較時也要看用的是哪種濃度。','',['molarity','mass-percent','ppm']),
+term('molarity','體積莫耳濃度',['莫耳濃度','mol/L','M'],[2,5,6,7,9],'溶質的物質的量除以溶液體積，C = n/V。','0.01 mol 溶質配成 0.100 L 溶液，濃度為 0.10 mol/L。','分母是整份溶液的體積，不是加入水的體積。','mol/L；體積 V 要換成 L',['mole','concentration','dilution']),
+term('mole','莫耳',['mol'],[6,7,9,12],'物質的量的單位 mol。1 mol 恰好含 6.02214076×10²³ 個指定粒子。','1 mol H⁺ 與 1 mol OH⁻ 可形成 1 mol H₂O。','莫耳是數粒子的單位；不同物質同為 1 mol，質量不一定相同。','物質的量常用 n；單位 mol',['molarity','molar-mass']),
+term('molar-mass','莫耳質量',[],[9,12],'每 1 mol 某種物質所對應的質量。','本章 CaCO₃ 的莫耳質量約 100.09 g/mol。','莫耳質量有單位，不能把 mol 直接當成 g。','g/mol；質量 m = n × 莫耳質量',['mole','stoichiometry']),
+term('dilution','稀釋',[],[5,6],'加入溶劑，讓溶液中溶質的濃度降低。','把 10 mL 酸溶液配成 100 mL，濃度約變為原來的 1/10。','理想情況下溶質總量不變；弱酸的游離比例仍可能改變。','稀釋倍數以最後溶液體積／原溶液體積表示',['concentration','fraction']),
+term('strong-acid','強酸',[],[6,7],'在本章的稀水溶液條件下，近乎完全提供 H⁺ 的酸。','稀鹽酸中的 HCl 近乎完全形成離子。','極稀強酸可能比濃弱酸的 pH 高，不能只看「強」就比酸性。','',['weak-acid','concentration']),
+term('weak-acid','弱酸',[],[4,6,7],'在水中僅部分游離提供 H⁺ 的酸。','醋酸 CH₃COOH 是弱酸。','弱酸不等於稀酸，也不代表可以品嚐或徒手接觸。','',['strong-acid','acetic','fraction']),
+term('strong-base','強鹼',[],[6,7],'在本章條件下，溶解部分近乎完全形成可提供 OH⁻ 的離子。','NaOH 水溶液中的 Na⁺ 與 OH⁻ 近乎完全分開。','強弱與溶解度不同，也不能只用濃淡判斷。','',['weak-base','naoh']),
+term('weak-base','弱鹼',[],[6,7],'與水作用時，只有部分粒子形成可使 OH⁻ 增加的離子。','氨水中只有部分 NH₃ 和水形成 NH₄⁺、OH⁻。','弱鹼仍可能刺激或腐蝕；弱不等於安全。','',['strong-base','ammonia']),
+term('fraction','游離比例',['游離程度','形成離子比例'],[2,3,6],'溶質中形成離子的部分，占原先溶質的比例。','本章 0.01 mol/L 醋酸模型約有 4.15% 形成離子。','比例與濃度不同；稀釋弱酸可能使比例上升，但 [H⁺] 仍下降。','常用百分比表示',['ionization','weak-electrolyte']),
+term('equilibrium','游離平衡',['平衡模型','化學平衡'],[3,5,6,7],'正、逆方向的變化持續進行，而整體濃度可維持穩定的狀態。','醋酸在水中形成離子，也有離子重新組合成醋酸。','平衡不是反應停止；⇌ 表示兩方向都可能發生。','',['ka','kb','fraction']),
+term('ka','酸游離常數',['Ka'],[5,6],'在指定溫度下，用來表示酸游離平衡傾向的常數。','本章 25°C 醋酸模型採 Ka = 1.8×10⁻⁵。','同類條件下較大的 Ka 通常表示酸較強；Ka 本身不是溶液濃度。','Ka；屬本章數值模型的補充用語',['equilibrium','weak-acid']),
+term('kb','鹼游離常數',['Kb'],[5,6],'在指定溫度下，用來表示鹼與水作用形成離子的平衡傾向。','本章 25°C 氨模型採 Kb = 1.8×10⁻⁵。','Kb 與原始濃度不同；兩者共同影響本章弱鹼模型的 pH。','Kb；屬本章數值模型的補充用語',['equilibrium','weak-base']),
+term('logarithm','對數',['log₁₀','−log₁₀'],[6],'本章以 10 為底：詢問「10 的幾次方等於這個數」。','10⁻³ 的以 10 為底對數為 −3，所以 pH 是 3。','pH 不是等差的濃度刻度：差 2 代表約 100 倍。','log₁₀；pH 計算前有負號',['ph','scientific-notation']),
+term('scientific-notation','科學記號',[],[5,6,7,9],'把數寫成一個數乘上 10 的整數次方，方便表示極大或極小的量。','0.001 = 1×10⁻³。','負指數代表小數，不代表濃度是負值。','10⁻³ = 1/1000',['logarithm','h-concentration']),
+term('neutralization','酸鹼中和',['中和反應','中和'],[7,8,11,12],'酸與鹼反應、彼此消耗的過程。本章主例以 H⁺ 和 OH⁻ 生成水。','HCl + NaOH → NaCl + H₂O。','中和不保證所有組合最後都是 pH 7，也不保證產物可直接食用。','H⁺ + OH⁻ → H₂O',['equivalence','spectator','exothermic']),
+term('titration','滴定',[],[7],'用已知濃度的溶液逐量加入另一溶液，觀察並判斷反應用量的方法。','把 NaOH 慢慢滴入已知體積 HCl，追蹤 pH。','不能只看體積相等；須連同濃度與反應比例計算。','',['equivalence','molarity','indicator']),
+term('equivalence','恰好中和',['等莫耳','中和點'],[7,12],'本章 HCl 與 NaOH 的 1：1 反應中，兩者恰按比例消耗、沒有酸鹼過量的情況。','0.002 mol HCl 與 0.002 mol NaOH 恰好反應。','1：1 才是等莫耳；指示劑觀察到的終點未必正好等於化學計量點，任意酸鹼也不保證 pH 7。','',['neutralization','excess','stoichiometry']),
+term('excess','過量',['酸過量','鹼過量','過量反應物'],[7,9,11,12],'投入的某反應物超過反應所需比例，反應後還有剩餘。','1 mmol HCl 加入 2 mmol NaOH，反應後剩 1 mmol 鹼當量。','過量看的是反應比例，不是只比毫升或克數。','',['limiting','equivalence']),
+term('equivalent','酸當量',['鹼當量'],[7,12],'本章用來記錄可提供或消耗 H⁺、OH⁻ 的反應量。','在 HCl／NaOH 模型，剩 0.001 mol HCl 即剩 0.001 mol 酸當量。','本章 1：1 單元可如此對照；多元酸鹼須依可反應的 H⁺、OH⁻ 數另算。','本章以 mol 表示反應當量',['excess','neutralization']),
+term('spectator','旁觀離子',[],[7,8,9,12],'反應前後仍以相同離子形式留在溶液中，不直接參與該淨反應的離子。','HCl／NaOH 中和中的 Na⁺、Cl⁻ 是旁觀離子。','旁觀不是消失；它們仍會影響溶液導電等性質。','',['net-ionic','sodium-ion','chloride']),
+term('exothermic','放熱',['放熱反應'],[4,7,11],'反應或變化把能量以熱的形式傳給周圍。','HCl 與 NaOH 反應，在本章理想模型中使混合液升溫。','升溫多少還與反應量、液體總量、散熱等條件有關。','本章熱量用 J 或 kJ 表示',['adiabatic','heat-capacity']),
+term('adiabatic','絕熱',['理想絕熱模型','無散熱'],[7],'與外界沒有熱量交換的理想條件。','本章中和模型把反應熱全用於混合液升溫。','真實器材會吸熱、也可能散熱，所以實測溫度不一定相同。','模型假設，不是聲稱實驗完全無誤差',['exothermic','heat-capacity']),
+term('heat-capacity','比熱',[],[7],'每單位質量的物質，升高 1°C 所需的熱量。','本章混合液近似水，比熱取 4.18 J/(g·°C)。','相同反應熱，若液體總質量較大，升溫通常較少。','本章 Q = 質量 × 比熱 × 溫升',['exothermic','density']),
+term('density','密度',[],[7],'單位體積物質的質量。','本章中和模型取 1 g/mL，用體積估算液體質量。','這是稀溶液近似，不代表任何濃度的溶液都相同。','本章單位 g/mL',['heat-capacity']),
+term('salt','鹽類',[],[1,3,7,8,9,10,11,12],'由陽離子和酸根等陰離子組成、整體電荷平衡的一類離子化合物。','NaCl、Na₂CO₃、CaCO₃ 都是鹽類。','化學上的鹽類範圍比食鹽大；鹽類水溶液也不一定中性。','',['table-salt','ionic-compound','sodium-carbonate']),
+term('table-salt','食鹽',['NaCl','氯化鈉'],[1,2,3,7,8,9,10,11,12],'日常食鹽主要成分為氯化鈉；化學式 NaCl。','從原本含 NaCl 的鹵水蒸發、結晶，可把部分 NaCl 分離出來。','試劑級、工業級 NaCl 或不明白色晶體不能直接當食用鹽。','NaCl，由 Na⁺ 與 Cl⁻ 組成',['salt','food-grade','brine']),
+term('sodium-carbonate','碳酸鈉',['Na₂CO₃','Na2CO3','鹼粉'],[3,8,9,11],'由 Na⁺、CO₃²⁻ 組成的鹽，可用於洗滌及玻璃製造等用途。','Na₂CO₃ 水溶液與 CaCl₂ 混合可產生 CaCO₃ 沉澱。','碳酸鈉水溶液可呈鹼性；工業鹼粉不能當食鹽。','Na₂CO₃',['carbonate','precipitation','alkaline']),
+term('baking-soda','碳酸氫鈉',['NaHCO₃','NaHCO3','小蘇打'],[8,11],'由 Na⁺、HCO₃⁻ 組成的鹽，食品級可用於指定膨鬆用途。','小蘇打遇適當酸可放出二氧化碳。','與碳酸鈉差一個氫、離子電荷也不同，不能直接互換用量。','NaHCO₃',['bicarbonate','sodium-carbonate','food-grade']),
+term('calcium-carbonate','碳酸鈣',['CaCO₃','CaCO3','石灰岩','石灰石','大理石'],[4,8,9,11,12],'常見難溶鹽，是石灰岩、大理石等材料的重要成分。','Ca²⁺ 與 CO₃²⁻ 形成白色 CaCO₃ 沉澱。','天然石材不是純試劑；難溶不等於在任何條件下都完全不溶。','CaCO₃',['precipitation','carbonate','solubility']),
+term('calcium-sulfate','硫酸鈣',['CaSO₄','CaSO4','石膏'],[8],'由 Ca²⁺、SO₄²⁻ 組成的鹽，常見石膏材料與其水合物有關。','石膏常用於建材、模型等。','常見石膏是含結晶水的硫酸鈣；不能把所有石膏材料當食品。','CaSO₄；常見石膏為 CaSO₄·2H₂O',['sulfate','salt']),
+term('calcium-chloride','氯化鈣',['CaCl₂','CaCl2'],[9],'由一份 Ca²⁺、兩份 Cl⁻ 組成的鹽。','本章用 CaCl₂ 水溶液提供鈣離子。','它雖含氯離子，也不是氯化鈉或食鹽。','CaCl₂',['calcium-ion','chloride','precipitation']),
+term('potassium-chloride','氯化鉀',['KCl'],[10],'鉀離子和氯離子組成的鹽，本章用來代表其他溶解鹽類。','天然鹵水模式除了 NaCl，也加入少量 KCl。','真實鹵水成分更複雜；本模型不能預測食品純度。','KCl',['brine','purity']),
+term('precipitation','沉澱',['沉澱反應'],[4,8,9,11,12],'溶液中的離子或物質反應，形成難溶固體的現象；產生的固體也叫沉澱。','Ca²⁺ + CO₃²⁻ → CaCO₃(s)。','不是所有離子都變成固體；也別和原有泥沙慢慢沉降混為一談。','↓ 常表示生成沉澱',['settling','spectator','filtration']),
+term('net-ionic','淨離子式',['離子反應式'],[7,9],'只寫出反應中直接發生變化的離子或物質，省略旁觀離子的反應式。','Ca²⁺ + CO₃²⁻ → CaCO₃(s)。','省略旁觀離子只為看清反應，並不是說它們從溶液中消失。','',['spectator','stoichiometry']),
+term('stoichiometry','化學計量',['化學計量','莫耳比例','莫耳數比'],[7,9,12],'利用配平反應式中的比例，計算反應物與生成物數量的關係。','1 mol Ca²⁺ 與 1 mol CO₃²⁻ 形成 1 mol CaCO₃。','係數比是莫耳數比，不是直接把克數照比例相加。','',['mole','limiting','theoretical']),
+term('limiting','限量試劑',['限制產量'],[9],'依反應比例會先用完、因而限制最多生成多少產物的反應物。','2 mmol Ca²⁺ 與 3 mmol CO₃²⁻，最多形成 2 mmol CaCO₃。','不能只用濃度較小或體積較小判斷，要先算反應量。','',['excess','theoretical']),
+term('theoretical','理論產量',['沉澱理論質量','理論質量','理論上限'],[9,10,12],'在指定模型假設下，反應完全、沒有其他反應或損失時可得到的最大產物量。','0.002 mol CaCO₃ × 100.09 g/mol，理論約 0.200 g。','真實產量會受溶解、操作損失等影響；理論值不是保證收成。','',['limiting','molar-mass','model']),
+term('solubility','溶解度',[],[8,9,10],'在指定溫度等條件下，一定量溶劑最多能溶解某溶質的量。','本章 25°C 模型：每 100 g 水約可溶 36 g NaCl。','分母是水的質量，不是整份溶液；不同物質與溫度的值不同。','本章以 g 溶質／100 g 水表示',['saturation','concentration']),
+term('saturation','飽和',['飽和溶液'],[10],'在指定條件下，已達該溶質可溶上限的狀態。','25°C 模型中，100 g 水溶有 36 g NaCl 時達飽和。','飽和不代表每種溶液都很濃；難溶物的飽和溶液也可能很稀。','',['solubility','crystallization']),
+term('evaporation','蒸發',[],[1,10,12],'液體從表面變成氣體的過程，不一定要沸騰。','鹽田中的水蒸發離開，留下原有溶質。','蒸發不是水變成鹽，也不是新增 NaCl。','',['concentrate','conservation','crystallization']),
+term('concentrate','濃縮',[],[10],'減少溶劑等，使溶液中溶質的濃度上升。','蒸發部分水後，尚未析晶的鹽水濃度提高。','達飽和後繼續失水可析晶，不能一律假設溶液濃度無限上升。','',['evaporation','saturation']),
+term('crystal','晶體',[],[1,3,8,10,11],'內部粒子呈規則排列的固體。','NaCl 結晶後具有規則的離子排列。','白色晶體也可能是其他鹽或糖，外觀不能確認成分。','',['lattice','crystallization','purity']),
+term('crystallization','結晶',['析出','析晶'],[1,8,10,12],'溶質等粒子形成規則晶體的過程。','30 g NaCl 溶在 100 g 水中，25°C 模型蒸掉 50 g 水後約析出 12 g。','結晶取出的鹽原本就在系統中；不同鹽也可能一起析出。','',['saturation','mother-liquor','coprecipitation']),
+term('brine','鹵水',['天然鹵水'],[1,5,10,11,12],'含較多溶解鹽類的水，是製鹽原料的一種。','天然鹵水可能含 NaCl、其他鹽類與懸浮雜質。','鹵水不是純 NaCl 水溶液，也不能直接判為可食用。','',['table-salt','suspension','purity']),
+term('suspension','懸浮雜質',['懸浮物','懸浮泥沙'],[10],'未溶解、以微粒形式分散在液體中的雜質。','天然鹵水模式中的泥沙可用沉降及過濾分離。','溶解離子很小、均勻分散，不能和泥沙一樣全被濾紙攔住。','',['filtration','settling','dissolve']),
+term('settling','沉降',[],[10],'原本懸浮的粒子在重力等作用下逐漸沉到下方。','等待泥沙沉底，再傾取較清澈的上層液。','沉降不等於溶液離子反應生成沉澱，也不能除盡溶解雜質。','',['supernatant','precipitation']),
+term('supernatant','上清液',['傾取'],[10],'固體沉降後，位於沉積物上方、較清澈的液體。傾取是小心倒出這部分液體。','泥沙沉底後，把上清液轉移到下一道處理。','看起來清澈仍可能含溶解鹽類或污染物。','',['settling','brine']),
+term('filtration','過濾',['濾紙','固液分離'],[9,10],'利用濾材攔住較大的固體，讓液體及多數溶解物通過的分離方法。','把 CaCO₃ 留在濾紙上，濾液仍含 Na⁺、Cl⁻。','一般濾紙不能直接去除所有已溶解的離子。','',['filtrate','suspension','precipitation']),
+term('filtrate','濾液',[],[9,10],'過濾時通過濾材、被收集的液體。','Na₂CO₃ 與 CaCl₂ 反應後的濾液，仍可能含旁觀及過量離子。','清澈濾液不等於純水，也不保證可以飲用。','',['filtration','spectator']),
+term('mother-liquor','母液',[],[10,12],'結晶後，晶體之外尚未被移走的溶液。','蒸發結晶後，母液仍含溶解的 NaCl 及其他鹽。','分離晶體時夾帶母液，可能把其他溶解物一起帶入成品。','',['crystallization','purity','mass-percent']),
+term('coprecipitation','共結晶',[],[10],'本章指結晶分離時，其他物質可能隨晶體形成、混入或被夾帶的複雜情形。','天然鹵水蒸發的固體，可能不只有 NaCl。','本章簡化模型分別計算各鹽析出，不模擬真實共結晶細節。','模型限制的補充用語',['mother-liquor','purity','model']),
+term('mass-percent','重量百分濃度',['重量百分比','質量百分濃度','質量百分率'],[10],'溶質質量占溶液總質量的百分比。','3 g 鹽加 97 g 水，鹽的重量百分濃度為 3%。','不是 3÷97；分母要包含溶質與溶劑。','溶質質量／溶液質量 × 100%',['ppm','concentration']),
+term('ppm','ppm',['百萬分率'],[10],'表示百萬分之一的比例。本章使用溶質與溶液的質量比。','1 mg 溶質／1 kg 溶液 = 1 ppm；3% = 30,000 ppm。','要說清楚比例種類；不是任何溶液都可直接把 mg/L 當 ppm。','質量比 × 10⁶',['mass-percent']),
+term('conservation','質量守恆',['質量守恆定律','質量帳'],[7,9,10,11,12],'把研究範圍內所有物質，以及進出物質都計入，總質量收支會相符。','池內母液、晶體、移除雜質及排出水蒸氣相加，等於原料總質量。','只秤蒸發池可能變輕，是水離開；不是物質憑空消失。','',['evaporation','system']),
+term('system','系統',[],[10],'研究時選定、用來追蹤物質和能量的範圍。','可把蒸發池作為系統，記錄蒸氣向外移出的質量。','要先說清楚邊界，再比較進出與留下的量。','',['conservation','model']),
+term('purity','純度',[],[10,11],'樣品中目標物質所占的比例，須指明測量及計算方式。','結晶樣品可能含 NaCl、其他鹽及夾帶母液。','看起來白、導電或 pH 7 都不足以證明純度或食品安全。','',['food-grade','mother-liquor']),
+term('food-grade','食品級',['品質檢驗','污染物檢驗','食品安全'],[8,10,11,12],'供食品用途時，原料、製程及成品需要符合相關品質與安全要求。','製鹽報告應補足成分、純度、污染物及製程資料。','本章虛擬產物沒有經過充分檢驗，不能標為安全可食用。','',['purity','table-salt']),
+term('corrosive','腐蝕性',['腐蝕','侵蝕'],[4,11],'物質能對接觸的材料或生物組織造成化學損害的性質。','氫氧化鈉及多種酸試劑可能傷害皮膚、眼睛。','透明、無色、弱酸或中性標籤，都不能單獨保證安全。','',['acid','base']),
+term('acid-rain','酸雨',[],[11],'空氣中的某些污染物形成酸性物質，進入降水而使雨水異常偏酸的現象。','酸性降水可侵蝕含碳酸鈣的建材。','自然雨水本來也可能因溶入 CO₂ 略偏酸，不能只憑 pH 小於 7 就認定酸雨。','',['carbon-dioxide','calcium-carbonate']),
+term('wastewater','工業廢水',[],[11],'工業活動排出的用水，可能含酸鹼、溶解物、懸浮物或其他污染物。','處理時可能需酸鹼調整、沉澱與過濾等步驟。','pH 合格不等於所有污染物都已移除，還需要其他檢驗。','',['neutralization','filtration','food-grade']),
+term('state','物質狀態',['(s)','(l)','(g)'],[3,4,9,12],'反應式中以符號標出固態、液態、氣態或水溶液等形式。','CaCO₃(s) 是固體；Na⁺(aq) 是水中離子。','(aq) 是水溶液，不等於 (l) 液態純物質。','s 固態；l 液態；g 氣態；aq 水溶液',['aqueous','net-ionic']),
+term('control','對照',['對照溶液','對照實驗'],[2,4,5,9],'在相同或可比較條件下，設另一組作比較，找出造成差異的因素。','同濃度、同電極位置，比較糖水與食鹽水。','一次改太多條件，會難以判斷是哪一項造成差異。','',['model','conductivity']),
+term('model','教學模型',['模型','理想模型'],[2,5,7,9,10],'把現象中部分因素保留、部分簡化，幫助理解或計算的表示方式。','天氣只改變本章蒸發動畫速度，沒有預測真實曬鹽時間。','模型讀數有假設與範圍；動畫不等於精密實測。','',['theoretical','adiabatic','purity']),
+term('amount','物質的量',['莫耳數'],[6,7,9,12],'表示一群指定粒子有多少的物理量，以莫耳 mol 為單位。','0.1 mol/L × 0.020 L = 0.002 mol，得到這份溶質的物質的量。','物質的量是要測的量；莫耳是它的單位，並非質量的別名。','符號 n；單位 mol',['mole','molarity']),
+term('endpoint','滴定終點',['終點'],[7],'滴定時，依指示劑顏色等觀察訊號決定停止加入溶液的位置。','酚酞呈現指定的持續淡紅色，可作某些滴定的操作終點。','觀察終點未必和恰好反應的位置完全相同，也不代表所有組合都 pH 7。','',['titration','equivalence','transition']),
+term('acid-residue','酸根',['酸根陰離子'],[8],'本章指酸失去可游離的 H⁺ 後，留下的陰離子部分。','鹽酸對應 Cl⁻，硫酸對應 SO₄²⁻，醋酸對應 CH₃COO⁻。','根離子可指多原子離子；酸根也可能是單原子的 Cl⁻，兩個分類不同。','',['salt','polyatomic','chloride']),
+term('qualitative','定性示意',[],[10],'用來表達方向或性質的差異，並不提供可當成實測預測的精確數值。','本章晴天的示意蒸發速度較快，但不代表真實需要幾小時。','有動畫速度不等於建立了完整天氣物理模型。','',['model','evaporation']),
+term('physical-separation','物理分離',[],[10,12],'利用溶解性、粒子大小或揮發性等差異，把混合物中的成分分開。','鹵水蒸發結晶，主要把原本存在的鹽取出。','分離不保證成品完全純淨，也不能把水變成原本不存在的 NaCl。','',['filtration','crystallization','neutralization']),
+term('carbonate-salt','碳酸鹽',[],[4,8,9],'含有碳酸根 CO₃²⁻ 的鹽類。','碳酸鈉 Na₂CO₃ 與碳酸鈣 CaCO₃ 都是碳酸鹽。','不同碳酸鹽溶解性不同；遇適當酸可生成 CO₂。','',['carbonate','calcium-carbonate','sodium-carbonate']),
+term('molecule','分子',[],[2,3,6],'由原子以化學鍵結合而成、整體通常不帶電的一個粒子單位。','糖溶於水後主要仍保留糖分子。','離子晶體 NaCl 不應當成一顆顆獨立的 NaCl 分子。','',['ion','ionic-compound'])
+];
+const primerTerms={1:['solution','solute','solvent'],2:['electrolyte','nonelectrolyte','conductivity'],3:['ion','dissociation','ionization'],4:['acid','base','oxide'],5:['indicator','ph','transition'],6:['molarity','strong-acid','weak-acid'],7:['neutralization','titration','spectator'],8:['salt','table-salt','sodium-carbonate'],9:['precipitation','net-ionic','filtrate'],10:['brine','solubility','mother-liquor'],11:['purity','food-grade','excess'],12:['neutralization','crystallization','conservation']};
+
+return {scienceTerms,primerTerms};
+})();
+__modules["chemistry/components.js"]=(()=>{
+function escapeHTML(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function metric(label,value,unit=''){return '<div class="metric"><span>'+label+'</span><strong>'+value+' <small>'+unit+'</small></strong></div>';}
+function ExplorationWorkbench(scene,controls,note=''){return '<div class="workbench"><div class="model-column"><div class="scene">'+scene+'</div><p class="model-note">'+note+'</p></div><aside class="experiment-controls">'+controls+'</aside></div>';}
+function numberField(id,label,value,min,max,step,unit){return '<div class="number-field"><label for="'+id+'">'+label+' <span>'+unit+'</span></label><div class="number-pair"><input id="'+id+'" type="number" min="'+min+'" max="'+max+'" step="any" value="'+value+'" inputmode="decimal" aria-describedby="'+id+'-error"><input aria-label="'+label+'滑桿" type="range" min="'+min+'" max="'+max+'" step="any" data-step="'+step+'" value="'+value+'" data-pair="'+id+'"></div><span class="field-error" id="'+id+'-error" role="status"></span></div>';}
+function bindNumber(root,id,callback){
+ const input=root.querySelector('#'+id),range=root.querySelector('[data-pair="'+id+'"]'),error=root.querySelector('#'+id+'-error');
+ const min=Number(input.min),max=Number(input.max),step=Number(range.dataset.step)||1;
+ const exact=n=>Number(n.toPrecision(12));
+ function commit(n){input.value=String(n);range.value=String(n);input.setCustomValidity('');error.textContent='';callback(n);const other=root.querySelector('input:invalid');if(other){root.querySelectorAll('[data-run],.step').forEach(b=>b.disabled=true);guideStep(root,'還有一個數字需要修正','把標示的欄位改好，再繼續操作。','#'+other.id);}}
+ function invalid(){input.setCustomValidity('請輸入範圍內的數字');error.textContent='請輸入 '+min+'～'+max+'；材料用量暫時保持原來的設定。';root.querySelectorAll('[data-run],.step').forEach(b=>b.disabled=true);guideStep(root,'先修正輸入的數字',error.textContent,'#'+id);}
+ function handler(event){const raw=event.target.value,n=Number(raw);if(raw===''||!Number.isFinite(n)||n<min||n>max){invalid();return;}commit(event.target===range?exact(Math.max(min,Math.min(max,min+Math.round((n-min)/step)*step))):n);}
+ input.addEventListener('input',handler);range.addEventListener('input',handler);
+ range.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','ArrowDown','ArrowUp','Home','End'].includes(e.key))return;e.preventDefault();const current=Number(range.value),next=e.key==='Home'?min:e.key==='End'?max:current+(['ArrowRight','ArrowUp'].includes(e.key)?step:-step);commit(exact(Math.max(min,Math.min(max,next))));});
+ return v=>{input.value=String(v);range.value=String(v);input.setCustomValidity('');error.textContent='';};
+}
+function makeDraggable(button,target,onDrop,status){
+ let gesture=null,suppress=false;
+ const inside=(x,y,r)=>x>=r.left&&x<=r.right&&y>=r.top&&y<=r.bottom;
+ const hits=e=>{const r=target.getBoundingClientRect();return inside(e.clientX,e.clientY,r)||(gesture&&inside(e.clientX+gesture.offsetX,e.clientY+gesture.offsetY,r));};
+ const reset=()=>{button.style.transform='';button.classList.remove('dragging');target.classList.remove('drop-active');target.classList.remove('drop-ready');target.removeAttribute?.('data-drop-hint');gesture=null;};
+ const cancel=()=>{if(!gesture)return;suppress=true;reset();if(status)status.textContent='已取消拿取，材料放回原位。';};
+ button.addEventListener('pointerdown',e=>{if(e.button!==0||button.disabled)return;const r=button.getBoundingClientRect?.();suppress=false;gesture={x:e.clientX,y:e.clientY,pointer:e.pointerId,moved:false,offsetX:r?(r.left+r.right)/2-e.clientX:0,offsetY:r?(r.top+r.bottom)/2-e.clientY:0};button.focus?.({preventScroll:true});button.setPointerCapture(e.pointerId);});
+ button.addEventListener('pointermove',e=>{if(!gesture)return;const dx=e.clientX-gesture.x,dy=e.clientY-gesture.y;if(Math.hypot(dx,dy)>5)gesture.moved=true;if(gesture.moved){e.preventDefault?.();button.classList.add('dragging');target.classList.add('drop-active');const hit=hits(e);if(hit)target.classList.add('drop-ready');else target.classList.remove('drop-ready');target.setAttribute?.('data-drop-hint',hit?'放手就能放入':'把材料移到這裡 · Esc 可取消');button.style.transform='translate('+dx+'px,'+dy+'px)';}});
+ button.addEventListener('pointerup',e=>{if(!gesture)return;const moved=gesture.moved,hit=hits(e);suppress=moved;reset();if(moved){if(hit)onDrop();else if(status)status.textContent='沒有放入，材料已回到原位。拖進標示區再放手，或直接點材料。';}});
+ button.addEventListener('pointercancel',cancel);button.addEventListener('lostpointercapture',cancel);
+ button.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')suppress=false;if(e.key==='Escape'&&gesture){e.preventDefault?.();cancel();}});
+ button.addEventListener('click',e=>{if(suppress){suppress=false;e.preventDefault();return;}if(!button.disabled)onDrop();});
+}
+function reactionClock(update,finish){let progress=0,timer=null,last=0;const stop=()=>{if(timer)clearInterval(timer);timer=null;};return{start(){if(progress>=1)progress=0;if(timer)return;last=performance.now();timer=setInterval(()=>{const t=performance.now();progress=Math.min(1,progress+Math.max(0,t-last)/5000);last=t;update(progress,true);if(progress===1){stop();update(progress,false);finish();}},60);},pause(){stop();update(progress,false);},step(){stop();const before=progress;progress=Math.min(1,Math.round((progress+.1)*1e9)/1e9);update(progress,false);if(before<1&&progress===1)finish();},reset(){stop();progress=0;update(0,false);},get running(){return timer!==null;},get progress(){return progress;}};}
+function notice(root,text){root.querySelector('.activity-status').textContent=text;}
+
+
+function WorkflowSteps(labels,step){return '<ol class="workflow-steps" aria-label="實驗步驟">'+labels.map((label,i)=>'<li class="'+(i<step?'done':i===step?'current':'')+'"><span>'+(i<step?'✓':i+1)+'</span>'+label+'</li>').join('')+'</ol>';}
+function matchedMassPair(records){for(const closed of [...records].reverse().filter(r=>r.closed)){const open=[...records].reverse().find(r=>!r.closed&&Math.abs(r.soda-closed.soda)<1e-8&&Math.abs(r.acid-closed.acid)<1e-8);if(open)return{open,closed};}return null;}
+function massTrace(initial,reading,progress){
+ const delta=reading-initial,x=55+600*progress,y=42-delta*14;
+ return '<div class="mass-trace"><svg viewBox="0 0 720 225" role="img" aria-label="目前實驗的質量變化 '+delta.toFixed(3)+' 公克"><text x="55" y="23" font-size="12" fill="#536e62">和反應前相比，變重或變輕多少（g）</text>'+[0,5,10].map(v=>'<path d="M55 '+(42+v*14)+'H655" stroke="#dbe4d8" stroke-dasharray="3 5"/><text x="41" y="'+(46+v*14)+'" text-anchor="end" font-size="11" fill="#718473">'+(-v)+'</text>').join('')+'<path d="M55 42V183H655" fill="none" stroke="#9dae9e"/><path d="M55 42L'+x+' '+y+'" fill="none" stroke="#527d64" stroke-width="3"/><circle cx="'+x+'" cy="'+y+'" r="5" fill="#b99657" stroke="#fff" stroke-width="2"/><text x="55" y="204" font-size="11" fill="#718473">0%</text><text x="655" y="204" text-anchor="end" font-size="11" fill="#718473">100% 觀察進度</text></svg><p>本次質量變化 <strong>'+Number(delta.toFixed(3))+' g</strong>；負數表示天平比反應前更輕。</p></div>';
+}
+
+
+// One short next action; repeated animation frames do not re-announce unchanged guidance.
+function guideStep(root,title,detail,selector=''){
+ let guide=root.querySelector('.interaction-guide');
+ if(!guide){guide=document.createElement('div');guide.className='interaction-guide';guide.setAttribute('role','status');guide.setAttribute('aria-live','polite');guide.innerHTML='<span class="guide-icon" aria-hidden="true">↗</span><div><b class="guide-title"></b><p class="guide-detail"></p></div><span class="guide-label">操作小提示</span>';root.prepend(guide);}
+ if(guide.querySelector('.guide-title').textContent!==title)guide.querySelector('.guide-title').textContent=title;
+ if(guide.querySelector('.guide-detail').textContent!==detail)guide.querySelector('.guide-detail').textContent=detail;
+ root.querySelectorAll('.next-action').forEach(x=>x.classList.remove('next-action'));
+ if(selector)root.querySelector(selector)?.classList.add('next-action');
+}
+
+return {escapeHTML,metric,ExplorationWorkbench,numberField,bindNumber,makeDraggable,reactionClock,notice,WorkflowSteps,matchedMassPair,massTrace,guideStep};
+})();
+__modules["electrolytes/terminology.js"]=(()=>{
+const { scienceTerms, primerTerms }=__modules["electrolytes/terminology-data.js"];
+const { escapeHTML }=__modules["chemistry/components.js"];
+const byId=new Map(scienceTerms.map(t=>[t.id,t]));
+const aliases=[...new Map(scienceTerms.flatMap(t=>[t.label,...t.aliases].map(label=>({label,id:t.id}))).filter(t=>t.label.length>1).map(t=>[t.label,t])).values()].sort((a,b)=>b.label.length-a.label.length);
+const lookup=new Map(aliases.map(t=>[t.label,t.id]));
+const pattern=new RegExp(aliases.map(t=>t.label.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|'),'g');
+function termButton(id,label){const t=byId.get(id);return '<button type="button" class="science-term" data-science-term="'+id+'" aria-haspopup="dialog" aria-label="查看'+escapeHTML(t.label)+'的定義">'+escapeHTML(label||t.label)+'</button>';}
+function TermPrimer(card){const ids=primerTerms[card]||[];return '<section class="term-primer" data-glossary-skip aria-label="本站名詞定義"><div class="term-primer-heading"><div><span class="eyebrow">先認識用語，再動手找規律</span><h3>這幾個名詞是什麼意思？</h3></div><button class="secondary" data-open-glossary="'+card+'">查本站所有名詞</button></div><dl class="term-primer-grid">'+ids.map(id=>{const t=byId.get(id);return '<div><dt>'+termButton(id)+'</dt><dd>'+escapeHTML(t.definition)+'</dd>'+(t.unit?'<dd class="term-unit">'+escapeHTML(t.unit)+'</dd>':'')+'<dd class="term-example">例：'+escapeHTML(t.example)+'</dd></div>';}).join('')+'</dl><p class="term-help">課文中有虛線底線的名詞可以點開，看定義、例子與容易混淆的地方。</p></section>';}
+function matchScienceTerms(text){const s=String(text);return [...s.matchAll(pattern)].filter(m=>{if(!/[A-Za-z]/.test(m[0]))return true;const before=s[m.index-1]||'',after=s[m.index+m[0].length]||'';return !/[A-Za-z0-9₀-₉⁰-⁹⁺⁻]/.test(before)&&!/[A-Za-z0-9₀-₉⁰-⁹⁺⁻]/.test(after);}).map(m=>({term:lookup.get(m[0]),text:m[0],index:m.index}));}
+function mountTerminology(){
+ const dialog=document.createElement('dialog');dialog.className='science-dictionary';dialog.setAttribute('aria-labelledby','dictionary-title');dialog.innerHTML='<div class="dictionary-head"><div><span class="eyebrow">隨手查，不用離開實驗</span><h2 id="dictionary-title">科學名詞小字典</h2></div><button type="button" class="dictionary-close" aria-label="關閉名詞字典">×</button></div><div class="dictionary-toolbar"><label for="dictionary-search">找名詞</label><input id="dictionary-search" type="search" placeholder="例如：電解質、NaCl、pH、母液"><select class="dictionary-filter" aria-label="依卡片篩選名詞"><option value="0">整章名詞</option>'+Array.from({length:12},(_,i)=>i+1).map(n=>'<option value="'+n+'">第 '+n+' 站</option>').join('')+'</select></div><div class="dictionary-main"><nav class="dictionary-list" aria-label="名詞搜尋結果"></nav><article class="dictionary-detail" tabindex="-1"></article></div><p class="dictionary-source">定義參考 <a href="https://openstax.org/books/chemistry-2e/pages/4-2-classifying-chemical-reactions" target="_blank" rel="noopener">OpenStax：離子與反應</a>、<a href="https://openstax.org/books/chemistry-2e/pages/14-2-ph-and-poh" target="_blank" rel="noopener">酸鹼與 pH</a>、<a href="https://www.bipm.org/en/si-base-units/mole" target="_blank" rel="noopener">BIPM：莫耳</a>；數值依本章模型假設。</p>';
+ document.body.append(dialog);const search=dialog.querySelector('input'),filter=dialog.querySelector('select'),list=dialog.querySelector('.dictionary-list'),detail=dialog.querySelector('.dictionary-detail');let selected='electrolyte',returnFocus=null;
+ function select(id,focus=false){const t=byId.get(id);if(!t)return;selected=id;detail.innerHTML='<span class="eyebrow">名詞定義</span><h3>'+escapeHTML(t.label)+'</h3>'+(t.aliases.length?'<p class="term-alias">也會看到：'+t.aliases.map(escapeHTML).join('、')+'</p>':'')+'<p class="dictionary-definition">'+escapeHTML(t.definition)+'</p>'+(t.unit?'<p class="dictionary-unit"><b>單位與符號</b>'+escapeHTML(t.unit)+'</p>':'')+'<div class="dictionary-example"><b>用例子理解</b><p>'+escapeHTML(t.example)+'</p></div>'+(t.note?'<div class="dictionary-caution"><b>別混淆</b><p>'+escapeHTML(t.note)+'</p></div>':'')+((t.related||[]).length?'<div class="dictionary-related"><span>一起認識</span>'+t.related.map(id=>termButton(id)).join('')+'</div>':'');list.querySelectorAll('[data-dictionary-term]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.dictionaryTerm===id)));detail.scrollTop=0;if(dialog.open)list.querySelector('[aria-pressed="true"]')?.scrollIntoView({block:'nearest',behavior:'instant'});if(focus)detail.focus({preventScroll:true});}
+ function renderList(){const q=search.value.trim().toLowerCase(),n=Number(filter.value),items=scienceTerms.filter(t=>(!n||t.chapters.includes(n))&&(!q||[t.label,...t.aliases,t.definition,t.example].join(' ').toLowerCase().includes(q)));list.innerHTML='<p class="dictionary-count" role="status">找到 '+items.length+' 個名詞</p>'+items.map(t=>'<button type="button" data-dictionary-term="'+t.id+'" aria-pressed="'+(t.id===selected)+'">'+escapeHTML(t.label)+'</button>').join('');if(!items.length){detail.innerHTML='<h3>沒有找到這個名詞</h3><p>試試較短的關鍵字，或把篩選改成「整章名詞」。</p>';return;}if(!items.some(t=>t.id===selected))selected=items[0].id;select(selected);}
+ function open(trigger,id,chapter=0){returnFocus=trigger;search.value='';filter.value=String(chapter);selected=id||primerTerms[chapter]?.[0]||'electrolyte';renderList();if(id)select(id);if(!dialog.open)dialog.showModal();list.querySelector('[aria-pressed="true"]')?.scrollIntoView({block:'nearest',behavior:'instant'});detail.focus({preventScroll:true});}
+ dialog.querySelector('.dictionary-close').onclick=()=>dialog.close();dialog.addEventListener('close',()=>{if(returnFocus?.isConnected)returnFocus.focus({preventScroll:true});});dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}const b=e.target.closest('[data-dictionary-term]');if(b)select(b.dataset.dictionaryTerm,true);});
+ search.oninput=renderList;filter.onchange=renderList;
+ document.addEventListener('click',e=>{const term=e.target.closest('[data-science-term]'),all=e.target.closest('[data-open-glossary]');if(term){if(dialog.contains(term)){search.value='';filter.value='0';selected=term.dataset.scienceTerm;renderList();detail.focus({preventScroll:true});return;}open(term,term.dataset.scienceTerm);}else if(all)open(all,null,Number(all.dataset.openGlossary)||0);});
+ const skip='button,a,svg,script,style,input,select,textarea,label,summary,dialog,[data-glossary-skip],.molecule-art,.salt-scene,.micro-stage,.micro-view,.lab-chart,.readouts,.card-kicker,.card-footer,.equation,.fraction-bar,[role="status"],[aria-live]';
+ function annotate(scope){if(!scope?.isConnected)return;const element=scope.nodeType===3?scope.parentElement:scope;if(!element||element.closest(skip))return;const card=element.closest('.learning-card');if(!card)return;const seen=new Set([...card.querySelectorAll('.science-term[data-inline-term]')].map(b=>b.dataset.scienceTerm));const nodes=[];if(scope.nodeType===3)nodes.push(scope);else{const walker=document.createTreeWalker(scope,NodeFilter.SHOW_TEXT);while(walker.nextNode())nodes.push(walker.currentNode);}for(const node of nodes){if(!node.parentElement||node.parentElement.closest(skip))continue;const matches=matchScienceTerms(node.data).filter(m=>!seen.has(m.term));if(!matches.length)continue;const fragment=document.createDocumentFragment();let end=0;for(const m of matches){if(seen.has(m.term))continue;fragment.append(document.createTextNode(node.data.slice(end,m.index)));const b=document.createElement('button');b.type='button';b.className='science-term';b.dataset.scienceTerm=m.term;b.dataset.inlineTerm='';b.setAttribute('aria-haspopup','dialog');b.setAttribute('aria-label','查看'+byId.get(m.term).label+'的定義');b.textContent=m.text;fragment.append(b);seen.add(m.term);end=m.index+m.text.length;}fragment.append(document.createTextNode(node.data.slice(end)));node.replaceWith(fragment);}}
+ const pending=new Set();let scheduled=false;const observer=new MutationObserver(records=>{for(const r of records){if(r.target.nodeType===1&&r.target.closest(skip))continue;if(r.type==='characterData')pending.add(r.target);else for(const n of r.addedNodes)if(n.nodeType===1||n.nodeType===3)pending.add(n);}if(pending.size&&!scheduled){scheduled=true;queueMicrotask(()=>{scheduled=false;observer.disconnect();for(const n of pending)annotate(n);pending.clear();observer.observe(document.querySelector('#lesson'),{childList:true,subtree:true,characterData:true});});}});
+ document.querySelectorAll('.learning-card').forEach(annotate);observer.observe(document.querySelector('#lesson'),{childList:true,subtree:true,characterData:true});
+ return{disconnect(){observer.disconnect();dialog.remove();}};
+}
+
+return {termButton,TermPrimer,matchScienceTerms,mountTerminology};
+})();
 __modules["electrolytes/data.js"]=(()=>{
 const cards = [
   {
@@ -1648,59 +2002,6 @@ function phScale(pH){return '<div class="ph-scale" aria-label="pH 色階 0 到 1
 
 return {svg,label,beaker,ionsView,conductScene,phScene,neutralScene,precipScene,crystalScene,landscape,phScale};
 })();
-__modules["chemistry/components.js"]=(()=>{
-function escapeHTML(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function metric(label,value,unit=''){return '<div class="metric"><span>'+label+'</span><strong>'+value+' <small>'+unit+'</small></strong></div>';}
-function ExplorationWorkbench(scene,controls,note=''){return '<div class="workbench"><div class="model-column"><div class="scene">'+scene+'</div><p class="model-note">'+note+'</p></div><aside class="experiment-controls">'+controls+'</aside></div>';}
-function numberField(id,label,value,min,max,step,unit){return '<div class="number-field"><label for="'+id+'">'+label+' <span>'+unit+'</span></label><div class="number-pair"><input id="'+id+'" type="number" min="'+min+'" max="'+max+'" step="any" value="'+value+'" inputmode="decimal" aria-describedby="'+id+'-error"><input aria-label="'+label+'滑桿" type="range" min="'+min+'" max="'+max+'" step="any" data-step="'+step+'" value="'+value+'" data-pair="'+id+'"></div><span class="field-error" id="'+id+'-error" role="status"></span></div>';}
-function bindNumber(root,id,callback){
- const input=root.querySelector('#'+id),range=root.querySelector('[data-pair="'+id+'"]'),error=root.querySelector('#'+id+'-error');
- const min=Number(input.min),max=Number(input.max),step=Number(range.dataset.step)||1;
- const exact=n=>Number(n.toPrecision(12));
- function commit(n){input.value=String(n);range.value=String(n);input.setCustomValidity('');error.textContent='';callback(n);const other=root.querySelector('input:invalid');if(other){root.querySelectorAll('[data-run],.step').forEach(b=>b.disabled=true);guideStep(root,'還有一個數字需要修正','把標示的欄位改好，再繼續操作。','#'+other.id);}}
- function invalid(){input.setCustomValidity('請輸入範圍內的數字');error.textContent='請輸入 '+min+'～'+max+'；材料用量暫時保持原來的設定。';root.querySelectorAll('[data-run],.step').forEach(b=>b.disabled=true);guideStep(root,'先修正輸入的數字',error.textContent,'#'+id);}
- function handler(event){const raw=event.target.value,n=Number(raw);if(raw===''||!Number.isFinite(n)||n<min||n>max){invalid();return;}commit(event.target===range?exact(Math.max(min,Math.min(max,min+Math.round((n-min)/step)*step))):n);}
- input.addEventListener('input',handler);range.addEventListener('input',handler);
- range.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','ArrowDown','ArrowUp','Home','End'].includes(e.key))return;e.preventDefault();const current=Number(range.value),next=e.key==='Home'?min:e.key==='End'?max:current+(['ArrowRight','ArrowUp'].includes(e.key)?step:-step);commit(exact(Math.max(min,Math.min(max,next))));});
- return v=>{input.value=String(v);range.value=String(v);input.setCustomValidity('');error.textContent='';};
-}
-function makeDraggable(button,target,onDrop,status){
- let gesture=null,suppress=false;
- const inside=(x,y,r)=>x>=r.left&&x<=r.right&&y>=r.top&&y<=r.bottom;
- const hits=e=>{const r=target.getBoundingClientRect();return inside(e.clientX,e.clientY,r)||(gesture&&inside(e.clientX+gesture.offsetX,e.clientY+gesture.offsetY,r));};
- const reset=()=>{button.style.transform='';button.classList.remove('dragging');target.classList.remove('drop-active');target.classList.remove('drop-ready');target.removeAttribute?.('data-drop-hint');gesture=null;};
- const cancel=()=>{if(!gesture)return;suppress=true;reset();if(status)status.textContent='已取消拿取，材料放回原位。';};
- button.addEventListener('pointerdown',e=>{if(e.button!==0||button.disabled)return;const r=button.getBoundingClientRect?.();suppress=false;gesture={x:e.clientX,y:e.clientY,pointer:e.pointerId,moved:false,offsetX:r?(r.left+r.right)/2-e.clientX:0,offsetY:r?(r.top+r.bottom)/2-e.clientY:0};button.focus?.({preventScroll:true});button.setPointerCapture(e.pointerId);});
- button.addEventListener('pointermove',e=>{if(!gesture)return;const dx=e.clientX-gesture.x,dy=e.clientY-gesture.y;if(Math.hypot(dx,dy)>5)gesture.moved=true;if(gesture.moved){e.preventDefault?.();button.classList.add('dragging');target.classList.add('drop-active');const hit=hits(e);if(hit)target.classList.add('drop-ready');else target.classList.remove('drop-ready');target.setAttribute?.('data-drop-hint',hit?'放手就能放入':'把材料移到這裡 · Esc 可取消');button.style.transform='translate('+dx+'px,'+dy+'px)';}});
- button.addEventListener('pointerup',e=>{if(!gesture)return;const moved=gesture.moved,hit=hits(e);suppress=moved;reset();if(moved){if(hit)onDrop();else if(status)status.textContent='沒有放入，材料已回到原位。拖進標示區再放手，或直接點材料。';}});
- button.addEventListener('pointercancel',cancel);button.addEventListener('lostpointercapture',cancel);
- button.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')suppress=false;if(e.key==='Escape'&&gesture){e.preventDefault?.();cancel();}});
- button.addEventListener('click',e=>{if(suppress){suppress=false;e.preventDefault();return;}if(!button.disabled)onDrop();});
-}
-function reactionClock(update,finish){let progress=0,timer=null,last=0;const stop=()=>{if(timer)clearInterval(timer);timer=null;};return{start(){if(progress>=1)progress=0;if(timer)return;last=performance.now();timer=setInterval(()=>{const t=performance.now();progress=Math.min(1,progress+Math.max(0,t-last)/5000);last=t;update(progress,true);if(progress===1){stop();update(progress,false);finish();}},60);},pause(){stop();update(progress,false);},step(){stop();const before=progress;progress=Math.min(1,Math.round((progress+.1)*1e9)/1e9);update(progress,false);if(before<1&&progress===1)finish();},reset(){stop();progress=0;update(0,false);},get running(){return timer!==null;},get progress(){return progress;}};}
-function notice(root,text){root.querySelector('.activity-status').textContent=text;}
-
-
-function WorkflowSteps(labels,step){return '<ol class="workflow-steps" aria-label="實驗步驟">'+labels.map((label,i)=>'<li class="'+(i<step?'done':i===step?'current':'')+'"><span>'+(i<step?'✓':i+1)+'</span>'+label+'</li>').join('')+'</ol>';}
-function matchedMassPair(records){for(const closed of [...records].reverse().filter(r=>r.closed)){const open=[...records].reverse().find(r=>!r.closed&&Math.abs(r.soda-closed.soda)<1e-8&&Math.abs(r.acid-closed.acid)<1e-8);if(open)return{open,closed};}return null;}
-function massTrace(initial,reading,progress){
- const delta=reading-initial,x=55+600*progress,y=42-delta*14;
- return '<div class="mass-trace"><svg viewBox="0 0 720 225" role="img" aria-label="目前實驗的質量變化 '+delta.toFixed(3)+' 公克"><text x="55" y="23" font-size="12" fill="#536e62">和反應前相比，變重或變輕多少（g）</text>'+[0,5,10].map(v=>'<path d="M55 '+(42+v*14)+'H655" stroke="#dbe4d8" stroke-dasharray="3 5"/><text x="41" y="'+(46+v*14)+'" text-anchor="end" font-size="11" fill="#718473">'+(-v)+'</text>').join('')+'<path d="M55 42V183H655" fill="none" stroke="#9dae9e"/><path d="M55 42L'+x+' '+y+'" fill="none" stroke="#527d64" stroke-width="3"/><circle cx="'+x+'" cy="'+y+'" r="5" fill="#b99657" stroke="#fff" stroke-width="2"/><text x="55" y="204" font-size="11" fill="#718473">0%</text><text x="655" y="204" text-anchor="end" font-size="11" fill="#718473">100% 觀察進度</text></svg><p>本次質量變化 <strong>'+Number(delta.toFixed(3))+' g</strong>；負數表示天平比反應前更輕。</p></div>';
-}
-
-
-// One short next action; repeated animation frames do not re-announce unchanged guidance.
-function guideStep(root,title,detail,selector=''){
- let guide=root.querySelector('.interaction-guide');
- if(!guide){guide=document.createElement('div');guide.className='interaction-guide';guide.setAttribute('role','status');guide.setAttribute('aria-live','polite');guide.innerHTML='<span class="guide-icon" aria-hidden="true">↗</span><div><b class="guide-title"></b><p class="guide-detail"></p></div><span class="guide-label">操作小提示</span>';root.prepend(guide);}
- if(guide.querySelector('.guide-title').textContent!==title)guide.querySelector('.guide-title').textContent=title;
- if(guide.querySelector('.guide-detail').textContent!==detail)guide.querySelector('.guide-detail').textContent=detail;
- root.querySelectorAll('.next-action').forEach(x=>x.classList.remove('next-action'));
- if(selector)root.querySelector(selector)?.classList.add('next-action');
-}
-
-return {escapeHTML,metric,ExplorationWorkbench,numberField,bindNumber,makeDraggable,reactionClock,notice,WorkflowSteps,matchedMassPair,massTrace,guideStep};
-})();
 __modules["electrolytes/labs.js"]=(()=>{
 const { conductivity, speciate, solutions, indicator, neutralize, precipitate, crystallize, fmt, sci, bounded, ionInfo }=__modules["electrolytes/core.js"];
 const { conductScene, phScene, neutralScene, precipScene, crystalScene, ionsView, phScale, label, svg }=__modules["electrolytes/art.js"];
@@ -1855,6 +2156,7 @@ function mountLab(root,type,ctx){
 return {defaults,cleanLab,mountLab};
 })();
 __modules["electrolytes/app.js"]=(()=>{
+const { TermPrimer, mountTerminology }=__modules["electrolytes/terminology.js"];
 const { cards, stage, final, audit, chemicals, salts }=__modules["electrolytes/data.js"];
 const { speciate, solutions, fmt, sci }=__modules["electrolytes/core.js"];
 const { landscape, ionsView, svg, label }=__modules["electrolytes/art.js"];
@@ -1942,7 +2244,7 @@ function mountStory(root,c){
 }
 function renderCard(c){
  const section=document.createElement('section');section.className='learning-card salt-card';section.id='salt-'+c.id;section.setAttribute('aria-labelledby','title-'+c.id);
- section.innerHTML='<header class="card-header"><div class="card-kicker"><span>'+['','第一幕 · 皇帝最後的委託','第二幕 · 酸與鹼的祕密','第三幕 · 中和與鹽的誕生','第四幕 · 皇帝的製鹽挑戰'][c.act]+'</span><span>'+String(c.id).padStart(2,'0')+' / 12 · '+(defaults[c.type]?'動手探索':'故事與證據')+'</span></div><h2 id="title-'+c.id+'">'+c.title+'</h2><p class="core-question">'+c.question+'</p></header><div class="card-body"><p class="story-opening">'+c.opening+'</p>'+dialogue(c)+'<fieldset class="prediction"><legend>先猜一猜 · '+c.prediction+'</legend>'+c.choices.map((t,i)=>'<label><input type="radio" name="prediction-'+c.id+'" value="'+i+'"> '+t+'</label>').join('')+'<p class="prediction-status" role="status">先留下想法，之後用證據回頭檢查。</p></fieldset><div class="task"><span>這次的任務</span><p>'+c.task+'</p></div><div class="card-activity" id="activity-'+c.id+'"></div><div class="evidence-notebook"><label for="note-'+c.id+'">我的證據與推論 <small>我看到了什麼？這支持什麼？</small></label><textarea id="note-'+c.id+'" rows="2" maxlength="1000" placeholder="例如：同濃度下，鹽水讀數比糖水高；我認為……"></textarea><small>輸入後自動儲存。文字供回顧或老師檢視，不自動判分。</small></div><div class="concept-panels"><h3>把剛剛的證據說清楚</h3>'+c.panels.map(([t,h])=>'<details><summary>'+t+'</summary><div>'+h+'</div></details>').join('')+'</div><div class="challenge-heading"><span class="eyebrow">小試身手 / 檢查我的理解</span></div>'+quizMarkup(c.quiz)+(stage[c.id]?'<section class="stage-challenge"><div class="challenge-heading"><span class="eyebrow">階段挑戰 '+({3:'一',7:'二',10:'三'}[c.id])+'</span><h3>'+({3:'先用離子解釋差異',7:'用量對了，結論才可靠',10:'為每一克鹽找到去向'}[c.id])+'</h3></div>'+stage[c.id].map(quizMarkup).join('')+'</section>':'')+'<div class="next-clue"><span class="eyebrow">帶著線索往下走</span><p>'+c.next+'</p></div></div><footer class="card-footer"><span class="card-status"></span><div>'+(c.id>1?'<a href="#salt-'+(c.id-1)+'">← 上一站</a>':'')+'<button class="text-button reset-card">重設本卡</button>'+(c.id<12?'<a class="secondary" href="#salt-'+(c.id+1)+'">下一站 →</a>':'<a class="secondary" href="#chapter-top">回到起點 ↑</a>')+'</div></footer>';
+ section.innerHTML='<header class="card-header"><div class="card-kicker"><span>'+['','第一幕 · 皇帝最後的委託','第二幕 · 酸與鹼的祕密','第三幕 · 中和與鹽的誕生','第四幕 · 皇帝的製鹽挑戰'][c.act]+'</span><span>'+String(c.id).padStart(2,'0')+' / 12 · '+(defaults[c.type]?'動手探索':'故事與證據')+'</span></div><h2 id="title-'+c.id+'">'+c.title+'</h2><p class="core-question">'+c.question+'</p></header><div class="card-body"><p class="story-opening">'+c.opening+'</p>'+dialogue(c)+TermPrimer(c.id)+'<fieldset class="prediction"><legend>先猜一猜 · '+c.prediction+'</legend>'+c.choices.map((t,i)=>'<label><input type="radio" name="prediction-'+c.id+'" value="'+i+'"> '+t+'</label>').join('')+'<p class="prediction-status" role="status">先留下想法，之後用證據回頭檢查。</p></fieldset><div class="task"><span>這次的任務</span><p>'+c.task+'</p></div><div class="card-activity" id="activity-'+c.id+'"></div><div class="evidence-notebook"><label for="note-'+c.id+'">我的證據與推論 <small>我看到了什麼？這支持什麼？</small></label><textarea id="note-'+c.id+'" rows="2" maxlength="1000" placeholder="例如：同濃度下，鹽水讀數比糖水高；我認為……"></textarea><small>輸入後自動儲存。文字供回顧或老師檢視，不自動判分。</small></div><div class="concept-panels"><h3>把剛剛的證據說清楚</h3>'+c.panels.map(([t,h])=>'<details><summary>'+t+'</summary><div>'+h+'</div></details>').join('')+'</div><div class="challenge-heading"><span class="eyebrow">小試身手 / 檢查我的理解</span></div>'+quizMarkup(c.quiz)+(stage[c.id]?'<section class="stage-challenge"><div class="challenge-heading"><span class="eyebrow">階段挑戰 '+({3:'一',7:'二',10:'三'}[c.id])+'</span><h3>'+({3:'先用離子解釋差異',7:'用量對了，結論才可靠',10:'為每一克鹽找到去向'}[c.id])+'</h3></div>'+stage[c.id].map(quizMarkup).join('')+'</section>':'')+'<div class="next-clue"><span class="eyebrow">帶著線索往下走</span><p>'+c.next+'</p></div></div><footer class="card-footer"><span class="card-status"></span><div>'+(c.id>1?'<a href="#salt-'+(c.id-1)+'">← 上一站</a>':'')+'<button class="text-button reset-card">重設本卡</button>'+(c.id<12?'<a class="secondary" href="#salt-'+(c.id+1)+'">下一站 →</a>':'<a class="secondary" href="#chapter-top">回到起點 ↑</a>')+'</div></footer>';
  document.querySelector('#lesson').append(section);
  const pred=state.predictions[c.id];if(pred!==undefined){section.querySelector('.prediction input[value="'+pred+'"]').checked=true;section.querySelector('.prediction-status').textContent='已記下預測。完成探索後，可回來修正想法。';}
  section.querySelectorAll('.prediction input').forEach(el=>el.onchange=()=>{state.predictions[c.id]=Number(el.value);section.querySelector('.prediction-status').textContent='已記下預測。完成探索後，可回來修正想法。';save();refresh();});
@@ -1956,10 +2258,11 @@ function init(){
  document.querySelector('#chapter-route').innerHTML=cards.map(c=>'<a href="#salt-'+c.id+'" data-nav="'+c.id+'"><span>'+String(c.id).padStart(2,'0')+'</span><span>'+c.title+'</span><span class="nav-state">○</span></a>').join('');
  document.querySelector('#hero-artwork').innerHTML=landscape('saltfield');
  cards.forEach(renderCard);
+ mountTerminology();
  const motion=document.querySelector('#reduce-motion');motion.checked=state.reduced;document.body.classList.toggle('reduced-motion',state.reduced);motion.onchange=()=>{state.reduced=motion.checked;document.body.classList.toggle('reduced-motion',state.reduced);save();};
  document.querySelector('#clear-chapter-progress').onclick=()=>{for(const ctrl of controllers.values())ctrl.destroy();state=cleanState(null);document.querySelector('#reduce-motion').checked=false;document.body.classList.remove('reduced-motion');save();document.querySelector('#lesson').innerHTML='';cards.forEach(renderCard);refresh();};
  document.querySelector('#export-progress').onclick=()=>{const payload={chapter:'皇帝最後的製鹽委託',exportedAt:new Date().toISOString(),mastered:cards.filter(mastered).map(c=>c.id),...state};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='salt-adventure-learning-record.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
- function route(){document.querySelectorAll('[data-nav]').forEach(a=>a.classList.toggle('active',a.hash===location.hash));}
+ function route(){document.querySelectorAll('[data-nav]').forEach(a=>{const active=a.hash===location.hash;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','step');else a.removeAttribute('aria-current');});}
  addEventListener('hashchange',route);route();save();refresh();
  if(/^#salt-\d+$/.test(location.hash))requestAnimationFrame(()=>document.querySelector(location.hash)?.scrollIntoView({block:'start'}));
  addEventListener('pagehide',()=>{for(const ctrl of controllers.values())ctrl.destroy();});
