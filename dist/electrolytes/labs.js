@@ -1,6 +1,9 @@
 import { conductivity, speciate, solutions, indicator, neutralize, precipitate, crystallize, fmt, sci, bounded, ionInfo } from './core.js';
-import { conductScene, phScene, neutralScene, precipScene, crystalScene, ionsView, phScale, label, svg } from './art.js';
-import { escapeHTML, makeDraggable } from '../chemistry/components.js';
+import { ionsView, phScale, label, svg } from './art.js';
+import { conductScene, phScene, neutralScene, precipScene, crystalScene } from './apparatus.js';
+import { escapeHTML } from '../chemistry/components.js';
+import { labWorkflow } from './lab-workflow.js';
+import { setupWorkbench } from './lab-ui.js';
 export const defaults={
  conduct:{sample:'nacl',C:.01,loaded:false,immersed:false,powered:false,records:[]},
  indicator:{sample:'hcl',C:.01,dilution:1,kind:'btb',dropped:false,paper:false,meter:false,records:[]},
@@ -25,16 +28,19 @@ export function cleanLab(type,raw){
 }
 function metric(title,value,unit=''){return '<div class="salt-metric"><span>'+title+'</span><strong>'+value+' <small>'+unit+'</small></strong></div>';}
 let fieldSerial=0;
+
 function field(key,title,value,min,max,step,unit=''){
  const uid='salt-control-'+(++fieldSerial);
- return `<div class="salt-field"><label for="${uid}">${title} <small>${unit}</small></label><div><input id="${uid}" data-num="${key}" type="number" min="${min}" max="${max}" step="any" value="${value}" aria-describedby="${uid}-error"><input data-range="${key}" type="range" min="${min}" max="${max}" step="any" data-step="${step}" value="${value}" aria-label="${title}滑桿"></div><span id="${uid}-error" class="input-error" role="status"></span></div>`;
+ const presetMap={C:[.00001,.001,.01,.1],C0:[.01,.05,.1,.2],Ct:[.01,.05,.1,.2],C1:[0,.05,.1,.2],C2:[0,.05,.1,.2],dilution:[1,10,100,1000],V0:[10,20,50,100],V1:[10,20,50,100],V2:[10,20,50,100],step:[.1,.5,1,5],added:[0,10,20,40],water:[50,100,200,500],salt:[0,15,30,60],other:[0,3,5,10],dirt:[0,2,5,10],evap:[0,25,50,75,100]};
+ const presets=(presetMap[key]||[]).filter(v=>v>=min&&v<=max);
+ return '<div class="salt-field"><label for="'+uid+'">'+title+' <small>'+unit+'</small></label><div class="dial-value"><output data-num="'+key+'" for="'+uid+'">'+value+'</output><small>'+unit+'</small></div><input id="'+uid+'" data-range="'+key+'" type="range" min="'+min+'" max="'+max+'" step="any" data-step="'+step+'" value="'+value+'" aria-label="'+title+'滑桿"><div class="parameter-presets" role="group" aria-label="'+title+'快捷設定">'+presets.map(v=>'<button type="button" data-preset="'+key+'" data-value="'+v+'" aria-label="'+title+'設為 '+v+' '+unit+'">'+v+'</button>').join('')+'</div><span class="input-error" role="status"></span></div>';
 }
 function select(key,title,options,value){return '<label class="salt-select">'+title+'<select data-select="'+key+'">'+options.map(([v,t])=>'<option value="'+v+'" '+(v===value?'selected':'')+'>'+t+'</option>').join('')+'</select></label>';}
 function buttons(items){return '<div class="salt-actions">'+items.map(([key,text,cls])=>'<button type="button" class="'+(cls||'secondary')+'" data-action="'+key+'">'+text+'</button>').join('')+'</div>';}
 function labFrame(root,title,controls,note){root.innerHTML='<div class="lab-guide" role="status"></div><div class="salt-workbench"><div class="salt-stage"><div class="bench-label"><span>'+title+'</span><button class="text-button" data-action="zoom" aria-pressed="false">放大觀察 ⤢</button></div><div class="salt-scene"></div><div class="readouts" aria-live="off"></div><div class="lab-chart"></div><details class="micro-details"><summary>放大：追蹤看不見的粒子與物質</summary><div class="micro-view"></div></details><p class="model-note">'+note+'</p></div><aside class="salt-controls">'+controls+'<p class="action-error" role="status"></p></aside></div><div class="lab-records"><h3>我的實驗紀錄 <small>改一個條件，找出差別</small></h3><div class="record-list"></div></div>';}
 function ionRows(entries){return '<div class="ion-ledger">'+entries.map(([name,n])=>'<span><b>'+name+'</b> '+sci(n)+' mol</span>').join('')+'</div>';}
 export function mountLab(root,type,ctx){
- let s=cleanLab(type,ctx.data),timer=null,running=false,disposed=false;
+ let s=cleanLab(type,ctx.data),timer=null,running=false,disposed=false,changeHandler=null,motionTimer=null;
  const $=q=>root.querySelector(q);
  const stop=()=>{if(timer)clearInterval(timer);timer=null;running=false;};
  const save=()=>{ctx.save(s);};
@@ -42,19 +48,22 @@ export function mountLab(root,type,ctx){
  const record=(text,category='')=>{s.records.push({text,category});s.records=s.records.slice(-20);save();drawRecords();};
  function drawRecords(){$('.record-list').innerHTML=s.records.length?s.records.map((r,i)=>'<p><span>'+String(i+1).padStart(2,'0')+'</span>'+escapeHTML(r.text)+'</p>').join(''):'<p class="muted">還沒有紀錄。完成一次操作，再把證據記下來。</p>';}
  function bind(onChange){
+  changeHandler=onChange;
+
   root.querySelectorAll('[data-num]').forEach(n=>{
-   const key=n.dataset.num,r=root.querySelector('[data-range="'+key+'"]'),err=root.querySelector('#'+n.getAttribute('aria-describedby'));
-   function input(e){const el=e.target;try{const v=bounded(el.value,Number(n.min),Number(n.max),n.labels?.[0]?.textContent||key);n.setCustomValidity('');err.textContent='';n.value=v;r.value=v;s[key]=v;onChange(key);save();}catch(error){n.setCustomValidity(error.message);err.textContent=error.message+'；保留前一組有效實驗值。';}}
-   n.addEventListener('input',input);r.addEventListener('input',input);
-   r.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','ArrowDown','ArrowUp','Home','End'].includes(e.key))return;e.preventDefault();const min=Number(n.min),max=Number(n.max),delta=Number(r.dataset.step),current=Number(r.value),next=e.key==='Home'?min:e.key==='End'?max:current+(['ArrowRight','ArrowUp'].includes(e.key)?delta:-delta);r.value=Number(Math.max(min,Math.min(max,next)).toPrecision(12));input({target:r});});
+   const key=n.dataset.num,r=root.querySelector('[data-range="'+key+'"]'),err=n.closest('.salt-field').querySelector('.input-error');
+   function input(){try{const v=bounded(r.value,Number(r.min),Number(r.max),key);err.textContent='';n.value=Number(v.toPrecision(8));s[key]=v;onChange(key);save();}catch(error){err.textContent=error.message+'；保留前一組有效實驗值。';r.value=s[key];}}
+   r.addEventListener('input',input);
+   r.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','ArrowDown','ArrowUp','Home','End'].includes(e.key))return;e.preventDefault();const min=Number(r.min),max=Number(r.max),delta=Number(r.dataset.step),current=Number(r.value),next=e.key==='Home'?min:e.key==='End'?max:current+(['ArrowRight','ArrowUp'].includes(e.key)?delta:-delta);r.value=Number(Math.max(min,Math.min(max,next)).toPrecision(12));input();});
   });
   root.querySelectorAll('[data-select]').forEach(el=>el.onchange=()=>{s[el.dataset.select]=el.value;onChange(el.dataset.select);save();});
   root.addEventListener('click',handler);
  }
- function handler(e){const btn=e.target.closest('[data-action]');if(!btn)return;const a=btn.dataset.action;
+ function handler(e){const btn=e.target.closest('[data-action]');if(!btn||btn.disabled)return;const a=btn.dataset.action;
   if(a==='zoom'){const active=!root.classList.contains('expanded-lab');root.classList.toggle('expanded-lab',active);btn.setAttribute('aria-pressed',String(active));btn.textContent=active?'縮回操作區 ↙':'放大觀察 ⤢';return;}
   if(root.querySelector('input:invalid')){$('.action-error').textContent='請先修正標示的數值。';return;}
-  $('.action-error').textContent='';act(a);save();
+  if(labWorkflow(type,s,running).disabled.includes(a))return;
+  $('.action-error').textContent='';act(a);root.dataset.operation=a;clearTimeout(motionTimer);motionTimer=setTimeout(()=>{delete root.dataset.operation;},1100);save();
  }
  const opts=ids=>ids.map(id=>[id,solutions[id].name+' · '+solutions[id].formula]);
  let draw,act;
@@ -63,18 +72,17 @@ export function mountLab(root,type,ctx){
   draw=()=>{
    const r=conductivity(s.sample,s.C,s.loaded&&s.immersed,s.powered);
    $('.salt-scene').innerHTML=conductScene(r,{...s,id:'conductor'});
-   $('.readouts').innerHTML=metric('導電比較分數',fmt(r.score,4),'/ 100')+metric('樣品',s.loaded?solutions[s.sample].formula:'尚未放入')+metric('溶質形成離子比例',s.loaded&&r.mobile?fmt(r.alpha*100):'—','%');
+   $('.readouts').innerHTML=metric('導電比較分數',fmt(r.score,r.score>=1?2:4),'/ 100')+metric('樣品',s.loaded?solutions[s.sample].formula:'尚未放入')+metric('溶質形成離子比例',s.loaded&&r.mobile?fmt(r.alpha*100):'—','%');
    $('.micro-view').innerHTML=ionsView(s.sample==='solid'?[{label:'Na⁺',charge:1,c:1},{label:'Cl⁻',charge:-1,c:1}]:r.ions,{solid:s.sample==='solid',on:s.loaded&&s.immersed&&s.powered,id:'conduct-micro',neutral:s.sample==='sugar'?'糖仍以中性分子存在，微量 H⁺、OH⁻ 來自水':s.sample==='acetic'?'多數醋酸分子仍未游離；圖中粒子數不按比例':''});
    if(!s.loaded)$('.micro-view').innerHTML='<p>先放入樣品，再觀察其中的粒子。</p>';
    $('[data-action="power"]').setAttribute('aria-pressed',String(s.powered));$('[data-action="electrode"]').setAttribute('aria-pressed',String(s.immersed));
    $('[data-num="C"]').disabled=['water','solid'].includes(s.sample);$('[data-range="C"]').disabled=['water','solid'].includes(s.sample);
-   guide(!s.loaded?'① 點樣品按鈕，或拖到燒杯區。':!s.immersed?'② 放下電極，讓兩極接觸樣品。':!s.powered?'③ 開啟低電壓檢測。':'④ 觀察讀數，記錄後換一種樣品比較。');
+   guide(!s.loaded?'① 選擇樣品，再點燒杯放入。':!s.immersed?'② 放下電極，讓兩極接觸樣品。':!s.powered?'③ 開啟低電壓檢測。':'④ 觀察讀數，記錄後換一種樣品比較。');
   };
-  act=a=>{if(a==='load'){s.loaded=true;s.powered=false;}if(a==='electrode')s.immersed=!s.immersed;if(a==='power')s.powered=!s.powered;
-   if(a==='record'){if(!(s.loaded&&s.immersed&&s.powered)){guide('先放入樣品、接觸電極並開啟檢測，才能記錄。');return;}const r=conductivity(s.sample,s.C);record(solutions[s.sample].name+'｜'+(s.sample==='solid'?'固態':s.sample==='water'?'純水':s.C+' mol/L')+'｜導電分數 '+fmt(r.score,4),s.sample);if(new Set(s.records.map(x=>x.category)).size>=2)ctx.mark();}draw();
+  act=a=>{if(a==='load'){s.loaded=true;s.powered=false;s.immersed=false;}if(a==='electrode')s.immersed=!s.immersed;if(a==='power')s.powered=!s.powered;
+   if(a==='record'){if(!(s.loaded&&s.immersed&&s.powered)){guide('先放入樣品、接觸電極並開啟檢測，才能記錄。');return;}const r=conductivity(s.sample,s.C);record(solutions[s.sample].name+'｜'+(s.sample==='solid'?'固態':s.sample==='water'?'純水':s.C+' mol/L')+'｜導電分數 '+fmt(r.score,r.score>=1?2:4),s.sample);if(new Set(s.records.map(x=>x.category)).size>=2)ctx.mark();}draw();
   };
-  bind(k=>{if(k==='sample'){s.loaded=false;s.powered=false;}draw();});
-  const load=$('[data-action="load"]');root.removeEventListener('click',handler);makeDraggable(load,$('.salt-scene'),()=>{if(!root.querySelector('input:invalid')){act('load');save();}},$('.lab-guide'));root.addEventListener('click',e=>{if(e.target.closest('[data-action="load"]'))return;handler(e);});
+  bind(k=>{if(k==='sample'){s.loaded=false;s.powered=false;s.immersed=false;}draw();});
  }
  if(type==='indicator'){
   labFrame(root,'鹵水檢測室 / 酸鹼鑑定',select('sample','已知對照溶液',opts(['water','nacl','sugar','hcl','acetic','naoh','ammonia','carbonate']),s.sample)+field('C','原始濃度',s.C,.000001,.1,.001,'mol/L')+field('dilution','稀釋倍數',s.dilution,1,10000,1,'原體積的倍數')+select('kind','選擇指示劑',[['red','紅色石蕊試紙'],['blue','藍色石蕊試紙'],['phenol','酚酞'],['btb','BTB'],['universal','廣用指示劑']],s.kind)+buttons([['drop','滴加／蘸取指示劑','primary'],['paper','用 pH 試紙蘸取'],['meter','插入 pH 計'],['record','記錄並比較']]),'同一套 25°C 理想平衡資料驅動 pH、H⁺、OH⁻、顏色。醋酸 Ka=1.8×10⁻⁵；氨 Kb=1.8×10⁻⁵。假設指示劑量很少、不改變樣品 pH；試紙用另一份等同樣品。');
@@ -85,7 +93,7 @@ export function mountLab(root,type,ctx){
    $('.micro-view').innerHTML='<div class="readouts">'+metric('[H⁺]',sci(r.H),'mol/L')+metric('[OH⁻]',sci(r.OH),'mol/L')+metric('比較',Math.abs(r.pH-7)<1e-7?'相等：中性':r.pH<7?'H⁺ > OH⁻：酸性':'H⁺ < OH⁻：鹼性')+'</div><p>水溶液中兩種離子都存在；圖與數值為理想模型。</p>';
    guide(!s.dropped?'① 先選一種指示劑，滴加或蘸取樣品。':!s.paper?'② 用另一份樣品測 pH 試紙。':!s.meter?'③ 插入 pH 計，核對顏色估讀。':'④ 改變濃度或稀釋倍數，記錄比較。');
   };
-  act=a=>{if(a==='drop')s.dropped=true;if(a==='paper')s.paper=true;if(a==='meter')s.meter=true;if(a==='record'){if(!s.meter){guide('先插入 pH 計取得讀值。');return;}const r=speciate(s.sample,s.C,s.dilution);record(solutions[s.sample].name+'｜'+sci(r.C)+' mol/L｜pH '+fmt(r.pH)+'｜'+indicator(s.kind,r.pH).label,s.sample+'-'+s.dilution);if(s.dropped&&s.paper&&s.meter&&s.records.length>=2)ctx.mark();}draw();};
+  act=a=>{if(a==='drop')s.dropped=true;if(a==='paper')s.paper=true;if(a==='meter')s.meter=true;if(a==='record'){if(!s.meter){guide('先插入 pH 計取得讀值。');return;}const r=speciate(s.sample,s.C,s.dilution);record(solutions[s.sample].name+'｜'+sci(r.C)+' mol/L｜pH '+fmt(r.pH)+'｜'+(s.dropped?indicator(s.kind,r.pH).label:'尚未觀察指示劑'),s.sample+'-'+s.dilution);if(s.dropped&&s.paper&&s.meter&&s.records.length>=2)ctx.mark();}draw();};
   bind(k=>{if(k==='sample')s.dropped=s.paper=s.meter=false;if(k==='kind')s.dropped=false;draw();});
  }
  if(type==='neutral'){
@@ -94,7 +102,7 @@ export function mountLab(root,type,ctx){
   draw=()=>{const r=calc();
    $('.salt-scene').innerHTML=neutralScene(r,{v:s.added,reverse:s.reverse,pouring:running,id:'titration'});
    $('.readouts').innerHTML=metric('pH（25°C）',fmt(r.pH))+metric('溫度（理想）',fmt(r.temperature),'°C')+metric('已反應',fmt(r.reacted*1000,3),'mmol')+metric('酸 / 鹼初始',fmt(r.a*1000,3)+' / '+fmt(r.b*1000,3),'mmol');
-   const eq=s.C0*s.V0/s.Ct,max=Math.min(200,Math.max(50,eq*1.5)),points=Array.from({length:161},(_,i)=>{const v=max*i/160,p=calc(v).pH;return (52+v/max*635)+','+(196-p/14*165);}).join(' ');
+   const eq=s.C0*s.V0/s.Ct,max=Math.min(200,Math.max(50,eq*1.5,s.added)),points=Array.from({length:161},(_,i)=>{const v=max*i/160,p=calc(v).pH;return (52+v/max*635)+','+(196-p/14*165);}).join(' ');
    $('.lab-chart').innerHTML='<svg viewBox="0 0 760 245" role="img" aria-label="pH 隨滴定體積變化圖"><path d="M52 26V198H690" stroke="#8c9e88" fill="none"/>'+[0,7,14].map(n=>label(30,201-n/14*165,String(n),12)).join('')+'<polyline points="'+points+'" fill="none" stroke="#537e65" stroke-width="3"/><circle cx="'+(52+Math.min(max,s.added)/max*635)+'" cy="'+(196-r.pH/14*165)+'" r="5" fill="#b27745"/>'+label(380,232,'加入體積 0 ～ '+fmt(max)+' mL',13)+label(111,23,'pH',12)+'</svg>';
    $('.micro-view').innerHTML='<p class="equation">H⁺ + OH⁻ → H₂O</p>'+ionRows([['Na⁺（旁觀）',r.Na],['Cl⁻（旁觀）',r.Cl],['剩餘酸當量',r.acidLeft],['剩餘鹼當量',r.baseLeft],['新生成水',r.waterMade]])+'<p>「剩餘當量」是反應物差額；水本身仍提供微量 H⁺、OH⁻。<br>放熱 Q = '+fmt(r.Q)+' J；ΔT = Q ÷（總質量 × 4.18）。</p>';
    $('[data-num="added"]').value=s.added;$('[data-range="added"]').value=s.added;
@@ -143,7 +151,23 @@ export function mountLab(root,type,ctx){
   };
   bind(k=>{stop();if(['mode','water','salt','other','dirt'].includes(k)){s.pooled=false;s.evap=0;s.filtered=s.settled=false;}if(k!=='weather')s.separated=false;draw();});
  }
+ function syncControls(){
+  root.querySelectorAll('[data-num]').forEach(n=>{n.value=s[n.dataset.num];root.querySelector('[data-range="'+n.dataset.num+'"]').value=s[n.dataset.num];});
+  root.querySelectorAll('[data-select]').forEach(n=>{n.value=String(s[n.dataset.select]);});
+  root.querySelectorAll('.input-error,.action-error').forEach(n=>n.textContent='');
+ }
+ const ui=setupWorkbench(root,type,{
+  state:()=>s,
+  change:(key,value)=>{stop();s[key]=value;syncControls();changeHandler(key);save();},
+  reset:()=>{stop();const records=s.records;s=structuredClone(defaults[type]);s.records=records;syncControls();draw();drawRecords();save();}
+ });
+ const baseDraw=draw;
+ draw=()=>{
+  const focused=document.activeElement,focusedAction=focused?.closest('.salt-scene')=== $('.salt-scene')?focused.dataset.action:null;
+  baseDraw();ui.update(s,running);
+  if(focusedAction)root.querySelector('.salt-scene [data-action="'+focusedAction+'"]')?.focus({preventScroll:true});
+ };
  draw();drawRecords();
- return{destroy(){disposed=true;stop();},getState(){return structuredClone(s);}};
+ return{destroy(){disposed=true;clearTimeout(motionTimer);stop();},getState(){return structuredClone(s);}};
 }
 

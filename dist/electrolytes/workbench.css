@@ -1,0 +1,174 @@
+/* Chapter 3 precision workbenches; scoped to preserve the story and other chapters. */
+.salt-chapter .precision-lab{--bench-ink:#274f43;--bench-muted:#78877c;--bench-line:#dbe3d8;--bench-gold:#b78d52;margin:28px 0;font-family:system-ui,"Microsoft JhengHei",sans-serif}
+.precision-lab [hidden]{display:none!important}
+.precision-lab button:focus-visible,.precision-lab summary:focus-visible,.precision-lab input:focus-visible,.precision-lab select:focus-visible{outline:3px solid #b98e47;outline-offset:4px}
+.precision-lab .workbench-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 0 20px}
+.precision-lab .bench-eyebrow{font-size:10px;letter-spacing:1.8px;color:#947b50;font-weight:650}
+.salt-chapter .precision-lab .workbench-heading h3{font-size:25px;letter-spacing:.3px;margin:5px 0 0;color:var(--bench-ink)}
+.precision-lab .bench-utilities{display:flex;gap:12px;align-items:center}
+.precision-lab .virtual-badge{font-size:11px;border:1px solid #dce4d9;border-radius:20px;padding:7px 10px;background:#f4f7f1;color:#67816b}
+.precision-lab .bench-utilities button{font-size:11px;background:transparent;border:0;color:#64796a;padding:8px}
+.precision-lab .bench-steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);padding:0;margin:0 0 12px;gap:6px}
+.precision-lab .bench-steps li{display:flex;gap:8px;align-items:center;border-top:3px solid #e4e9df;padding:12px 8px 6px;font-size:12px;color:#8c968b}
+.precision-lab .bench-steps li>span{display:grid;place-items:center;width:25px;height:25px;border-radius:50%;font-size:10px;background:#eef1e8;flex-shrink:0}
+.precision-lab .bench-steps li.current{color:var(--bench-ink);border-color:#38664f;font-weight:700}
+.precision-lab .bench-steps li.current>span{background:#38664f;color:#fff}
+.precision-lab .bench-steps li.done{border-color:#a5bda0;color:#6b8869}
+.precision-lab .lab-guide{display:flex;align-items:center;gap:12px;min-height:62px;padding:13px 18px;border:1px solid var(--bench-line);border-radius:14px 14px 0 0;background:#f0f4e9}
+.precision-lab .step-chip{white-space:nowrap;background:#dfe9d5;border-radius:5px;padding:5px 7px;font-size:10px;color:#587147}
+.precision-lab .lab-guide strong{font-size:13px;font-weight:500;line-height:1.75}
+.precision-lab .salt-workbench{grid-template-columns:minmax(0,1fr) 280px;gap:0;padding:0;background:#fbfcf7;border:1px solid var(--bench-line);border-top:0;box-shadow:0 10px 30px #2b513908;border-radius:0 0 16px 16px;overflow:hidden}
+.precision-lab .salt-stage{padding:20px;min-width:0}
+.precision-lab .bench-label{font-size:10px;letter-spacing:.4px;line-height:1.7;margin-bottom:12px}
+.precision-lab .bench-label button{white-space:nowrap;font-size:10px;color:#3e6750;padding:5px 8px;border:1px solid #dce5d9;border-radius:5px;background:#fffdf5}
+.precision-lab .salt-scene{border:1px solid #d4dfd5;border-radius:11px;box-shadow:0 3px 12px #385d4020;min-height:0;background:#edf3ec}
+.precision-lab .salt-scene>svg{width:100%;height:auto;display:block}
+.precision-lab .salt-controls{padding:20px 16px;background:#f3f5ed;border-left:1px solid var(--bench-line);display:flex;flex-direction:column;gap:14px}
+.precision-lab .controls-heading{display:flex;justify-content:space-between;gap:8px;align-items:center;border-bottom:1px solid #dde5d7;padding-bottom:12px}
+.precision-lab .controls-heading>span{font-size:13px;font-weight:700;color:var(--bench-ink)}
+.precision-lab .controls-heading small{font-size:10px;color:#8a947f}
+.precision-lab .sample-rack{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.precision-lab .sample-rack button{padding:9px 6px;min-height:62px;display:flex;align-items:center;gap:7px;background:#fffef9;border:1px solid #d9e1d3;border-radius:8px;text-align:left;color:#4b6351;transition:background .15s,box-shadow .15s,transform .15s}
+.precision-lab .sample-rack button:hover{transform:translateY(-2px);box-shadow:0 5px 9px #3c583010}
+.precision-lab .sample-rack button[aria-pressed=true]{background:#e9f0df;border:1.5px solid #779967;box-shadow:inset 0 0 0 1px #77996722}
+.precision-lab .sample-rack button>span{font-size:11px;font-weight:650;line-height:1.5;min-width:0}
+.precision-lab .sample-rack small{display:block;font-size:9px;line-height:1.5;font-weight:400;color:#7b8c76;overflow-wrap:anywhere}
+.precision-lab .mini-vial{position:relative;display:block;width:21px;height:31px;flex-shrink:0;margin:6px 3px 1px;border:1px solid #91b0a3;border-radius:5px 5px 4px 4px;background:linear-gradient(90deg,#ffffffcc,#d2e4d966,#ffffffcc);box-shadow:0 3px 2px #4866440b}
+.precision-lab .mini-vial:before{content:"";position:absolute;left:4px;top:-6px;width:11px;height:7px;background:#8f9f87;border-radius:2px}
+.precision-lab .mini-vial span{position:absolute;left:2px;right:2px;bottom:2px;height:19px;background:#a9cfc277;border-top:1px solid #91b7a9;border-radius:0 0 2px 2px}
+.precision-lab .solid-vial span{background:repeating-linear-gradient(50deg,#f5efdf 0 3px,#ddd6c4 3px 4px);height:11px}
+.precision-lab .salt-select{margin:0;font-size:12px;color:#50674e}
+.precision-lab .salt-select select{min-height:40px;margin-top:7px;border-color:#ccd9c6;font-size:12px;border-radius:7px}
+.precision-lab .parameter-panel{border:1px solid #d7dfd0;background:#fbfcf6;border-radius:8px}
+.precision-lab .parameter-panel summary{display:grid;grid-template-columns:1fr auto;cursor:pointer;padding:12px;list-style:none}
+.precision-lab .parameter-panel summary>span{font-size:11px;font-weight:650}
+.precision-lab .parameter-summary{grid-column:1;grid-row:2;color:#849077;font-size:10px;margin-top:5px;line-height:1.5}
+.precision-lab .parameter-panel summary>b{grid-column:2;grid-row:1/3;align-self:center;color:#809174;font-weight:400;font-size:18px}
+.precision-lab .parameter-panel[open] summary>b{transform:rotate(45deg)}
+.precision-lab .parameter-fields{padding:0 12px 8px;border-top:1px solid #e5eadf}
+.precision-lab .parameter-fields>.salt-field:first-child{margin-top:12px}
+.precision-lab .salt-field{margin:0 0 13px}
+.precision-lab .salt-field label{font-size:11px}
+.precision-lab .salt-field input[type=number]{font-size:13px;padding:8px;min-height:36px;background:white}
+.precision-lab .salt-field>div{grid-template-columns:82px 1fr}
+.precision-lab input[type=range]{height:24px;cursor:ew-resize}
+.precision-lab input:disabled{opacity:.4;cursor:not-allowed}
+.precision-lab .salt-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:0}
+.precision-lab .salt-actions button{display:flex;align-items:center;justify-content:center;gap:6px;min-height:43px;padding:9px 6px;border:1px solid #cfdcc7;border-radius:7px;background:#fffef7;color:#466249;font-size:11px;line-height:1.5;transition:background .15s,transform .15s}
+.precision-lab .salt-actions button:before{content:attr(data-icon);font-size:15px;font-weight:400}
+.precision-lab .salt-actions button:not(:disabled):hover{border-color:#70936b;transform:translateY(-1px)}
+.precision-lab .salt-actions button.next-action{background:#315e48;border-color:#315e48;color:#fff8e4;box-shadow:0 3px 9px #305e4420}
+.precision-lab .salt-actions button[data-action=record]{grid-column:1/-1;background:#e9eddf;border-style:dashed}
+.precision-lab .salt-actions button[data-action=record].next-action{background:#315e48;color:#fff}
+.precision-lab .salt-actions button.tool-used:not(.next-action){background:#e9f0e2}
+.precision-lab button:disabled{opacity:.35;cursor:not-allowed;box-shadow:none;transform:none}
+.precision-lab .readouts{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:14px 0}
+.precision-lab .salt-metric{border:0;border-left:1px solid #dce3d4;border-radius:0;background:transparent;padding:4px 10px}
+.precision-lab .salt-metric:first-child{border-left:0;padding-left:0}
+.precision-lab .salt-metric>span{font-size:10px;line-height:1.7}
+.precision-lab .salt-metric strong{font-family:ui-monospace,Consolas,monospace;font-size:23px;font-weight:550;color:#365c47;line-height:1.7;letter-spacing:-.7px}
+.precision-lab .salt-metric strong small{font-family:system-ui,sans-serif;font-size:10px;color:#879079;letter-spacing:0}
+.precision-lab[data-lab=neutral] .salt-stage>.readouts,.precision-lab[data-lab=crystal] .salt-stage>.readouts{grid-template-columns:repeat(4,minmax(0,1fr))}
+.precision-lab .bench-insight{display:flex;align-items:center;gap:10px;background:#edf2e5;border:1px solid #e0e8d6;border-radius:9px;padding:12px 14px;margin:14px 0}
+.precision-lab .observation-icon{font-size:23px;color:#8a9b67}
+.precision-lab .bench-insight small{display:block;font-size:10px;color:#859071;margin-bottom:3px}
+.precision-lab .bench-insight strong{font-size:13px;color:#4f6948}
+.precision-lab .model-assumptions{font-size:10px;color:#8c947e;margin:12px 0 0}
+.precision-lab .model-assumptions summary{cursor:pointer}
+.precision-lab .model-note{font-size:10px}
+.precision-lab .micro-details{margin:12px 0;border-color:#dfe5d7;background:#fffef6}
+.precision-lab .micro-details summary{font-size:11px}
+.precision-lab .micro-view .readouts{grid-template-columns:repeat(2,minmax(0,1fr))}
+.precision-lab .lab-chart svg{max-height:180px}
+.precision-lab .lab-chart:empty{display:none}
+.precision-lab .apparatus-layer{position:absolute;inset:0;pointer-events:none}
+.precision-lab .apparatus-control{position:absolute;transform:translate(-50%,-50%);pointer-events:auto;white-space:nowrap;min-height:32px;padding:6px 10px;border-radius:18px;font-size:10px;border:1px solid #ccd7c1;background:#fffff4eb;color:#4d6852;box-shadow:0 3px 8px #2d533321;backdrop-filter:blur(5px)}
+.precision-lab .apparatus-control.suggested{background:#315e48;color:#fff8e5;border-color:#315e48;box-shadow:0 0 0 4px #fff8,0 4px 10px #264a3840}
+.precision-lab .apparatus-control:not(:disabled):hover{filter:brightness(1.1);box-shadow:0 0 0 4px #bdcfac66}
+.precision-lab .apparatus-control:disabled{opacity:.45}
+.precision-lab .quick-dilution>span,.precision-lab .dose-picker>span{font-size:11px;font-weight:650}
+.precision-lab .quick-dilution>div,.precision-lab .dose-picker>div{display:flex;gap:5px;margin-top:8px}
+.precision-lab .quick-dilution button,.precision-lab .dose-picker button{flex:1;border:1px solid #cbd8c2;border-radius:6px;padding:8px 4px;font-size:10px;background:#fffdf6;color:#55744f}
+.precision-lab .dose-picker button[aria-pressed=true]{background:#315e48;color:white;border-color:#315e48}
+.precision-lab .dose-picker small,.precision-lab .quick-dilution small{display:block;color:#86917d;font-size:10px;margin-top:7px;line-height:1.6}
+.precision-lab .dose-picker button small{display:inline;font-size:9px;color:inherit}
+.precision-lab .lab-announcement{font-size:11px;color:#587748;line-height:1.8;margin:0;min-height:0}
+.precision-lab .lab-announcement:empty{display:none}
+.precision-lab .lab-records{margin:15px 0 10px;border:1px solid #dce3d4;background:#fffef7;border-radius:11px}
+.precision-lab .lab-records h3{background:#f0f3e9;padding:14px 17px;font-size:13px;font-weight:650}
+.precision-lab .record-count{display:inline-block;border-radius:12px;margin-left:7px;padding:2px 8px;background:#dfe8d5;color:#668059;font-size:10px}
+.precision-lab .record-list .muted{padding:18px;font-size:11px}
+.precision-lab .record-list p{font-size:12px;line-height:1.8}
+.precision-lab .record-list p:last-child:not(.muted){background:#f8faf2}
+.precision-lab.expanded-lab .salt-workbench{grid-template-columns:1fr}
+.precision-lab.expanded-lab .salt-stage{max-width:1100px;width:100%;margin:auto}
+.precision-lab.expanded-lab .salt-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-left:0;padding:20px}
+.precision-lab.expanded-lab .controls-heading{grid-column:1/-1}
+.precision-lab.expanded-lab .sample-rack{grid-template-columns:repeat(2,1fr)}
+@media(min-width:1500px){.precision-lab .salt-workbench{grid-template-columns:minmax(0,1fr) 310px}.precision-lab .salt-stage{padding:24px}.precision-lab .salt-controls{padding:24px 20px}.precision-lab .sample-rack button>span{font-size:12px}.precision-lab .apparatus-control{font-size:12px}}
+@media(max-width:1200px){.precision-lab .salt-workbench{grid-template-columns:minmax(0,1fr) 245px}.precision-lab .salt-stage{padding:14px}.precision-lab .salt-controls{padding:14px 12px}.precision-lab .apparatus-control{font-size:9px;padding:5px 7px}.precision-lab .salt-metric strong{font-size:19px}.precision-lab .sample-rack{gap:5px}.precision-lab .mini-vial{width:17px}.precision-lab .sample-rack button{gap:4px;padding:8px 4px}.precision-lab .sample-rack button>span{font-size:10px}}
+@media(max-width:1020px){.precision-lab .salt-workbench{grid-template-columns:1fr}.precision-lab .salt-controls{display:grid;grid-template-columns:1fr 1fr;border-left:0;border-top:1px solid var(--bench-line);padding:18px;gap:14px}.precision-lab .controls-heading{grid-column:1/-1}.precision-lab .sample-rack{grid-template-columns:repeat(2,1fr);grid-row:span 3}.precision-lab .lab-announcement,.precision-lab .action-error{grid-column:1/-1}.precision-lab .apparatus-control{font-size:11px}.precision-lab .salt-controls .salt-actions{grid-column:auto}.precision-lab .virtual-badge{display:none}}
+@media(max-width:600px){.precision-lab .workbench-heading{align-items:start}.salt-chapter .precision-lab .workbench-heading h3{font-size:23px}.precision-lab .bench-steps{gap:3px}.precision-lab .bench-steps li{font-size:10px;padding:10px 1px;gap:4px;flex-direction:column}.precision-lab .lab-guide{display:block;padding:12px}.precision-lab .step-chip{display:inline-block;margin-bottom:6px}.precision-lab .lab-guide strong{display:block;font-size:12px}.precision-lab .salt-stage{padding:10px}.precision-lab .apparatus-control{font-size:8px;padding:4px 5px;min-height:27px}.precision-lab .salt-controls,.precision-lab.expanded-lab .salt-controls{display:flex;padding:14px;gap:13px}.precision-lab .sample-rack,.precision-lab.expanded-lab .sample-rack{grid-template-columns:repeat(2,1fr)}.precision-lab .sample-rack button>span{font-size:12px}.precision-lab .salt-stage>.readouts,.precision-lab[data-lab=neutral] .salt-stage>.readouts,.precision-lab[data-lab=crystal] .salt-stage>.readouts{grid-template-columns:repeat(2,minmax(0,1fr))}.precision-lab .salt-metric:nth-child(3){border-left:0;padding-left:0}.precision-lab .bench-label>span{font-size:9px}.precision-lab .bench-label button{font-size:9px}.precision-lab .bench-eyebrow{font-size:9px}.precision-lab .bench-utilities button{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.precision-lab *{transition:none!important;animation:none!important}}
+
+@media(max-width:600px){.salt-chapter .compare-solutions{grid-template-columns:1fr}.salt-chapter .compare-solutions section{min-width:0;overflow-wrap:anywhere}}
+
+/* Click-first learning: four predictions, one question, no typing. */
+.salt-chapter .salt-hero-art{padding:0;overflow:hidden;background:#dfdfc9;box-shadow:0 12px 34px #234b3020;border-radius:14px}
+.salt-chapter .saltfield-visit{width:100%;aspect-ratio:4/3;background:url('../assets/story/saltfield-visit.png') center/cover no-repeat}
+.salt-chapter .prediction{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:20px;background:#f3f6ed;border:1px solid #d8e2cc;border-radius:12px}
+.salt-chapter .prediction legend{font-weight:700;font-size:16px;line-height:1.7;padding:0 7px}
+.salt-chapter .prediction>label{display:flex;align-items:center;gap:10px;min-height:58px;margin:0;padding:12px 14px;background:#fffef8;border:1px solid #d5dfce;border-radius:8px;cursor:pointer;font-size:14px;line-height:1.6;transition:background .15s,border-color .15s}
+.salt-chapter .prediction>label:hover{background:#eaf1e3;border-color:#93ae85}
+.salt-chapter .prediction>label:has(input:checked){border-color:#476d50;background:#e4edda;box-shadow:inset 0 0 0 1px #476d50}
+.salt-chapter .prediction input{position:absolute;opacity:0;width:1px;height:1px}
+.salt-chapter .prediction>label:has(input:focus-visible){outline:3px solid #b38c44;outline-offset:3px}
+.salt-chapter .prediction-letter{display:grid;place-items:center;flex-shrink:0;width:29px;height:29px;border-radius:50%;background:#f0f3e8;color:#71865e;font:600 13px ui-monospace,monospace}
+.salt-chapter .prediction input:checked+.prediction-letter{background:#375e42;color:#fff}
+.salt-chapter .prediction-status{grid-column:1/-1;margin:3px 0 0;font-size:12px;color:#728367}
+.precision-lab .salt-field>div.dial-value{display:flex;align-items:baseline;justify-content:space-between;gap:6px;margin-top:8px;padding:9px 10px;border:1px solid #dce4d0;border-radius:7px;background:linear-gradient(145deg,#e8eddf,#f9f9ee);box-shadow:inset 0 2px 3px #49683b0c}
+.precision-lab .dial-value output{font:600 20px/1.3 ui-monospace,Consolas,monospace;color:#36583e;font-variant-numeric:tabular-nums}
+.precision-lab .dial-value small{font-size:10px;color:#81906f}
+.precision-lab .salt-field>input[type=range]{display:block;width:100%;margin:12px 0;height:24px;appearance:none;background:transparent;touch-action:pan-y}
+.precision-lab input[type=range]::-webkit-slider-runnable-track{height:5px;border-radius:4px;background:linear-gradient(to right,#72945d 0 var(--range-fill,0%),#dbe4d1 var(--range-fill,0%) 100%)}
+.precision-lab input[type=range]::-webkit-slider-thumb{appearance:none;width:21px;height:21px;margin-top:-8px;border:2px solid #fffdf5;border-radius:50%;background:#426a48;box-shadow:0 1px 5px #23462e55}
+.precision-lab .salt-field>div.parameter-presets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+.precision-lab .parameter-presets button{min-height:32px;padding:5px 2px;border:1px solid #d6dfc9;border-radius:5px;background:#fffdf5;font:11px ui-monospace,Consolas,monospace;color:#627a51;overflow-wrap:anywhere}
+.precision-lab .parameter-presets button[aria-pressed=true]{background:#e4ecd7;border-color:#8ea674;color:#3b613f}
+.precision-lab .parameter-presets button:not(:disabled):hover{background:#dfead2;border-color:#809d6d}
+.salt-chapter .report-intro,.salt-chapter .final-report{padding:24px;background:#f6f7ee;border:1px solid #dbe3cf;border-radius:12px}
+.salt-chapter .audit-reviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}
+.salt-chapter .audit-review{border:1px solid #d8dfcd;border-radius:10px;padding:20px;background:linear-gradient(135deg,#fffef8,#f4f3e7);box-shadow:0 4px 14px #4c573a08}
+.salt-chapter .report-number{font:italic 26px Georgia,serif;color:#aa915c}
+.salt-chapter .audit-review h4{font-size:16px;margin:12px 0}
+.salt-chapter .audit-review p{font-size:13px;line-height:1.9}
+.salt-chapter .audit-review details{border-top:1px solid #dde2d1;padding-top:12px}
+.salt-chapter .audit-review summary{font-size:13px;color:#365e42;cursor:pointer;font-weight:600}
+.salt-chapter .audit-review b{display:block;margin-bottom:5px}
+.salt-chapter .report-conclusion{border-left:3px solid #9aae85;padding-left:12px}
+.salt-chapter .report-status,.salt-chapter #final-score{font-size:13px;color:#6c8358}
+.salt-chapter .report-comparison{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+.salt-chapter .report-comparison section{padding:22px;border:1px solid #d7dfcc;border-radius:10px;background:#fffef8}
+.salt-chapter .report-comparison section>span{font-size:12px;color:#9c8353;letter-spacing:2px}
+.salt-chapter .report-comparison h4{margin:7px 0;font-size:22px}
+.salt-chapter .report-comparison p{font-size:14px;line-height:1.9}
+.salt-chapter .report-comparison b{font-size:13px;color:#466747}
+.salt-chapter .dictionary-toolbar{grid-template-columns:1fr auto;align-items:center}
+.salt-chapter .dictionary-browse-label{font-size:13px;color:#6d815f}
+.salt-chapter .dictionary-filter{width:180px}
+.precision-lab .transfer-stream{opacity:0;pointer-events:none}
+.precision-lab[data-operation=mix] .transfer-stream{animation:lab-stream 1s ease-out both}
+.precision-lab[data-operation=mix] .pouring-vessel{transform-origin:215px 190px;animation:lab-pour 1s ease-in-out}
+.precision-lab[data-operation=filter] .filter-stream{animation:lab-stream 1s ease-out both}
+.precision-lab[data-lab=indicator] .drop-fall,.precision-lab[data-lab=neutral] .drop-fall{opacity:0;animation:none}
+.precision-lab[data-operation=drop] .drop-fall,.precision-lab[data-running=true] .drop-fall{animation:lab-drop .65s ease-in infinite}
+@keyframes lab-stream{0%{opacity:0}20%,65%{opacity:.75}100%{opacity:0}}
+@keyframes lab-pour{0%,100%{transform:rotate(0)}30%,65%{transform:rotate(25deg)}}
+@keyframes lab-drop{0%{opacity:0;transform:translateY(-8px)}20%{opacity:.9}90%{opacity:.7}100%{opacity:0;transform:translateY(34px)}}
+@media(max-width:780px){.salt-chapter .audit-reviews{grid-template-columns:1fr}}
+@media(max-width:600px){.salt-chapter .prediction{grid-template-columns:1fr;padding:15px}.salt-chapter .report-comparison{grid-template-columns:1fr}.salt-chapter .dictionary-toolbar{grid-template-columns:1fr}.salt-chapter .dictionary-filter{width:100%}}
+.salt-chapter.reduced-motion .precision-lab *{animation:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){.salt-chapter .precision-lab *{animation:none!important;transition:none!important}}
+
+.salt-chapter .salt-hero-art{aspect-ratio:4/3;min-height:0;max-height:none;height:auto;align-self:center}
+.salt-hero-art #hero-artwork.saltfield-visit{height:100%;padding:0;aspect-ratio:4/3}
