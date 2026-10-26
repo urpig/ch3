@@ -6,6 +6,6 @@
   "scripts": {
     "dev": "node server.mjs",
     "build": "node build.mjs",
-    "test": "node build.mjs && node --test tests/electrolytes/science.test.mjs"
+    "test": "node build.mjs && node --test tests/electrolytes/*.test.mjs"
   }
 }
