@@ -6,11 +6,11 @@ import { mountLab, cleanLab, defaults } from './labs.js';
 import { escapeHTML } from '../chemistry/components.js';
 const KEY='k12-electrolytes-salt-v1',allQuestions=cards.map(c=>c.quiz);
 export function cleanState(raw){
- const fresh={version:1,predictions:{},answers:{},attempts:{},observed:[],labs:{},notes:{},steps:{},reduced:false};
+ const fresh={version:1,predictions:{},answers:{},attempts:{},observed:[],labs:{},notes:{},steps:{}};
  if(!raw||raw.version!==1)return fresh;
  for(const c of cards){const p=raw.predictions?.[c.id];if(Number.isInteger(p)&&p>=0&&p<c.choices.length)fresh.predictions[c.id]=p;const n=raw.notes?.[c.id];if(typeof n==='string')fresh.notes[c.id]=n.slice(0,1000);const st=raw.steps?.[c.id];if(Number.isInteger(st)&&st>=0&&st<=10)fresh.steps[c.id]=st;}
  for(const q of allQuestions){const a=raw.answers?.[q.id];if(Number.isInteger(a)&&a>=0&&a<q.options.length)fresh.answers[q.id]=a;fresh.attempts[q.id]=Array.isArray(raw.attempts?.[q.id])?raw.attempts[q.id].filter(x=>Number.isInteger(x)&&x>=0&&x<q.options.length).slice(-20):[];}
- fresh.observed=Array.isArray(raw.observed)?raw.observed.filter(x=>cards.some(c=>c.id===x)):[];fresh.reduced=raw.reduced===true;
+ fresh.observed=Array.isArray(raw.observed)?raw.observed.filter(x=>cards.some(c=>c.id===x)):[];
  for(const type of Object.keys(defaults))fresh.labs[type]=cleanLab(type,raw.labs?.[type]);
  return fresh;
 }
@@ -43,7 +43,7 @@ function mountStory(root,c){
  let step=state.steps[c.id]||0,playing=false,timer=null;
  const stop=()=>{if(timer)clearInterval(timer);timer=null;playing=false;};
  if(c.type==='story'){
-  root.innerHTML='<div class="bottle-line">'+['甲','乙','丙'].map((x,i)=>'<button data-bottle="'+i+'"><span class="bottle"><i></i></span><b>樣品'+x+'</b><span>透明、無色</span><small>點擊查看紀錄</small></button>').join('')+'</div><div class="observation-result" role="status">不品嚐、不碰未知液體。先看三份採樣紀錄。</div><div class="chapter-scene">'+landscape('palace')+'</div>';
+  root.innerHTML='<div class="bottle-line">'+['甲','乙','丙'].map((x,i)=>'<button data-bottle="'+i+'"><span class="bottle"><i></i></span><b>樣品'+x+'</b><span>透明、無色</span><small>點擊查看紀錄</small></button>').join('')+'</div><div class="observation-result" role="status">不品嚐、不碰未知液體。先看三份採樣紀錄。</div>';
   const seen=new Set();root.querySelectorAll('[data-bottle]').forEach(b=>b.onclick=()=>{seen.add(b.dataset.bottle);b.classList.add('seen');root.querySelector('.observation-result').textContent=['樣品甲：來自鹽井，蒸乾留白色晶體。成分仍待確認。','樣品乙：來自工匠材料庫，蒸乾也留白色晶體。不可當成食鹽。','樣品丙：採樣來源不明。即使透明，也不能判定安全。'][Number(b.dataset.bottle)]+' 已查看 '+seen.size+'/3。';if(seen.size===3)mark(c.id);});return{destroy:stop};
  }
  if(c.type==='ions'){
@@ -108,8 +108,7 @@ function init(){
  document.querySelector('#chapter-route').innerHTML=cards.map(c=>'<a href="#salt-'+c.id+'" data-nav="'+c.id+'"><span>'+String(c.id).padStart(2,'0')+'</span><span>'+c.title+'</span><span class="nav-state">○</span></a>').join('');
  cards.forEach(renderCard);
  mountTerminology();
- const motion=document.querySelector('#reduce-motion');motion.checked=state.reduced;document.body.classList.toggle('reduced-motion',state.reduced);motion.onchange=()=>{state.reduced=motion.checked;document.body.classList.toggle('reduced-motion',state.reduced);save();};
- document.querySelector('#clear-chapter-progress').onclick=()=>{for(const ctrl of controllers.values())ctrl.destroy();state=cleanState(null);document.querySelector('#reduce-motion').checked=false;document.body.classList.remove('reduced-motion');save();document.querySelector('#lesson').innerHTML='';cards.forEach(renderCard);refresh();};
+ document.querySelector('#clear-chapter-progress').onclick=()=>{for(const ctrl of controllers.values())ctrl.destroy();state=cleanState(null);save();document.querySelector('#lesson').innerHTML='';cards.forEach(renderCard);refresh();};
  document.querySelector('#export-progress').onclick=()=>{const payload={chapter:'皇帝最後的製鹽委託',exportedAt:new Date().toISOString(),mastered:cards.filter(mastered).map(c=>c.id),...state};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='salt-adventure-learning-record.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
  function route(){document.querySelectorAll('[data-nav]').forEach(a=>{const active=a.hash===location.hash.replace(/^#activity-/,'#salt-');a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','step');else a.removeAttribute('aria-current');});}
  addEventListener('hashchange',route);route();save();refresh();
