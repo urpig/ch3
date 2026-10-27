@@ -5,11 +5,10 @@ export function labWorkflow(type, s, running=false) {
  const steps={conduct:['放入樣品','接觸電極','開啟檢測','記錄比較'],indicator:['選擇樣品','觀察顏色','量測 pH','記錄比較'],neutral:['配好兩液','控制滴加','判讀過量','記錄比較'],precip:['準備兩液','倒入混合','過濾分離','記錄比較'],crystal:['處理原料','送入鹽池','蒸發析晶','收集與記錄']}[type];
  const out={steps,step:0,title:'準備開始',detail:'',next:'',disabled:[]};
  if(type==='conduct') {
-  const ready=s.loaded&&s.immersed&&s.powered,r=conductivity(s.sample,s.C,s.loaded&&s.immersed,s.powered);
-  out.step=!s.loaded?0:!s.immersed?1:!s.powered?2:3;out.next=['load','electrode','power','record'][out.step];
-  out.title=!ready?'先把檢測裝置接好':s.sample==='solid'?'離子被固定在晶格中':r.score<.1?'導電非常微弱':'指針有變化，找到線索了';
-  out.detail=!s.loaded?'先選一瓶樣品，再點燒杯放入。':!s.immersed?'點電極，讓兩極接觸樣品。':!s.powered?'點右上方電源，觀察指針與燈。':s.sample==='solid'?'固態食鹽的離子不能自由移動；換成食鹽水比較。':s.sample==='sugar'?'糖分子不解離成離子。水本身的微量離子仍可能導電。':s.sample==='water'?'蒸餾水仍有極少量離子，所以不是「絕對不導電」。':'先記下讀數，再換糖水或固態食鹽做對照。導電不代表可食用。';
-  if(!s.loaded)out.disabled.push('electrode');if(!s.loaded||!s.immersed)out.disabled.push('power');if(!ready)out.disabled.push('record');
+  const r=conductivity(s.sample,s.C,true,s.powered);
+  out.steps=[];out.next='power';
+  out.title=!s.powered?'樣本已就位，開啟電源看看':s.sample==='solid'?'離子被固定在晶格中':r.score<.1?'導電非常微弱':'指針有變化，找到線索了';
+  out.detail=!s.powered?'選取樣本，再開啟電源。樣本與電極會自動準備好。':s.sample==='solid'?'固態食鹽的離子不能自由移動；換成食鹽水比較。':s.sample==='sugar'?'糖分子不解離成離子。水本身的微量離子仍可能導電。':s.sample==='water'?'蒸餾水仍有極少量離子，所以不是「絕對不導電」。':'換一種樣本，再開電源比較；每次開啟電源會自動記錄。導電不代表可食用。';
  }
  if(type==='indicator') {
   const r=speciate(s.sample,s.C,s.dilution),seen=s.dropped||s.paper||s.meter;

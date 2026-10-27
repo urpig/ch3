@@ -19,7 +19,7 @@ export function conductScene(r,{loaded=false,immersed=false,powered=false,sample
  body+='<g><rect x="312" y="'+ey+'" width="18" height="125" rx="5" fill="url(#'+id+'-metal)" stroke="#799386"/><rect x="424" y="'+ey+'" width="18" height="125" rx="5" fill="url(#'+id+'-metal)" stroke="#799386"/>'+label(321,ey-10,'−',20,'#527da1')+label(433,ey-10,'＋',20,'#a46550')+'</g>';
  body+=plaque(51,266,167,loaded?solutions[sample].name:'待放入樣品',loaded?solutions[sample].formula:'選擇右側的材料瓶');
  body+=label(377,395,loaded?(sample==='solid'?'晶格中的離子不能自由移動':'兩電極接觸溶液，才形成檢測迴路'):'把樣品放進燒杯，開始找線索',12);
- return svg(body,'可操作的導電實驗桌；導電分數 '+fmt(r.score,r.score>=1?2:4),id);
+ return svg(body,'可操作的導電實驗桌；'+(powered?'導電分數 '+fmt(r.score,r.score>=1?2:4):'電源關閉，尚未檢測'),id);
 }
 
 export function phScene(r,{kind='btb',dropped=false,paper=false,meter:measured=false,id='ph'}={}){

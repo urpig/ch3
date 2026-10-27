@@ -5,7 +5,7 @@ import { escapeHTML } from '../chemistry/components.js';
 import { labWorkflow } from './lab-workflow.js';
 import { setupWorkbench } from './lab-ui.js';
 export const defaults={
- conduct:{sample:'nacl',C:.01,loaded:false,immersed:false,powered:false,records:[]},
+ conduct:{sample:'nacl',C:.01,loaded:true,immersed:true,powered:false,records:[]},
  indicator:{sample:'hcl',C:.01,dilution:1,kind:'btb',dropped:false,paper:false,meter:false,records:[]},
  neutral:{C0:.1,V0:20,Ct:.1,step:1,added:0,reverse:false,records:[]},
  precip:{C1:.1,V1:20,C2:.1,V2:20,partner:'calcium',mixed:false,filtered:false,records:[]},
@@ -22,6 +22,7 @@ export function cleanLab(type,raw){
   else if(typeof d[k]==='string'&&enums[k]?.includes(raw[k]))d[k]=raw[k];
  }
  d.records=Array.isArray(raw.records)?raw.records.filter(x=>x&&typeof x==='object'&&typeof x.text==='string').slice(-20).map(x=>({text:x.text.slice(0,350),category:typeof x.category==='string'?x.category.slice(0,25):''})):[];
+ if(type==='conduct'){d.loaded=true;d.immersed=true;}
  if(type==='indicator'&&d.sample==='solid')d.sample='hcl';
  if(type==='crystal'&&!d.pooled){d.evap=0;d.separated=false;}
  return d;
@@ -46,7 +47,7 @@ export function mountLab(root,type,ctx){
  const save=()=>{ctx.save(s);};
  const guide=t=>{if($('.lab-guide').textContent!==t)$('.lab-guide').textContent=t;};
  const record=(text,category='')=>{s.records.push({text,category});s.records=s.records.slice(-20);save();drawRecords();};
- function drawRecords(){$('.record-list').innerHTML=s.records.length?s.records.map((r,i)=>'<p><span>'+String(i+1).padStart(2,'0')+'</span>'+escapeHTML(r.text)+'</p>').join(''):'<p class="muted">還沒有紀錄。完成一次操作，再把證據記下來。</p>';}
+ function drawRecords(){$('.record-list').innerHTML=s.records.length?s.records.map((r,i)=>'<p><span>'+String(i+1).padStart(2,'0')+'</span>'+escapeHTML(r.text)+'</p>').join(''):'<p class="muted">'+(type==='conduct'?'選取樣本並開啟電源，檢測結果會自動記錄在這裡。':'還沒有紀錄。完成一次操作，再把證據記下來。')+'</p>';}
  function bind(onChange){
   changeHandler=onChange;
 
@@ -68,21 +69,22 @@ export function mountLab(root,type,ctx){
  const opts=ids=>ids.map(id=>[id,solutions[id].name+' · '+solutions[id].formula]);
  let draw,act;
  if(type==='conduct'){
-  labFrame(root,'鹽場工作台 / 導電比較',select('sample','選擇樣品',opts(['water','nacl','sugar','acetic','hcl','naoh','solid']),s.sample)+field('C','溶質濃度',s.C,.000001,.1,.001,'mol/L')+buttons([['load','拿取樣品 → 放入燒杯','primary'],['electrode','放下／提起電極'],['power','開啟／關閉檢測'],['record','記錄這次測量']]),'導電分數為教學模型：Σ（濃度 × 電荷絕對值 × 相對遷移能力），再壓縮到 0～100；不是實測電導率或安培。燈亮度與讀數同步；微量導電未必足以使燈可見地發亮。粒子數量為示意，不按顆數讀濃度；不模擬電極反應。');
+  labFrame(root,'鹽場工作台 / 導電比較',select('sample','選擇樣品',opts(['water','nacl','sugar','acetic','hcl','naoh','solid']),s.sample)+field('C','溶質濃度',s.C,.000001,.1,.001,'mol/L')+buttons([['power','開啟電源','primary']]),'導電分數為教學模型：Σ（濃度 × 電荷絕對值 × 相對遷移能力），再壓縮到 0～100；不是實測電導率或安培。燈亮度與讀數同步；微量導電未必足以使燈可見地發亮。粒子數量為示意，不按顆數讀濃度；不模擬電極反應。');
   draw=()=>{
    const r=conductivity(s.sample,s.C,s.loaded&&s.immersed,s.powered);
    $('.salt-scene').innerHTML=conductScene(r,{...s,id:'conductor'});
-   $('.readouts').innerHTML=metric('導電比較分數',fmt(r.score,r.score>=1?2:4),'/ 100')+metric('樣品',s.loaded?solutions[s.sample].formula:'尚未放入')+metric('溶質形成離子比例',s.loaded&&r.mobile?fmt(r.alpha*100):'—','%');
+   $('.readouts').innerHTML=metric('導電比較分數',s.powered?fmt(r.score,r.score>=1?2:4):'尚未開電源',s.powered?'/ 100':'')+metric('樣品',s.loaded?solutions[s.sample].formula:'尚未放入')+metric('溶質形成離子比例',s.loaded&&r.mobile?fmt(r.alpha*100):'—','%');
    $('.micro-view').innerHTML=ionsView(s.sample==='solid'?[{label:'Na⁺',charge:1,c:1},{label:'Cl⁻',charge:-1,c:1}]:r.ions,{solid:s.sample==='solid',on:s.loaded&&s.immersed&&s.powered,id:'conduct-micro',neutral:s.sample==='sugar'?'糖仍以中性分子存在，微量 H⁺、OH⁻ 來自水':s.sample==='acetic'?'多數醋酸分子仍未游離；圖中粒子數不按比例':''});
    if(!s.loaded)$('.micro-view').innerHTML='<p>先放入樣品，再觀察其中的粒子。</p>';
-   $('[data-action="power"]').setAttribute('aria-pressed',String(s.powered));$('[data-action="electrode"]').setAttribute('aria-pressed',String(s.immersed));
+   $('[data-action="power"]').setAttribute('aria-pressed',String(s.powered));
    $('[data-num="C"]').disabled=['water','solid'].includes(s.sample);$('[data-range="C"]').disabled=['water','solid'].includes(s.sample);
-   guide(!s.loaded?'① 選擇樣品，再點燒杯放入。':!s.immersed?'② 放下電極，讓兩極接觸樣品。':!s.powered?'③ 開啟低電壓檢測。':'④ 觀察讀數，記錄後換一種樣品比較。');
+   guide(s.powered?'觀察讀數與燈亮度，結果已自動記錄。':'選取樣本，再開啟電源，看看能不能導電。');
   };
-  act=a=>{if(a==='load'){s.loaded=true;s.powered=false;s.immersed=false;}if(a==='electrode')s.immersed=!s.immersed;if(a==='power')s.powered=!s.powered;
-   if(a==='record'){if(!(s.loaded&&s.immersed&&s.powered)){guide('先放入樣品、接觸電極並開啟檢測，才能記錄。');return;}const r=conductivity(s.sample,s.C);record(solutions[s.sample].name+'｜'+(s.sample==='solid'?'固態':s.sample==='water'?'純水':s.C+' mol/L')+'｜導電分數 '+fmt(r.score,r.score>=1?2:4),s.sample);if(new Set(s.records.map(x=>x.category)).size>=2)ctx.mark();}draw();
-  };
-  bind(k=>{if(k==='sample'){s.loaded=false;s.powered=false;s.immersed=false;}draw();});
+  act=a=>{if(a==='power'){
+   s.powered=!s.powered;
+   if(s.powered){const r=conductivity(s.sample,s.C);record(solutions[s.sample].name+'｜'+(s.sample==='solid'?'固態':s.sample==='water'?'純水':s.C+' mol/L')+'｜導電分數 '+fmt(r.score,r.score>=1?2:4),s.sample);if(new Set(s.records.map(x=>x.category)).size>=2)ctx.mark();}
+  }draw();};
+  bind(k=>{if(k==='sample'){s.loaded=true;s.immersed=true;s.powered=false;}draw();});
  }
  if(type==='indicator'){
   labFrame(root,'鹵水檢測室 / 酸鹼鑑定',select('sample','已知對照溶液',opts(['water','nacl','sugar','hcl','acetic','naoh','ammonia','carbonate']),s.sample)+field('C','原始濃度',s.C,.000001,.1,.001,'mol/L')+field('dilution','稀釋倍數',s.dilution,1,10000,1,'原體積的倍數')+select('kind','選擇指示劑',[['red','紅色石蕊試紙'],['blue','藍色石蕊試紙'],['phenol','酚酞'],['btb','BTB'],['universal','廣用指示劑']],s.kind)+buttons([['drop','滴加／蘸取指示劑','primary'],['paper','用 pH 試紙蘸取'],['meter','插入 pH 計'],['record','記錄並比較']]),'同一套 25°C 理想平衡資料驅動 pH、H⁺、OH⁻、顏色。醋酸 Ka=1.8×10⁻⁵；氨 Kb=1.8×10⁻⁵。假設指示劑量很少、不改變樣品 pH；試紙用另一份等同樣品。');

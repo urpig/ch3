@@ -172,3 +172,17 @@
 
 .salt-chapter .salt-hero-art{aspect-ratio:4/3;min-height:0;max-height:none;height:auto;align-self:center}
 .salt-hero-art #hero-artwork.saltfield-visit{height:100%;padding:0;aspect-ratio:4/3}
+
+/* A quiet visual ending after the final card's learning content. */
+.homecoming-ending{margin-top:36px;padding-top:30px;border-top:1px solid var(--line,#dce2d3);scroll-margin-top:85px}
+.homecoming-ending header{max-width:720px;margin:0 auto 22px;text-align:center}
+.homecoming-ending h3{font-size:clamp(25px,3vw,34px);margin:10px 0;color:#315c4a}
+.homecoming-ending header p{line-height:1.9;color:#6b7865}
+.homecoming-ending figure{margin:0;border-radius:18px;overflow:hidden;background:#f3f2e7;border:1px solid #e1e2d2}
+.homecoming-artwork{aspect-ratio:1672/941;width:100%;background:#e5e9df url('../assets/story/homecoming.png') center/cover no-repeat}
+.homecoming-ending figcaption{padding:14px 22px;font-size:14px;line-height:1.8;text-align:center;color:#69765f}
+.homecoming-dialogue{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0}
+.homecoming-dialogue p{margin:0;padding:19px 22px;border:1px solid #dfe4d4;border-radius:12px;background:#f4f6ed;line-height:1.9;color:#405943}
+.homecoming-dialogue strong{display:block;margin-bottom:5px;color:#886a3f;font-size:13px;letter-spacing:.1em}
+.homecoming-finish{text-align:center;font-size:13px;letter-spacing:.14em;color:#7a866e;margin:26px 0 8px}
+@media(max-width:620px){.homecoming-dialogue{grid-template-columns:1fr;gap:10px}.homecoming-ending figcaption{padding:12px}.homecoming-ending header{text-align:left}}

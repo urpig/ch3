@@ -12,9 +12,9 @@ export function setupWorkbench(root,type,api) {
  const head=document.createElement('header');head.className='workbench-heading';
  head.innerHTML='<div><span class="bench-eyebrow">EXPERIMENT '+numbers[type]+' / 動手找證據</span><h3>'+names[type]+'</h3></div><div class="bench-utilities"><span class="virtual-badge">虛擬實驗 · 25°C</span><button type="button" data-ui="reset">↺ 重做實驗</button></div>';
  root.prepend(head);
- const steps=document.createElement('ol');steps.className='bench-steps';steps.setAttribute('aria-label','實驗操作順序');head.after(steps);
+ const steps=document.createElement('ol');steps.className='bench-steps';steps.setAttribute('aria-label','實驗操作順序');if(type!=='conduct')head.after(steps);
  $('.lab-guide').setAttribute('aria-live','off');
- $('.bench-label>span').textContent='直接點器材操作 · 也可用右側按鈕';
+ $('.bench-label>span').textContent=type==='conduct'?'選取樣本 → 開啟電源 → 觀察結果':'直接點器材操作 · 也可用右側按鈕';
  $('.bench-label button').textContent='⤢ 專注操作';
  const note=$('.model-note'),noteDetails=document.createElement('details');noteDetails.className='model-assumptions';
  note.before(noteDetails);noteDetails.innerHTML='<summary>查看模型假設與適用限制</summary>';noteDetails.append(note);
@@ -55,7 +55,7 @@ export function setupWorkbench(root,type,api) {
   const flow=labWorkflow(type,s,running);root.dataset.running=String(running);
   const stepsHTML=flow.steps.map((t,i)=>'<li class="'+(i<flow.step?'done':i===flow.step?'current':'')+'" '+(i===flow.step?'aria-current="step"':'')+'><span>'+(i<flow.step?'✓':String(i+1).padStart(2,'0'))+'</span>'+t+'</li>').join('');
   if(steps.innerHTML!==stepsHTML)steps.innerHTML=stepsHTML;
-  $('.lab-guide').innerHTML='<span class="step-chip">現在做這一步</span><strong>'+flow.detail+'</strong>';
+  $('.lab-guide').innerHTML='<span class="step-chip">'+(type==='conduct'?'操作提示':'現在做這一步')+'</span><strong>'+flow.detail+'</strong>';
   insight.innerHTML='<span class="observation-icon" aria-hidden="true">◎</span><div><small>看見了什麼？</small><strong>'+flow.title+'</strong></div>';
   const labels={load:s.loaded?'重新放入樣品':'放入樣品',electrode:s.immersed?'提起電極':'放下電極',power:s.powered?'關閉電源':'開啟電源',record:'記錄這次結果',drop:type==='neutral'?'加入 '+fmt(s.step)+' mL':s.dropped?'重新使用指示劑':'使用指示劑',paper:s.paper?'重新測試紙':'蘸取 pH 試紙',meter:s.meter?'重新量測 pH':'插入 pH 計',mix:'倒入並混合',filter:s.filtered?'已完成過濾':'過濾分離',play:type==='crystal'?'開始蒸發':'連續滴加',pause:'暫停',replay:'從零重播',settle:s.settled?'已完成沉降':'沉降泥沙',pool:'送入蒸發池',separate:s.separated?'已收集晶體':'收集晶體'};
   root.querySelectorAll('.salt-controls [data-action]').forEach(button=>{
@@ -63,7 +63,7 @@ export function setupWorkbench(root,type,api) {
    button.disabled=flow.disabled.includes(a);button.classList.toggle('next-action',a===flow.next&&!button.disabled);
    if(['meter','paper','drop','filter','settle','separate'].includes(a))button.classList.toggle('tool-used',!!({meter:s.meter,paper:s.paper,drop:type==='indicator'&&s.dropped,filter:s.filtered,settle:s.settled,separate:s.separated}[a]));
   });
-  if(type==='conduct'){$('[data-action="electrode"]').setAttribute('aria-pressed',String(s.immersed));$('[data-action="power"]').setAttribute('aria-pressed',String(s.powered));}
+  if(type==='conduct'){$('[data-action="power"]').setAttribute('aria-pressed',String(s.powered));}
   root.querySelectorAll('[data-sample]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.sample===s.sample)));
   root.querySelectorAll('[data-dose]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.dose)===s.step)));
   $('.parameter-summary').textContent=type==='conduct'?(s.sample==='water'?'純水':s.sample==='solid'?'固態樣品':s.C+' mol/L'):type==='indicator'?s.C+' mol/L · '+s.dilution+' 倍':type==='neutral'?s.C0+' mol/L × '+s.V0+' mL':type==='precip'?s.V1+' mL ＋ '+s.V2+' mL':s.water+' g 水 · '+s.salt+' g NaCl';
@@ -72,7 +72,7 @@ export function setupWorkbench(root,type,api) {
   root.querySelectorAll('[data-preset]').forEach(b=>{b.disabled=!!root.querySelector('[data-range="'+b.dataset.preset+'"]').disabled;b.setAttribute('aria-pressed',String(Number(b.dataset.value)===s[b.dataset.preset]));});
   root.querySelectorAll('[data-range]').forEach(r=>{r.style.setProperty('--range-fill',((Number(r.value)-Number(r.min))/(Number(r.max)-Number(r.min))*100)+'%');});
   const targets=type==='conduct'?[
-   ['load',50,83,s.loaded?'更換樣品':'① 放入樣品'],['electrode',49,30,s.immersed?'提起電極':'② 放下電極'],['power',82,39,s.powered?'關閉電源':'③ 開啟電源']
+   ['power',82,39,s.powered?'關閉電源':'開啟電源']
   ]:type==='indicator'?[
    ['drop',18,48,['red','blue'].includes(s.kind)?'蘸取石蕊試紙':'滴加指示劑'],['paper',16,88,'蘸取 pH 試紙'],['meter',81,45,'插入探棒']
   ]:type==='neutral'?[
@@ -85,7 +85,7 @@ export function setupWorkbench(root,type,api) {
   const layer=document.createElement('div');layer.className='apparatus-layer';
   layer.innerHTML=targets.map(([a,x,y,t])=>'<button type="button" class="apparatus-control '+(a===flow.next?'suggested':'')+'" data-action="'+a+'" style="left:'+x+'%;top:'+y+'%" '+(flow.disabled.includes(a)?'disabled':'')+' aria-label="器材：'+t+'">'+t+'</button>').join('');
   $('.salt-scene').append(layer);
-  if(s.records.length>lastRecords)notice.textContent='✓ 已存入第 '+s.records.length+' 筆紀錄。換一個條件，再做比較。';
+  if(s.records.length>lastRecords)notice.textContent='✓ '+(type==='conduct'?'已自動記錄':'已存入')+'第 '+s.records.length+' 筆結果。換一個條件，再做比較。';
   lastRecords=s.records.length;
   $('.lab-records h3').innerHTML='我的證據紀錄 <span class="record-count">'+s.records.length+' 筆</span><small>改一個條件，比較兩次結果</small>';
  }

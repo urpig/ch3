@@ -5,12 +5,20 @@ import { labWorkflow } from '../../dist/electrolytes/lab-workflow.js';
 import { conductivity,speciate,neutralize,precipitate,crystallize } from '../../dist/electrolytes/core.js';
 import { conductScene,phScene,neutralScene,precipScene,crystalScene } from '../../dist/electrolytes/apparatus.js';
 const fresh=t=>structuredClone(defaults[t]);
-test('Workbench requires sample, electrode contact and power before recording',()=>{
- const s=fresh('conduct');assert.ok(labWorkflow('conduct',s).disabled.includes('power'));
- s.loaded=true;assert.equal(labWorkflow('conduct',s).next,'electrode');
- s.immersed=true;assert.equal(labWorkflow('conduct',s).next,'power');
- s.powered=true;assert.equal(labWorkflow('conduct',s).next,'record');assert.equal(labWorkflow('conduct',s).disabled.includes('record'),false);
- s.immersed=false;assert.ok(labWorkflow('conduct',s).disabled.includes('record'));
+test('Conductivity starts ready for power without preparation steps',()=>{
+ const s=fresh('conduct');assert.equal(s.loaded,true);assert.equal(s.immersed,true);assert.equal(s.powered,false);
+ assert.equal(labWorkflow('conduct',s).next,'power');assert.deepEqual(labWorkflow('conduct',s).steps,[]);assert.deepEqual(labWorkflow('conduct',s).disabled,[]);
+ assert.equal(conductivity(s.sample,s.C,s.loaded&&s.immersed,s.powered).score,0);
+ s.powered=true;assert.ok(conductivity(s.sample,s.C,s.loaded&&s.immersed,s.powered).score>0);
+});
+test('Legacy partial preparation becomes ready without losing comparisons',()=>{
+ const s=cleanLab('conduct',{sample:'sugar',C:.001,loaded:false,immersed:false,powered:false,records:[{text:'earlier result',category:'nacl'}]});
+ assert.equal(s.loaded,true);assert.equal(s.immersed,true);assert.equal(s.powered,false);assert.equal(s.sample,'sugar');assert.equal(s.C,.001);assert.equal(s.records.length,1);
+ assert.equal(labWorkflow('conduct',s).next,'power');
+});
+test('Powered off apparatus says unmeasured instead of an insulating sample',()=>{
+ const s=fresh('conduct');assert.match(conductScene(conductivity(s.sample,s.C,true,false),s),/尚未檢測/);
+ s.powered=true;assert.match(conductScene(conductivity(s.sample,s.C,true,true),s),/導電分數/);
 });
 test('Sugar and solid salt receive distinct scientific observation feedback',()=>{
  const s={...fresh('conduct'),loaded:true,immersed:true,powered:true,sample:'sugar'};
